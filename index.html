@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.6">
+    <link rel="stylesheet" href="styles.css?v=2.7">
 </head>
 <body>
     <nav class="category-nav">
@@ -41,12 +41,15 @@
         </div>
         <div class="nav-spacer"></div>
         <div class="nav-controls">
-            <select id="langSelector" class="lang-select" aria-label="Select Language">
-                <option value="en">English</option>
-                <option value="ko">한국어</option>
-                <option value="ja">日本語</option>
-                <option value="es">Español</option>
-            </select>
+            <!-- Custom Styled Language Dropdown -->
+            <div class="custom-select-wrapper">
+                <select id="langSelector" class="lang-select" aria-label="Select Language">
+                    <option value="en">EN</option>
+                    <option value="ko">KO</option>
+                    <option value="ja">JA</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
             <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
                 <span class="theme-icon">🌙</span>
             </button>
@@ -68,15 +71,15 @@
                 <a href="/quiz.html" class="quiz-cta-btn">
                     <span class="cta-icon">🎮</span>
                     <div class="cta-text">
-                        <strong>Ready for a Challenge?</strong>
-                        <span>Test your ear in Quiz Mode!</span>
+                        <strong id="quizTitleText">Ready for a Challenge?</strong>
+                        <span id="quizDescText">Test your ear in Quiz Mode!</span>
                     </div>
                     <span class="cta-arrow">🚀</span>
                 </a>
             </section>
 
             <section class="selector-section" id="selectorSection">
-                <h2>Select an item:</h2>
+                <h2 id="selectItemHeading">Select an item:</h2>
                 <div class="animal-grid" id="animalGrid">
                     <!-- Buttons injected here via JS -->
                 </div>
@@ -95,27 +98,20 @@
 
             <!-- Educational Content Section -->
             <section class="info-section">
-                <div class="info-card">
+                <div class="info-card" id="infoCard1">
                     <h3>🌍 Why do sounds vary across countries?</h3>
                     <p>Onomatopoeia, the formation of a word from a sound associated with what is named, is a fascinating intersection of linguistics and culture. While a dog barks the same way in New York as it does in Seoul, humans perceive and transcribe that sound based on their own language's phonetic rules.</p>
-                    <p>In English, a dog says <strong>"Woof"</strong>, emphasizing the deep breathy sound. In Korean, it's <strong>"Mung-mung"</strong> (멍멍), focusing on the repetitive rhythm. These differences help language learners understand the unique "vibe" and mouth movements of a new language.</p>
                 </div>
                 
-                <div class="info-card alternate">
+                <div class="info-card alternate" id="infoCard2">
                     <h3>🧠 Educational Benefits of Hello Sounds</h3>
-                    <p>Our platform uses cutting-edge <strong>Google Neural2 and Wavenet AI</strong> technology to provide the most accurate native accents. By listening to these global sounds, users can:</p>
-                    <ul>
-                        <li>Improve their listening skills and phonetic awareness.</li>
-                        <li>Understand cultural nuances in 15 different countries.</li>
-                        <li>Explore the creative ways different cultures describe the world around them.</li>
-                    </ul>
-                    <p>Whether you're a linguistics student, a traveler, or just curious, Hello Sounds offers a unique auditory journey through the world's most common sounds.</p>
+                    <p>Our platform uses cutting-edge <strong>Google Neural2 and Wavenet AI</strong> technology to provide the most accurate native accents.</p>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>Sound experience may vary depending on your device and browser settings.</p>
+            <p id="footerNoteText">Sound experience may vary depending on your device and browser settings.</p>
             <div class="footer-nav">
                 <a href="/privacy.html" class="footer-link">Privacy Policy</a>
                 <a href="/terms.html" class="footer-link">Terms of Service</a>
@@ -123,11 +119,11 @@
             </div>
         </footer>
     </div>
-    <script src="data/animals.js?v=2.6"></script>
-    <script src="data/objects.js?v=2.6"></script>
-    <script src="data/humans.js?v=2.6"></script>
-    <script src="data/nature.js?v=2.6"></script>
-    <script src="data.js?v=2.6"></script>
-    <script src="app.js?v=2.6"></script>
+    <script src="data/animals.js?v=2.7"></script>
+    <script src="data/objects.js?v=2.7"></script>
+    <script src="data/humans.js?v=2.7"></script>
+    <script src="data/nature.js?v=2.7"></script>
+    <script src="data.js?v=2.7"></script>
+    <script src="app.js?v=2.7"></script>
 </body>
 </html>
