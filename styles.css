@@ -1,8 +1,9 @@
 :root {
-    --bg-main: #FFFBF0; /* 따뜻한 크림색 배경 */
-    --text-black: #2A2420; /* 아주 진한 브라운 */
+    --bg-main: #FFFBF0;
+    --text-black: #2A2420;
+    --surface-white: #FFFFFF;
     
-    /* 카드용 강렬한 파스텔 (가독성 최상) */
+    /* 카드 색상 */
     --card-pink: #FFB7B7;
     --card-orange: #FFD1A1;
     --card-yellow: #FFF5A1;
@@ -13,6 +14,19 @@
     --border-width: 3px;
     --hard-shadow: 6px 6px 0px var(--text-black);
     --spring-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-theme="dark"] {
+    --bg-main: #1A1614;
+    --text-black: #F5F0EB;
+    --surface-white: #2A2420;
+    
+    --card-pink: #D18585;
+    --card-orange: #D19F6B;
+    --card-yellow: #D1C56B;
+    --card-green: #85D185;
+    --card-blue: #6BAFD1;
+    --card-purple: #9F85D1;
 }
 
 * {
@@ -27,14 +41,40 @@ body {
     color: var(--text-black);
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* 내비 바를 위해 방향 변경 */
+    flex-direction: column;
     align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Theme Toggle --- */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: var(--surface-white);
+    border: var(--border-width) solid var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    transition: var(--spring-transition);
+}
+
+.theme-toggle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-black);
 }
 
 /* --- Category Navigation --- */
 .category-nav {
     width: 100%;
-    background: white;
+    background: var(--surface-white);
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -50,7 +90,8 @@ body {
     font-family: inherit;
     font-weight: 700;
     font-size: 1.1rem;
-    background: white;
+    background: var(--surface-white);
+    color: var(--text-black);
     border: var(--border-width) solid var(--text-black);
     border-radius: 15px;
     cursor: pointer;
@@ -65,6 +106,7 @@ body {
 
 .nav-btn.active {
     background: var(--card-yellow);
+    color: #2A2420;
     transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px var(--text-black);
 }
@@ -75,25 +117,18 @@ body {
     padding: 4rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 4.5rem; /* 전체 섹션 간격 확대 */
+    gap: 4.5rem;
 }
 
-/* 메인 내부의 선택 영역과 결과 영역 사이 간격 추가 */
 main {
     display: flex;
     flex-direction: column;
-    gap: 5rem; /* 동물 카드와 단어 카드 사이의 확실한 거리감 */
+    gap: 5rem;
 }
 
-/* --- 필수 애니메이션 정의 --- */
 @keyframes fadeInPop {
     0% { opacity: 0; transform: scale(0.5) translateY(20px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes fadeInDown {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {
@@ -108,7 +143,6 @@ main {
     100% { transform: scale(1, 1); }
 }
 
-/* --- Header --- */
 header {
     text-align: center;
 }
@@ -129,14 +163,13 @@ h1 {
 .subtitle {
     font-size: 1.3rem;
     font-weight: 500;
-    background: white;
+    background: var(--surface-white);
     padding: 0.3rem 1rem;
     border: 2px solid var(--text-black);
     border-radius: 12px;
     display: inline-block;
 }
 
-/* --- Animal Selector --- */
 .animal-grid {
     display: flex;
     flex-wrap: wrap;
@@ -145,7 +178,8 @@ h1 {
 }
 
 .animal-btn {
-    background: white;
+    background: var(--surface-white);
+    color: var(--text-black);
     border: var(--border-width) solid var(--text-black);
     box-shadow: 4px 4px 0px var(--text-black);
     padding: 1.2rem;
@@ -170,11 +204,11 @@ h1 {
     transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px var(--text-black);
     background: var(--card-purple);
+    color: #2A2420;
 }
 
-/* --- Results Section --- */
 .results-section {
-    background: #FFFAF0; /* 결과 배경도 유색으로 */
+    background: var(--bg-main);
     padding: 3rem 2rem;
     border-radius: 40px;
     border: var(--border-width) solid var(--text-black);
@@ -194,17 +228,16 @@ h1 {
 
 .selected-animal-header h2 {
     font-size: 2.8rem;
-    background: white;
+    background: var(--surface-white);
     padding: 0.5rem 2rem;
     border: 3px solid var(--text-black);
     border-radius: 100px;
     display: inline-block;
 }
 
-/* --- Sound Cards --- */
 .sounds-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 260px -> 300px 확대 */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
@@ -220,15 +253,15 @@ h1 {
     gap: 1.2rem;
     position: relative;
     overflow: hidden;
+    color: #2A2420; /* 카드는 항상 어두운 글씨로 가독성 확보 */
 }
 
-/* 카드 배경색 다양화 (가독성용 강한 색상) */
 .sound-card:nth-child(6n+1) { background: var(--card-green); }
 .sound-card:nth-child(6n+2) { background: var(--card-pink); }
 .sound-card:nth-child(6n+3) { background: var(--card-blue); }
 .sound-card:nth-child(6n+4) { background: var(--card-yellow); }
 .sound-card:nth-child(6n+5) { background: var(--card-orange); }
-.sound-card:nth-child(6n+6) { background: var(--card-purple); }
+.sound-child(6n+6) { background: var(--card-purple); }
 
 .sound-card:hover {
     transform: translate(-4px, -4px) scale(1.02);
@@ -255,34 +288,33 @@ h1 {
     font-size: 1.2rem;
 }
 
-/* 단어와 발음 사이의 간격 확보를 위해 card-body 정의 */
 .card-body {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* 단어와 발음 박스 사이의 거리 */
+    gap: 1.5rem;
     align-items: center;
 }
 
 .sound-word {
     font-size: 2.8rem;
     font-weight: 800;
-    color: var(--text-black);
     text-align: center;
     line-height: 1.2;
-    white-space: nowrap; /* 무조건 한 줄 유지 */
+    white-space: nowrap;
     width: 100%;
-    overflow: hidden; /* 넘치는 부분 숨김 (JS가 처리하기 전 대비) */
+    overflow: hidden;
 }
 
 .pronunciation {
     font-size: 1.1rem;
-    background: white;
+    background: var(--surface-white);
+    color: var(--text-black);
     padding: 0.8rem 1rem;
     border: 2px solid var(--text-black);
     border-radius: 14px;
     text-align: center;
     font-weight: 600;
-    width: 100%; /* 박스 너비 고정 */
+    width: 100%;
 }
 
 footer {
@@ -291,7 +323,6 @@ footer {
     padding: 2rem 0;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
     h1 { font-size: 2.8rem; }
     
@@ -306,7 +337,7 @@ footer {
 
     .animal-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 2열에서 3열로 변경 */
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.8rem;
     }
 
@@ -329,5 +360,13 @@ footer {
     .sounds-grid { 
         grid-template-columns: 1fr; 
         gap: 1.2rem;
+    }
+
+    .theme-toggle {
+        top: 0.8rem;
+        right: 0.8rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 }
