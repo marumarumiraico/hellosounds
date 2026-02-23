@@ -39,9 +39,17 @@
             <button class="nav-btn category-btn" data-cat="nature">🌿 Nature</button>
         </div>
         <div class="nav-spacer"></div>
-        <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
-            <span class="theme-icon">🌙</span>
-        </button>
+        <div class="nav-controls">
+            <select id="langSelector" class="lang-select" aria-label="Select Language">
+                <option value="en">English</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+                <option value="es">Español</option>
+            </select>
+            <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
     </nav>
 
     <div class="app-container">

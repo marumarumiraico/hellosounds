@@ -70,6 +70,32 @@ body {
     flex-grow: 1;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.lang-select {
+    padding: 0.6rem 1rem;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    background: var(--surface-white);
+    color: var(--text-black);
+    border: var(--border-width) solid var(--text-black);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--text-black);
+    cursor: pointer;
+    outline: none;
+    transition: var(--spring-transition);
+}
+
+.lang-select:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
 .nav-btn {
     padding: 0.8rem 1.2rem;
     font-family: inherit;
