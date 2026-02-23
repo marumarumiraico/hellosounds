@@ -7,12 +7,12 @@ const COUNTRY_VOICE_MAP = {
   "Germany": { lang: "de-DE", voice: "de-DE-Neural2-A" },
   "Italy": { lang: "it-IT", voice: "it-IT-Neural2-A" },
   "Russia": { lang: "ru-RU", voice: "ru-RU-Wavenet-A" },
-  "Thailand": { lang: "th-TH", voice: "th-TH-Neural2-A" },
-  "Egypt": { lang: "ar-EG", voice: "ar-EG-Wavenet-A" },
+  "Thailand": { lang: "th-TH", voice: "th-TH-Standard-A" },
+  "Egypt": { lang: "ar-EG", voice: "ar-EG-Standard-A" },
   "Brazil": { lang: "pt-BR", voice: "pt-BR-Neural2-A" },
-  "China": { lang: "zh-CN", voice: "zh-CN-Neural2-A" },
+  "China": { lang: "zh-CN", voice: "zh-CN-Wavenet-A" },
   "India": { lang: "hi-IN", voice: "hi-IN-Neural2-A" },
-  "Kenya": { lang: "sw-KE", voice: "sw-KE-Wavenet-A" },
+  "Kenya": { lang: "sw-KE", voice: "sw-KE-Standard-A" },
   "Greece": { lang: "el-GR", voice: "el-GR-Wavenet-A" }
 };
 
