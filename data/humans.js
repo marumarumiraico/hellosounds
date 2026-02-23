@@ -81,7 +81,7 @@ window.humansData = {
             { country: "Thailand", flag: "🇹🇭", sound: "แง แง...", pron: "ngae ngae", native: "แง แง...", fallback: "ngae ngae" },
             { country: "Egypt", flag: "🇪🇬", sound: "واااااع", pron: "waaaa", native: "واااااع", fallback: "boo kah" },
             { country: "Brazil", flag: "🇧🇷", sound: "Buáaaaa!", pron: "bwaaaa", native: "Buáaaaa!", fallback: "buá" },
-            { country: "China", flag: "🇨🇳", sound: "呜呜", pron: "woo woo", native: "呜呜", fallback: "呜呜" },
+            { country: "China", flag: "🇨🇳", sound: "呜呜", pron: "woo-woo", native: "呜呜", fallback: "woo-woo" },
             { country: "India", flag: "🇮🇳", sound: "ऊ-ऊ!", pron: "oooooo", native: "ऊ-ऊ!", fallback: "oo oo" },
             { country: "Kenya", flag: "🇰🇪", sound: "Ouuuuh!", pron: "ooooo", native: "Ouuuuh!", fallback: "lee ah" },
             { country: "Greece", flag: "🇬🇷", sound: "Ουααα!", pron: "waaaa", native: "Ουααα!", fallback: "wahhh" }
@@ -191,7 +191,7 @@ window.humansData = {
         clap: { id: 'clap', icon: "👏", name: "Clapping", params: { pitch: 1.2, rate: 1.4 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Clap clap clap!", pron: "clap clap", native: "Clap clap clap!", fallback: "klahp" },
             { country: "Korea", flag: "🇰🇷", sound: "짝짝짝!", pron: "jjak jjak", native: "짝짝짝!", fallback: "jjak jjak" },
-            { country: "Japan", flag: "🇯🇵", sound: "パチパチ", pron: "pachi pachi", native: "パチパチ", fallback: "pah chee" },
+            { country: "Japan", flag: "🇯🇵", sound: "パチパ치", pron: "pachi pachi", native: "パチパチ", fallback: "pah chee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Plas plas!", pron: "plas plas", native: "¡Plas plas!", fallback: "plahs plahs" },
             { country: "France", flag: "🇫🇷", sound: "Clap clap!", pron: "clap clap", native: "Clap clap!", fallback: "klahp klahp" },
             { country: "Germany", flag: "🇩🇪", sound: "Klatsch!", pron: "klatsh", native: "Klatsch!", fallback: "klahtsh" },
