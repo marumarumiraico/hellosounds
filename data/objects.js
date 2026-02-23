@@ -65,7 +65,7 @@ window.objectsData = {
             { country: "Egypt", flag: "🇪🇬", sound: "ترن ترن", pron: "reen-reen", native: "ترن ترن", fallback: "reen reen" },
             { country: "Brazil", flag: "🇧🇷", sound: "¡Trim trim!", pron: "treem-treem", native: "¡Trim trim!", fallback: "treem treem" },
             { country: "China", flag: "🇨🇳", sound: "叮铃铃", pron: "deeng-leeng", native: "叮铃铃", fallback: "deeng leeng" },
-            { country: "India", flag: "🇮🇳", sound: "ट्रिंग-ट्रिंग!", pron: "treeng-treeng", native: "ट्रिंग-트링!", fallback: "treeng treeng" },
+            { country: "India", flag: "🇮🇳", sound: "ट्रिंग-ट्रिंग!", pron: "treeng-treeng", native: "ट्रिंग-ट्रिंग!", fallback: "treeng treeng" },
             { country: "Kenya", flag: "🇰🇪", sound: "Ring ring", pron: "ring-ring", native: "Ring ring", fallback: "ring ring" },
             { country: "Greece", flag: "🇬🇷", sound: "Ντριν ντριν!", pron: "dreen-dreen", native: "Ντριν ντριν!", fallback: "dreen-dreen" }
         ]},
@@ -174,7 +174,7 @@ window.objectsData = {
         click: { id: 'click', icon: "🖱️", name: "Click", params: { pitch: 1.1, rate: 1.2 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Click", pron: "click", native: "Click", fallback: "cleeck" },
             { country: "Korea", flag: "🇰🇷", sound: "딸깍!", pron: "ttal-kkak", native: "딸깍!", fallback: "ttal kkahk" },
-            { country: "Japan", flag: "🇯🇵", sound: "カチッ", pron: "kachih", native: "カ치ッ", fallback: "kah chee" },
+            { country: "Japan", flag: "🇯🇵", sound: "カチッ", pron: "kachih", native: "カチッ", fallback: "kah chee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Clic!", pron: "click", native: "¡Clic!", fallback: "cleeck" },
             { country: "France", flag: "🇫🇷", sound: "Clic", pron: "click", native: "Clic", fallback: "cleeck" },
             { country: "Germany", flag: "🇩🇪", sound: "Klick", pron: "click", native: "Klick", fallback: "cleeck" },
