@@ -107,6 +107,28 @@
             background: var(--card-pink) !important;
             color: #2A2420;
         }
+
+        /* Animations */
+        @keyframes pulse-success {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+        .pulse-success {
+            animation: pulse-success 0.6s ease-out;
+            border-color: #2ecc71 !important;
+        }
+
+        @keyframes shake-error {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+        .shake-error {
+            animation: shake-error 0.4s ease-in-out;
+            border-color: #e74c3c !important;
+        }
+
         .quiz-footer {
             text-align: center;
             margin-top: 2rem;
@@ -143,10 +165,10 @@
     </div>
 
     <!-- Data & Script -->
-    <script src="data/animals.js?v=1.7"></script>
-    <script src="data/objects.js?v=1.7"></script>
-    <script src="data/humans.js?v=1.7"></script>
-    <script src="data.js?v=1.7"></script>
-    <script src="quiz.js?v=1.7"></script>
+    <script src="data/animals.js?v=1.8"></script>
+    <script src="data/objects.js?v=1.8"></script>
+    <script src="data/humans.js?v=1.8"></script>
+    <script src="data.js?v=1.8"></script>
+    <script src="quiz.js?v=1.8"></script>
 </body>
 </html>

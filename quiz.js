@@ -69,18 +69,27 @@ function generateQuestion() {
 function checkAnswer(selected, btn) {
     const options = document.querySelectorAll('.quiz-option');
     const scoreEl = document.getElementById('score');
+    const mainCard = document.querySelector('.quiz-main-card');
     
     options.forEach(b => b.style.pointerEvents = 'none');
 
     if (selected === currentAnswer.sound.country) {
+        // 정답 효과
         btn.classList.add('correct');
+        mainCard.classList.add('pulse-success');
+        playFeedbackSound(true);
+        
         score += 10;
         scoreEl.textContent = score;
         scoreEl.style.transform = 'scale(1.5)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 300);
     } else {
+        // 오답 효과
         btn.classList.add('wrong');
-        // Show correct answer
+        mainCard.classList.add('shake-error');
+        playFeedbackSound(false);
+
+        // 정답 표시
         options.forEach(b => {
             if (b.textContent.trim() === currentAnswer.sound.country) {
                 b.classList.add('correct');
@@ -89,9 +98,29 @@ function checkAnswer(selected, btn) {
     }
 
     setTimeout(() => {
+        mainCard.classList.remove('pulse-success', 'shake-error');
         qCount++;
         generateQuestion();
     }, 2000);
+}
+
+function playFeedbackSound(isCorrect) {
+    // Web Speech API를 활용한 즉각적인 효과음 (MP3 없이 구현)
+    if (!window.speechSynthesis) return;
+    const msg = new SpeechSynthesisUtterance();
+    msg.lang = 'en-US';
+    msg.volume = 0.5;
+    
+    if (isCorrect) {
+        msg.text = "Ding!";
+        msg.pitch = 2.0; // 높은 음
+        msg.rate = 2.0;
+    } else {
+        msg.text = "Boom.";
+        msg.pitch = 0.5; // 낮은 음
+        msg.rate = 1.5;
+    }
+    window.speechSynthesis.speak(msg);
 }
 
 function playSound(soundItem, params) {
