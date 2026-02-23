@@ -1,6 +1,4 @@
-import { soundDatabase } from './data.js';
-
-// DOM Elements
+// Global variables (no imports for maximum compatibility)
 const animalGrid = document.getElementById('animalGrid');
 const resultsSection = document.getElementById('resultsSection');
 const mainIcon = document.getElementById('mainIcon');
@@ -13,7 +11,7 @@ const navButtons = document.querySelectorAll('.nav-btn');
 let currentCategory = 'animals';
 let availableVoices = [];
 let audioPlayer = new Audio();
-let activeRequestID = 0; // To track the latest sound request
+let activeRequestID = 0;
 
 function init() {
     setupNavigation();
@@ -28,14 +26,27 @@ function loadVoices() {
     availableVoices = window.speechSynthesis.getVoices();
 }
 
+function stopAllSounds() {
+    activeRequestID++;
+    try {
+        audioPlayer.pause();
+        audioPlayer.src = "";
+    } catch(e) {}
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
+}
+
 function setupNavigation() {
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            // Non-blocking audio wake-up
+            try { audioPlayer.play().catch(() => {}); } catch(e) {}
+            
             stopAllSounds();
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentCategory = btn.dataset.cat;
-            const catInfo = soundDatabase[currentCategory];
+            const catInfo = window.soundDatabase[currentCategory];
             headerIcon.textContent = catInfo.icon;
             headerSubtitle.textContent = catInfo.subtitle;
             resultsSection.style.display = 'none';
@@ -46,12 +57,13 @@ function setupNavigation() {
 
 function renderSelectionGrid() {
     animalGrid.innerHTML = '';
-    const currentData = soundDatabase[currentCategory].data;
+    const currentData = window.soundDatabase[currentCategory].data;
     Object.values(currentData).forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'animal-btn';
         btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
         btn.addEventListener('click', () => {
+            try { audioPlayer.play().catch(() => {}); } catch(e) {}
             stopAllSounds();
             selectItem(item, btn);
         });
@@ -66,6 +78,10 @@ function selectItem(item, clickedBtn) {
     mainIcon.textContent = item.icon;
     mainName.textContent = item.name;
     renderSoundCards(item.sounds, item.params);
+    // Auto-scroll to results on mobile
+    if (window.innerWidth < 600) {
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function renderSoundCards(sounds, params) {
@@ -87,25 +103,19 @@ function renderSoundCards(sounds, params) {
     setTimeout(() => { document.querySelectorAll('.sound-word').forEach(el => fitText(el)); }, 100);
 }
 
-function stopAllSounds() {
-    activeRequestID++; // Increment to ignore any pending fetch results
-    audioPlayer.pause();
-    audioPlayer.src = "";
-    window.speechSynthesis.cancel();
-    document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
-}
-
 function playSound(soundItem, params, cardElement) {
-    stopAllSounds(); // Stop everything before starting new
+    stopAllSounds();
+    const requestID = activeRequestID;
     
-    const requestID = activeRequestID; // Capture current ID for this closure
     cardElement.style.transform = 'scale(0.95)';
     cardElement.classList.add('playing');
     setTimeout(() => cardElement.style.transform = '', 150);
 
-    // In-App Browser Unlock
-    audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
-    audioPlayer.play().catch(() => {});
+    // Immediate sync audio wake-up
+    try {
+        audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
+        audioPlayer.play().catch(() => {});
+    } catch(e) {}
 
     fetch('/api/tts', {
         method: 'POST',
@@ -114,29 +124,30 @@ function playSound(soundItem, params, cardElement) {
     })
     .then(response => response.json())
     .then(data => {
-        // [IMPORTANT] Only proceed if this is still the most recent request
         if (requestID !== activeRequestID) return;
-
         if (data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
             audioPlayer.play().catch(e => {
-                console.error('Playback failed:', e);
+                console.warn('Playback blocked, fallback to SpeechSynth');
                 fallbackSpeak(soundItem, params, cardElement);
             });
             audioPlayer.onended = () => cardElement.classList.remove('playing');
         } else {
-            throw new Error(data.error || 'Failed to get audio');
+            throw new Error(data.error);
         }
     })
     .catch(error => {
         if (requestID === activeRequestID) {
-            console.error('TTS API Error:', error);
             fallbackSpeak(soundItem, params, cardElement);
         }
     });
 }
 
 function fallbackSpeak(soundItem, params, cardElement) {
+    if (!window.speechSynthesis) {
+        cardElement.classList.remove('playing');
+        return;
+    }
     const msg = new SpeechSynthesisUtterance();
     const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
     msg.lang = langMap[soundItem.country] || 'en-US';

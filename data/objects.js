@@ -1,4 +1,4 @@
-export const objects = {
+window.objectsData = {
     title: "Objects", icon: "🚗", subtitle: "How do things sound around the world? 🔔",
     data: {
         car: { id: 'car', icon: "🚗", name: "Car Horn", params: { pitch: 1, rate: 1.2 }, sounds: [

@@ -1,4 +1,4 @@
-export const animals = {
+window.animalsData = {
     title: "Animals", icon: "🐾", subtitle: "Hear how animals speak around the world! ✨",
     data: {
         dog: { id: 'dog', icon: "🐶", name: "Dog", params: { pitch: 1, rate: 1.1 }, sounds: [

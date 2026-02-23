@@ -1,4 +1,4 @@
-export const humans = {
+window.humansData = {
     title: "Humans", icon: "👤", subtitle: "Do we all make the same sounds? 💓",
     data: {
         heart: { id: 'heart', icon: "💓", name: "Heartbeat", params: { pitch: 0.7, rate: 0.8 }, sounds: [

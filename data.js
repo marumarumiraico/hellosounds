@@ -1,9 +1,6 @@
-import { animals } from './data/animals.js';
-import { objects } from './data/objects.js';
-import { humans } from './data/humans.js';
-
-export const soundDatabase = {
-    animals,
-    objects,
-    humans
+// Combine all data from individual files into one global database
+window.soundDatabase = {
+    animals: window.animalsData,
+    objects: window.objectsData,
+    humans: window.humansData
 };
