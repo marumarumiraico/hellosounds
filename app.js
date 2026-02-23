@@ -36,6 +36,8 @@ const i18n = {
         info1Text: "Onomatopoeia—the formation of a word from a sound associated with what is named—is a fascinating intersection of linguistics, psychology, and culture. While a dog barks with the same acoustic frequency in New York as it does in Seoul, humans perceive and transcribe that sound through the unique 'phonetic filter' of their native language. For instance, English speakers focus on the deep breathy 'Woof', while Korean speakers emphasize the repetitive rhythm 'Mung-mung'. This platform helps you explore these unique cultural lenses, revealing how different societies interpret the natural world through their own speech patterns.",
         info2Title: "🧠 Educational Benefits & AI Technology",
         info2Text: "Hello Sounds leverages cutting-edge Google Neural2 and Wavenet AI technology to provide the most authentic auditory experience possible. Unlike traditional speech synthesis, our Neural2 voices utilize deep learning to produce speech that mimics human intonation and rhythm with nearly 99% accuracy. By engaging with these global sounds, learners can improve their 'phonetic sensitivity'—the ability to distinguish between subtle sound variations in foreign languages. Whether you are a student of linguistics, a traveler, or a curious educator, our interactive library serves as a powerful tool for building cross-cultural empathy and auditory memory.",
+        info3Title: "👶 Fun for Kids, Helpful for Parents",
+        info3Text: "Hello Sounds is designed to be a safe, joyful playground for young explorers. Mimicking animal and nature sounds is a key milestone in early childhood speech development. By listening to how sounds vary across cultures, children develop 'global curiosity' from an early age. Use our platform as a fun, interactive tool for supervised screen time, or turn it into a game with our Quiz Mode!",
         dirHeading: "Explore All Sounds"
     },
     ko: {
@@ -51,6 +53,8 @@ const i18n = {
         info1Text: "의성어는 사물의 소리를 흉내 낸 말로, 언어와 인지 심리학, 그리고 문화가 만나는 흥미로운 지점입니다. 강아지는 뉴욕에서도 서울에서도 똑같은 물리적 주파수로 짖지만, 인간은 자신이 모국어로 익힌 '음운론적 필터'를 통해 그 소리를 해석하고 기록합니다. 예를 들어 영어권 사용자는 강아지의 깊은 숨소리에 집중해 '우프(Woof)'라고 하는 반면, 한국어 사용자는 반복되는 리듬감에 집중해 '멍멍'이라고 표현합니다. 이 서비스는 각 사회가 자연의 소리를 자신의 언어로 어떻게 해석하는지 탐구할 수 있는 독특한 기회를 제공합니다.",
         info2Title: "🧠 교육적 효과와 AI 기술력",
         info2Text: "헬로 사운즈는 최신 Google Neural2 및 Wavenet AI 기술을 사용하여 가장 실제에 가까운 현지 발음을 제공합니다. 일반적인 음성 합성 기술과 달리, 당사가 사용하는 Neural2 기술은 딥러닝을 통해 인간 특유의 억양과 리듬을 정교하게 재현합니다. 이러한 글로벌 사운드를 반복해서 들음으로써 사용자는 외국어의 미세한 소리 차이를 구별하는 '음운 인지 능력'을 향상시킬 수 있습니다. 언어학 학생부터 교육자, 여행가에 이르기까지 헬로 사운즈의 인터랙티브 라이브러리는 타 문화에 대한 공감과 청각적 기억력을 높이는 강력한 도구로 활용될 수 있습니다.",
+        info3Title: "👶 아이들에게는 재미를, 부모님께는 도움을",
+        info3Text: "헬로 사운즈는 어린 탐험가들을 위한 안전하고 즐거운 놀이터입니다. 동물이나 자연의 소리를 흉내 내는 것은 영유아기 언어 발달의 중요한 이정표입니다. 전 세계의 다양한 소리 표현을 경험하며 아이들은 어려서부터 세상을 향한 '글로벌 호기심'을 키울 수 있습니다. 교육용 인터랙티브 도구로 활용하거나, 퀴즈 모드를 통해 즐거운 게임처럼 즐겨보세요!",
         dirHeading: "모든 소리 탐색하기"
     },
     ja: {
@@ -66,6 +70,8 @@ const i18n = {
         info1Text: "擬音語（オノマトペ）は、音を言葉で表現したもので、言語学、心理学、そして文化が交差する興味深い分野です。犬は世界中どこでも同じ物理的な周波数で鳴きますが、人間は自分の母国語の固有の『音韻フィルター』を通してその音を解釈し、書き取ります。例えば、英語圏では深みのある息遣いに注目して『Woof』と表現しますが、日本語では繰り返しのリズムを重視して『ワンワン』と表現します。本プラットフォームは、これらの文化的な視点を探求し、異なる社会が独自の言語パターンを通じて自然界をどのように解釈しているかを明らかにします。",
         info2Title: "🧠 ハローサウンズの教育的メリットとAI技術",
         info2Text: "最新의 Google Neural2 및 Wavenet AI 기술을 사용하고, 가능한 한 정확한 네이티브 액센트를 제공합니다. 종래의 음성 합성과는 달리, Neural2 보이스는 딥 러닝을 활용하여, 인간의 억양이나 리듬을 거의 99%의 정밀도로 재현합니다. 이러한 세계의 소리를 접함으로써, 학습자는 외국어의 미묘한 소리의 차이를 식별하는 『음운 인식 능력』을 높일 수 있습니다. 언어학 학생, 여행자, 혹은 지적 호기심 왕성한 교육자에게, 이 라이브러리는 이문화에의 이해와 청각적 기억을 깊게 하는 강력한 툴이 됩니다.",
+        info3Title: "👶 子供たちには楽しさを、保護者には助け를",
+        info3Text: "ハローサウンズは, 小さな探検家のための安全で楽しい遊び場です。動物や自然の音を真似ることは, 幼児期の言語発達における重要な節目です。世界中の多様な音の表現を体験することで, 子供たちは幼い頃から世界への『グローバルな好奇心』を育むことができます。教育的なインタラクティブツールとして活用したり, クイズモードで楽しいゲームとして遊んでみてください！",
         dirHeading: "すべての音を探索する"
     },
     es: {
@@ -78,9 +84,11 @@ const i18n = {
         footerNote: "La experiencia de sonido puede variar según el dispositivo.",
         copied: "¡Enlace copiado! 🚀",
         info1Title: "🌍 ¿Por qué varían los sonidos entre países?",
-        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística, psicología y cultura. Aunque un perro ladra con la misma frecuencia acústica en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido a través del 'filtro fonético' único de su lengua materna. Por ejemplo, los angloparlantes se centran en el sonido profundo 'Woof', mientras que los coreanos enfatizan el ritmo repetitivo 'Mung-mung'. Esta plataforma te ayuda a explorar estos lentes culturales únicos, revelando cómo diferentes sociedades interpretan el mundo natural a través de sus propios patrones de habla.",
+        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística, psicología y cultura. Aunque un perro ladra con la misma frecuencia acústica en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido a través del 'filtro fonético' único de su lengua materna. Por ejemplo, los angloparlantes se cent란 en el sonido profundo 'Woof', mientras que los coreanos enfatizan el ritmo repetitivo 'Mung-mung'. Esta plataforma te ayuda a explorar estos lentes culturales únicos, revelando cómo diferentes sociedades interpretan el mundo natural a través de sus propios patrones de habla.",
         info2Title: "🧠 Beneficios Educativos y Tecnología de IA",
         info2Text: "Hello Sounds utiliza la tecnología de IA más avanzada de Google Neural2 y Wavenet para proporcionar la experiencia auditiva más auténtica posible. A diferencia de la síntesis de voz tradicional, nuestras voces Neural2 utilizan el aprendizaje profundo para producir un habla que imita la entonación y el ritmo humanos con una precisión cercana al 99%. Al interactuar con estos sonidos globales, los estudiantes pueden mejorar su 'sensibilidad fonética', la capacidad de distinguir variaciones sutiles de sonido en idiomas extranjeros. Ya seas estudiante de lingüística, viajero o un educador curioso, nuestra biblioteca interactiva sirve como una poderosa herramienta para fomentar la empatía intercultural y la memoria auditiva.",
+        info3Title: "👶 Diversión para niños, ayuda para padres",
+        info3Text: "¡Hello Sounds está diseñado para ser un patio de recreo seguro y alegre para los jóvenes exploradores! Imitar los sonidos de los animales y la naturaleza es un hito clave en el desarrollo del habla infantil. Al escuchar cómo varían los sonidos en las distintas culturas, los niños desarrollan una 'curiosidad global' desde una edad temprana. ¡Utiliza nuestra plataforma como una divertida herramienta educativa o conviértela en un juego con nuestro Modo Quiz!",
         dirHeading: "Explorar todos los sonidos"
     }
 };
@@ -148,6 +156,8 @@ function applyLanguage(lang) {
     if(info1) { info1.querySelector('h3').textContent = t.info1Title; info1.querySelector('p').textContent = t.info1Text; }
     const info2 = document.getElementById('infoCard2');
     if(info2) { info2.querySelector('h3').textContent = t.info2Title; info2.querySelector('p').textContent = t.info2Text; }
+    const info3 = document.getElementById('infoCard3');
+    if(info3) { info3.querySelector('h3').textContent = t.info3Title; info3.querySelector('p').textContent = t.info3Text; }
 
     const dirHeading = document.getElementById('directoryHeading');
     if(dirHeading) dirHeading.textContent = t.dirHeading;

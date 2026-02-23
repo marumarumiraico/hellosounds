@@ -17,11 +17,22 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "EducationalApplication",
       "name": "Hello Sounds",
-      "description": "An interactive library of global onomatopoeia with native AI pronunciations.",
+      "description": "An interactive global onomatopoeia library for children and language learners. Hear native AI pronunciations of 45+ sounds in 15 languages.",
       "applicationCategory": "EducationalApplication",
-      "operatingSystem": "Web Browser"
+      "operatingSystem": "Web Browser",
+      "educationalUse": ["Language Learning", "Speech Development", "Cultural Studies"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": ["Children", "Parents", "Language Learners", "Educators"]
+      },
+      "interactivityType": "active",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
 
@@ -118,6 +129,11 @@
                 <div class="info-card alternate" id="infoCard2">
                     <h3>🧠 Educational Benefits of Hello Sounds</h3>
                     <p>Our platform uses cutting-edge <strong>Google Neural2 and Wavenet AI</strong> technology to provide the most accurate native accents.</p>
+                </div>
+
+                <div class="info-card" id="infoCard3" style="background: var(--card-yellow);">
+                    <h3>👶 Fun for Kids, Helpful for Parents</h3>
+                    <p>Hello Sounds is perfect for young learners! Mimicking animal and nature sounds is a key milestone in speech development. Explore with your child and discover the world together!</p>
                 </div>
             </section>
 

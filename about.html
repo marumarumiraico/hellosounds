@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3.0">
+    <link rel="stylesheet" href="styles.css?v=3.1">
     <style>
         .about-container {
             max-width: 900px;
@@ -68,8 +68,31 @@
         }
         .back-link:hover { transform: translateX(-5px); }
         
+        /* Kids section specific */
+        .kids-highlight {
+            background: var(--card-orange);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 25px;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+        .kids-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .kids-item {
+            background: var(--surface-white);
+            padding: 1.2rem;
+            border: 2px solid var(--text-black);
+            border-radius: 15px;
+        }
+        .kids-item strong { display: block; margin-bottom: 0.5rem; font-size: 1.2rem; color: #FF4D91; }
+
         [data-theme="dark"] .about-card { background: var(--surface-white); color: var(--text-black); }
         [data-theme="dark"] .mission-box { background: var(--card-blue); color: var(--text-black); }
+        [data-theme="dark"] .kids-item { background: var(--surface-white); color: var(--text-black); }
     </style>
 </head>
 <body data-theme="light">
@@ -92,14 +115,41 @@
             </div>
         </section>
 
+        <!-- NEW: For Kids & Parents Section -->
+        <section class="about-card" style="background: var(--card-purple);">
+            <h2>👶 For Kids & Parents</h2>
+            <p>Hello Sounds is designed to be a safe, joyful, and highly educational playground for young explorers. Beyond just "making noises," it serves as a foundational tool for early childhood development.</p>
+            
+            <div class="kids-highlight">
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">🎨 Why Children Love It:</h4>
+                <div class="kids-grid">
+                    <div class="kids-item">
+                        <strong>Speech Development</strong>
+                        Onomatopoeia are often the first words children learn. Mimicking these sounds helps in developing articulatory skills and phonological awareness.
+                    </div>
+                    <div class="kids-item">
+                        <strong>Global Curiosity</strong>
+                        By hearing how a "Dog" says "Mung-mung" in Korea or "Wan-wan" in Japan, children develop an early interest in the diversity of our world.
+                    </div>
+                    <div class="kids-item">
+                        <strong>Safe Exploration</strong>
+                        A simple, ad-supported yet curated interface that focuses entirely on sound and imagery, perfect for supervised tablet time.
+                    </div>
+                    <div class="kids-item">
+                        <strong>Gamified Learning</strong>
+                        Our Quiz Mode transforms auditory recognition into a rewarding game, making "study time" feel like "play time."
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="about-card" style="background: var(--card-pink);">
-            <h2>🧠 Educational Value</h2>
-            <p>Whether you are a language learner, a teacher, a parent, or simply a curious soul, Hello Sounds offers unique benefits:</p>
+            <h2>🧠 Educational Value (E-E-A-T)</h2>
+            <p>Our content is curated with pedagogical principles in mind, making it suitable for various educational settings:</p>
             <ul style="font-size: 1.1rem; line-height: 2; margin-left: 1.5rem;">
-                <li><strong>Phonetic Awareness:</strong> Improve your ability to recognize sounds in 15 different languages.</li>
-                <li><strong>Cultural Empathy:</strong> Understand how different societies interpret the world around them.</li>
-                <li><strong>Interactive Learning:</strong> Use our Quiz Mode to test your auditory memory and global knowledge.</li>
-                <li><strong>Accessibility:</strong> High-quality AI voices ensure that you hear the most accurate native accents.</li>
+                <li><strong>Language Classrooms:</strong> Teachers use Hello Sounds to introduce the concept of phonetic variations across cultures.</li>
+                <li><strong>Speech Therapy:</strong> Professionals utilize clear AI voices to help clients practice specific vowel and consonant sounds.</li>
+                <li><strong>Cultural Studies:</strong> Understanding onomatopoeia is a key step in grasping the "Phonetic Symbolism" of different languages.</li>
             </ul>
         </section>
 
