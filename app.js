@@ -23,10 +23,62 @@ let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 const flagMap = { en: 'us', ko: 'kr', ja: 'jp', es: 'es' };
 
 const i18n = {
-    en: { title: ["H", "ello ", "S", "ounds"], subtitle: "Hear how the world speaks! ✨", selectItem: "Select an item:", animals: "🐾 Animals", objects: "🚗 Objects", humans: "👤 Humans", nature: "🌿 Nature", quizChallenge: "Ready for a Challenge?", quizDesc: "Test your ear in Quiz Mode!", footerNote: "Sound experience may vary depending on your device and browser settings.", copied: "Link copied to clipboard! 🚀", info1Title: "🌍 Why do sounds vary across countries?", info1Text: "Onomatopoeia is a fascinating intersection of linguistics and culture.", info2Title: "🧠 Educational Benefits", info2Text: "Our platform uses cutting-edge Google AI technology." },
-    ko: { title: ["헬", "로 ", "사", "운즈"], subtitle: "전 세계의 다양한 소리를 들어보세요! ✨", selectItem: "항목을 선택하세요:", animals: "🐾 동물", objects: "🚗 사물", humans: "👤 사람", nature: "🌿 자연", quizChallenge: "퀴즈에 도전해볼까요?", quizDesc: "퀴즈 모드에서 당신의 실력을 테스트해보세요!", footerNote: "사운드 재생 환경은 기기 및 브라우저 설정에 따라 다를 수 있습니다.", copied: "링크가 클립보드에 복사되었습니다! 🚀", info1Title: "🌍 왜 나라마다 소리가 다를까요?", info1Text: "의성어는 언어와 문화가 만나는 흥미로운 지점입니다.", info2Title: "🧠 교육적 효과", info2Text: "본 서비스는 최신 Google AI 기술을 사용하여 최고의 품질을 제공합니다." },
-    ja: { title: ["ハ", "ロー ", "サ", "ウンズ"], subtitle: "世界中の音を聞いてみよう！ ✨", selectItem: "アイテムを選択してください:", animals: "🐾 動物", objects: "🚗 物体", humans: "👤 人間", nature: "🌿 自然", quizChallenge: "クイズに挑戦しませんか？", quizDesc: "クイズモードで耳の力をテストしましょう！", footerNote: "音声体験はデバイスやブラウザの設定によって異なる場合があります.", copied: "リンクをコピーしました！ 🚀", info1Title: "🌍 なぜ国によって音が違うのですか？", info1Text: "擬音語は言語と文化が交差する興味深い分野です。", info2Title: "🧠 教育的メリット", info2Text: "最新のGoogle AI技術を使用しています。" },
-    es: { title: ["H", "ello ", "S", "ounds"], subtitle: "¡Escucha cómo habla el mundo! ✨", selectItem: "Selecciona un artículo:", animals: "🐾 Animales", objects: "🚗 Objetos", humans: "👤 Humanos", nature: "🌿 Naturaleza", quizChallenge: "¿Listo para un desafío?", quizDesc: "¡Pon a prueba tu oído en el modo Quiz!", footerNote: "La experiencia de sonido puede variar según el dispositivo.", copied: "¡Enlace copiado! 🚀", info1Title: "🌍 ¿Por qué varían los sonidos?", info1Text: "La onomatopeya es una intersección fascinante de lingüística y cultura.", info2Title: "🧠 Beneficios Educativos", info2Text: "Nuestra plataforma utiliza tecnología de IA de Google." }
+    en: {
+        title: ["H", "ello ", "S", "ounds"],
+        subtitle: "Hear how the world speaks! ✨",
+        selectItem: "Select an item:",
+        animals: "🐾 Animals", objects: "🚗 Objects", humans: "👤 Humans", nature: "🌿 Nature",
+        quizChallenge: "Ready for a Challenge?",
+        quizDesc: "Test your ear in Quiz Mode!",
+        footerNote: "Sound experience may vary depending on your device and browser settings.",
+        copied: "Link copied to clipboard! 🚀",
+        info1Title: "🌍 Why do sounds vary across countries?",
+        info1Text: "Onomatopoeia, the formation of a word from a sound associated with what is named, is a fascinating intersection of linguistics and culture. While a dog barks the same way in New York as it does in Seoul, humans perceive and transcribe that sound based on their own language's phonetic rules. For example, in English, a dog says 'Woof', emphasizing the deep breathy sound, while in Korean, it's 'Mung-mung', focusing on the repetitive rhythm.",
+        info2Title: "🧠 Educational Benefits of Hello Sounds",
+        info2Text: "Our platform uses cutting-edge Google AI technology to provide accurate native accents. By listening to these global sounds, you can improve your phonetic awareness and understand cultural nuances in 15 different countries. Whether you're a linguistics student, a traveler, or just curious, Hello Sounds offers a unique auditory journey through the world's most common sounds."
+    },
+    ko: {
+        title: ["헬", "로 ", "사", "운즈"],
+        subtitle: "전 세계의 다양한 소리를 들어보세요! ✨",
+        selectItem: "항목을 선택하세요:",
+        animals: "🐾 동물", objects: "🚗 사물", humans: "👤 사람", nature: "🌿 자연",
+        quizChallenge: "퀴즈에 도전해볼까요?",
+        quizDesc: "퀴즈 모드에서 당신의 실력을 테스트해보세요!",
+        footerNote: "사운드 재생 환경은 기기 및 브라우저 설정에 따라 다를 수 있습니다.",
+        copied: "링크가 클립보드에 복사되었습니다! 🚀",
+        info1Title: "🌍 왜 나라마다 소리가 다를까요?",
+        info1Text: "의성어는 사물의 소리를 흉내 낸 말로, 언어와 문화가 만나는 흥미로운 지점입니다. 강아지는 뉴욕에서도 서울에서도 똑같이 짖지만, 인간은 자기 언어의 발음 규칙에 따라 그 소리를 다르게 듣고 기록합니다. 예를 들어 영어권에서는 '우프(Woof)'라고 깊은 소리에 집중하는 반면, 한국어에서는 '멍멍'이라는 반복적인 리듬에 더 집중합니다.",
+        info2Title: "🧠 헬로 사운즈의 교육적 효과",
+        info2Text: "본 서비스는 최신 Google AI 기술을 사용하여 가장 정확한 현지 발음을 제공합니다. 전 세계의 소리를 들어봄으로써 청각적 예민함과 15개국의 문화적 차이를 이해할 수 있습니다. 언어학 학생, 여행가, 혹은 호기심 많은 사용자 모두에게 헬로 사운즈는 세상의 소리를 탐험하는 특별한 여정을 선사합니다."
+    },
+    ja: {
+        title: ["ハ", "ロー ", "サ", "ウンズ"],
+        subtitle: "世界中の音を聞いてみよう！ ✨",
+        selectItem: "アイテムを選択してください:",
+        animals: "🐾 動物", objects: "🚗 物体", humans: "👤 人間", nature: "🌿 自然",
+        quizChallenge: "クイズに挑戦しませんか？",
+        quizDesc: "クイズモードで耳の力をテストしましょう！",
+        footerNote: "音声体験はデバイスやブラウザの設定によって異なる場合があります。",
+        copied: "リンクをコピーしました！ 🚀",
+        info1Title: "🌍 なぜ国によって音が違うのですか？",
+        info1Text: "擬音語は、音を言葉で表現したもので、言語と文化が交差する興味深い分野です。犬は世界中どこでも同じように鳴きますが、人間は自分の言語の音韻規則に基づいてその音を解釈し、書き取ります。例えば、英語では深みのある音を強調して『Woof』と表現しますが、日本語では繰り返しのリズムを重視して『ワンワン』と表現します。",
+        info2Title: "🧠 ハローサウンズの教育的メリット",
+        info2Text: "最新のGoogle AI技術を使用し、正確なネイティブアクセントを提供します。これらの音を聞くことで、音韻意識を高め、15カ国の文化的なニュアンスを理解することができます。言語学の学生、旅行者、あるいは単に好奇心旺盛な方にとって、世界で最も一般的な音を通じたユニークな聴覚旅行を提供します。"
+    },
+    es: {
+        title: ["H", "ello ", "S", "ounds"],
+        subtitle: "¡Escucha cómo habla el mundo! ✨",
+        selectItem: "Selecciona un artículo:",
+        animals: "🐾 Animales", objects: "🚗 Objetos", humans: "👤 Humanos", nature: "🌿 Naturaleza",
+        quizChallenge: "¿Listo para un desafío?",
+        quizDesc: "¡Pon a prueba tu oído en el modo Quiz!",
+        footerNote: "La experiencia de sonido puede variar según el dispositivo.",
+        copied: "¡Enlace copiado! 🚀",
+        info1Title: "🌍 ¿Por qué varían los sonidos entre países?",
+        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística y cultura. Aunque un perro ladra igual en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido según sus propias reglas fonéticas. En inglés, un perro dice 'Woof', mientras que en español suele ser 'Guau', reflejando cómo cada cultura interpreta la naturaleza.",
+        info2Title: "🧠 Beneficios Educativos de Hello Sounds",
+        info2Text: "Nuestra plataforma utiliza tecnología de IA de Google para proporcionar los acentos nativos más precisos. Escuchar estos sonidos globales mejora la conciencia fonética y permite comprender los matices culturales de 15 países. Ya seas estudiante de lingüística, viajero o simplemente curioso, Hello Sounds ofrece un viaje auditivo único."
+    }
 };
 
 function init() {
