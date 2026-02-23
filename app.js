@@ -53,7 +53,8 @@ function renderSelectionGrid() {
         btn.className = 'animal-btn';
         btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
         btn.addEventListener('click', () => {
-            // Interaction to unlock audio on mobile
+            // Unmute/Unlock synchronously for In-App Browsers (like KakaoTalk)
+            audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
             audioPlayer.play().catch(() => {});
             selectItem(item, btn);
         });
@@ -81,8 +82,8 @@ function renderSoundCards(sounds, params) {
         const flagCode = flagCodes[soundItem.country] || 'un';
         card.innerHTML = `<div class="card-header"><img src="https://flagcdn.com/w40/${flagCode}.png" width="24" class="country-flag-img"><span class="country">${soundItem.country}</span></div><div class="card-body"><div class="sound-word">"${soundItem.sound}"</div><div class="pronunciation">[ ${soundItem.pron} ]</div></div>`;
         card.addEventListener('click', () => {
-            // Interaction to unlock audio on mobile
-            audioPlayer.play().catch(() => {});
+            // [Essential] Pre-arm the audio element synchronously within the user gesture
+            audioPlayer.load();
             playSound(soundItem, params, card);
         });
         soundsGrid.appendChild(card);
