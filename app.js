@@ -68,9 +68,9 @@ const i18n = {
         copied: "リンクをコピーしました！ 🚀",
         info1Title: "🌍 なぜ国によって音が違うのですか？",
         info1Text: "擬音語（オノマトペ）は、音を言葉で表現したもので、言語学、心理学、そして文化が交差する興味深い分野です。犬は世界中どこでも同じ物理的な周波数で鳴きますが、人間は自分の母国語の固有の『音韻フィルター』を通してその音を解釈し、書き取ります。例えば、英語圏では深みのある息遣いに注目して『Woof』と表現しますが、日本語では繰り返しのリズムを重視して『ワンワン』と表現します。本プラットフォームは、これらの文化的な視点を探求し、異なる社会が独自の言語パターンを通じて自然界をどのように解釈しているかを明らかにします。",
-        info2Title: "🧠 ハローサウンズの教育的メリットとAI技術",
-        info2Text: "最新의 Google Neural2 및 Wavenet AI 기술을 사용하고, 가능한 한 정확한 네이티브 액센트를 제공합니다. 종래의 음성 합성과는 달리, Neural2 보이스는 딥 러닝을 활용하여, 인간의 억양이나 리듬을 거의 99%의 정밀도로 재현합니다. 이러한 세계의 소리를 접함으로써, 학습자는 외국어의 미묘한 소리의 차이를 식별하는 『음운 인식 능력』을 높일 수 있습니다. 언어학 학생, 여행자, 혹은 지적 호기심 왕성한 교육자에게, 이 라이브러리는 이문화에의 이해와 청각적 기억을 깊게 하는 강력한 툴이 됩니다.",
-        info3Title: "👶 子供たちには楽しさを、保護者には助け를",
+        info2Title: "🧠 ハローサウン즈の教育的メリットとAI技術",
+        info2Text: "最新의 Google Neural2 및 Wavenet AI 기술을 사용하고, 가능한 한 정확한 네이티브 액센트를 제공합니다. 종래의 음성 합성과는 달리, Neural2 보이스는 딥 러닝을 활용하여, 인간의 억양이나 리듬을 거의 99%의 정밀도로 재현합니다. 이러한 세계의 소りを 접함으로써, 학습자는 외국어의 미묘한 소리의 차이를 식별하는 『음운 인식 능력』을 높일 수 있습니다. 언어학 학생, 여행자, 혹은 지적 호기심 왕성한 교육자에게, 이 라이브러리는 이문화에의 이해와 청각적 기억을 깊게 하는 강력한 툴이 됩니다.",
+        info3Title: "👶 子供たちには楽しさを、保護者には助けを",
         info3Text: "ハローサウンズは, 小さな探検家のための安全で楽しい遊び場です。動物や自然の音を真似ることは, 幼児期の言語発達における重要な節目です。世界中の多様な音の表現を体験することで, 子供たちは幼い頃から世界への『グローバルな好奇心』を育むことができます。教育的なインタラクティブツールとして活用したり, クイズモードで楽しいゲームとして遊んでみてください！",
         dirHeading: "すべての音を探索する"
     },
@@ -84,7 +84,7 @@ const i18n = {
         footerNote: "La experiencia de sonido puede variar según el dispositivo.",
         copied: "¡Enlace copiado! 🚀",
         info1Title: "🌍 ¿Por qué varían los sonidos entre países?",
-        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística, psicología y cultura. Aunque un perro ladra con la misma frecuencia acústica en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido a través del 'filtro fonético' único de su lengua materna. Por ejemplo, los angloparlantes se cent란 en el sonido profundo 'Woof', mientras que los coreanos enfatizan el ritmo repetitivo 'Mung-mung'. Esta plataforma te ayuda a explorar estos lentes culturales únicos, revelando cómo diferentes sociedades interpretan el mundo natural a través de sus propios patrones de habla.",
+        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística, psicología y cultura. Aunque un perro ladra con la misma frecuencia acústica en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido a través del 'filtro fonético' único de su lengua materna. Por ejemplo, los angloparlantes se centran en el sonido profundo 'Woof', mientras que los coreanos enfatizan el ritmo repetitivo 'Mung-mung'. Esta plataforma te ayuda a explorar estos lentes culturales únicos, revelando cómo diferentes sociedades interpretan el mundo natural a través de sus propios patrones de habla.",
         info2Title: "🧠 Beneficios Educativos y Tecnología de IA",
         info2Text: "Hello Sounds utiliza la tecnología de IA más avanzada de Google Neural2 y Wavenet para proporcionar la experiencia auditiva más auténtica posible. A diferencia de la síntesis de voz tradicional, nuestras voces Neural2 utilizan el aprendizaje profundo para producir un habla que imita la entonación y el ritmo humanos con una precisión cercana al 99%. Al interactuar con estos sonidos globales, los estudiantes pueden mejorar su 'sensibilidad fonética', la capacidad de distinguir variaciones sutiles de sonido en idiomas extranjeros. Ya seas estudiante de lingüística, viajero o un educador curioso, nuestra biblioteca interactiva sirve como una poderosa herramienta para fomentar la empatía intercultural y la memoria auditiva.",
         info3Title: "👶 Diversión para niños, ayuda para padres",
@@ -140,6 +140,7 @@ function setupLanguage() {
 
 function updateLangUI(lang) {
     if (currentFlagImg) currentFlagImg.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
+    document.documentElement.lang = lang; // Trend: Dynamic lang attribute for SEO
 }
 
 function applyLanguage(lang) {
@@ -242,11 +243,11 @@ function renderSoundCards(parentItem, sounds, params) {
         const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
         card.innerHTML = `
             <div class="card-header">
-                <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img">
+                <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img" alt="${soundItem.country} flag">
                 <span class="country">${soundItem.country}</span>
                 <div class="card-actions">
-                    <button class="fav-btn ${isFav ? 'active' : ''}">❤️</button>
-                    <button class="share-btn">🔗</button>
+                    <button class="fav-btn ${isFav ? 'active' : ''}" aria-label="Add to favorites">❤️</button>
+                    <button class="share-btn" aria-label="Share sound">🔗</button>
                 </div>
             </div>
             <div class="card-body">
