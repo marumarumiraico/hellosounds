@@ -1,3 +1,5 @@
+import { soundDatabase } from './data.js';
+
 // DOM Elements
 const animalGrid = document.getElementById('animalGrid');
 const resultsSection = document.getElementById('resultsSection');
