@@ -345,7 +345,7 @@ h1 {
 }
 
 .share-btn {
-    background: #D1B7FF;
+    background: var(--card-yellow); /* 대비가 확실한 노란색으로 변경 */
     border: 2px solid var(--text-black);
     border-radius: 10px;
     padding: 0.4rem 0.6rem;
@@ -358,7 +358,7 @@ h1 {
 .share-btn:hover {
     transform: translate(-1px, -1px);
     box-shadow: 3px 3px 0px var(--text-black);
-    background: var(--card-yellow);
+    background: var(--surface-white);
 }
 
 .card-body {
