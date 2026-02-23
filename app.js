@@ -25,8 +25,10 @@ function init() {
 
 function setupTheme() {
     const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('.icon');
+    const icon = themeToggle.querySelector('.theme-icon');
     
+    if (!themeToggle || !icon) return;
+
     // 저장된 테마 확인 또는 시스템 설정 확인
     const savedTheme = localStorage.getItem('theme') || 
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -34,7 +36,8 @@ function setupTheme() {
     document.documentElement.setAttribute('data-theme', savedTheme);
     icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
