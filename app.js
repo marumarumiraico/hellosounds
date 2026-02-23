@@ -12,7 +12,8 @@ const navButtons = document.querySelectorAll('.nav-btn');
 
 let currentCategory = 'animals';
 let availableVoices = [];
-let audioPlayer = new Audio(); // Global audio instance
+let audioPlayer = new Audio();
+let activeRequestID = 0; // To track the latest sound request
 
 function init() {
     setupNavigation();
@@ -27,13 +28,10 @@ function loadVoices() {
     availableVoices = window.speechSynthesis.getVoices();
 }
 
-// Pre-warming audio on any navigation click
 function setupNavigation() {
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Wake up audio engine
-            audioPlayer.play().catch(() => {});
-            
+            stopAllSounds();
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentCategory = btn.dataset.cat;
@@ -54,8 +52,7 @@ function renderSelectionGrid() {
         btn.className = 'animal-btn';
         btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
         btn.addEventListener('click', () => {
-            // Wake up audio engine
-            audioPlayer.play().catch(() => {});
+            stopAllSounds();
             selectItem(item, btn);
         });
         animalGrid.appendChild(btn);
@@ -83,37 +80,43 @@ function renderSoundCards(sounds, params) {
         card.innerHTML = `<div class="card-header"><img src="https://flagcdn.com/w40/${flagCode}.png" width="24" class="country-flag-img"><span class="country">${soundItem.country}</span></div><div class="card-body"><div class="sound-word">"${soundItem.sound}"</div><div class="pronunciation">[ ${soundItem.pron} ]</div></div>`;
         
         card.addEventListener('click', () => {
-            // The magic for In-App Browsers:
-            // 1. Immediately play silence to take audio control
-            audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
-            audioPlayer.play().then(() => {
-                // 2. Now that we have control, fetch the real sound
-                playSound(soundItem, params, card);
-            }).catch(() => {
-                // If direct play fails, just try the normal flow
-                playSound(soundItem, params, card);
-            });
+            playSound(soundItem, params, card);
         });
         soundsGrid.appendChild(card);
     });
     setTimeout(() => { document.querySelectorAll('.sound-word').forEach(el => fitText(el)); }, 100);
 }
 
+function stopAllSounds() {
+    activeRequestID++; // Increment to ignore any pending fetch results
+    audioPlayer.pause();
+    audioPlayer.src = "";
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
+}
+
 function playSound(soundItem, params, cardElement) {
+    stopAllSounds(); // Stop everything before starting new
+    
+    const requestID = activeRequestID; // Capture current ID for this closure
     cardElement.style.transform = 'scale(0.95)';
     cardElement.classList.add('playing');
     setTimeout(() => cardElement.style.transform = '', 150);
 
-    const textToSpeak = soundItem.native;
-    const country = soundItem.country;
+    // In-App Browser Unlock
+    audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
+    audioPlayer.play().catch(() => {});
 
     fetch('/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: textToSpeak, country: country })
+        body: JSON.stringify({ text: soundItem.native, country: soundItem.country })
     })
     .then(response => response.json())
     .then(data => {
+        // [IMPORTANT] Only proceed if this is still the most recent request
+        if (requestID !== activeRequestID) return;
+
         if (data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
             audioPlayer.play().catch(e => {
@@ -126,13 +129,14 @@ function playSound(soundItem, params, cardElement) {
         }
     })
     .catch(error => {
-        console.error('TTS API Error:', error);
-        fallbackSpeak(soundItem, params, cardElement);
+        if (requestID === activeRequestID) {
+            console.error('TTS API Error:', error);
+            fallbackSpeak(soundItem, params, cardElement);
+        }
     });
 }
 
 function fallbackSpeak(soundItem, params, cardElement) {
-    window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
     const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
     msg.lang = langMap[soundItem.country] || 'en-US';
