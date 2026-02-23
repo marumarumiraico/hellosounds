@@ -74,22 +74,19 @@ function checkAnswer(selected, btn) {
     options.forEach(b => b.style.pointerEvents = 'none');
 
     if (selected === currentAnswer.sound.country) {
-        // 정답 효과
         btn.classList.add('correct');
         mainCard.classList.add('pulse-success');
-        playFeedbackSound(true);
+        playAudioTone(880, 0.3, 'sine'); // 고음 '띵' (A5)
         
         score += 10;
         scoreEl.textContent = score;
         scoreEl.style.transform = 'scale(1.5)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 300);
     } else {
-        // 오답 효과
         btn.classList.add('wrong');
         mainCard.classList.add('shake-error');
-        playFeedbackSound(false);
+        playAudioTone(110, 0.5, 'triangle'); // 저음 '웅' (A2)
 
-        // 정답 표시
         options.forEach(b => {
             if (b.textContent.trim() === currentAnswer.sound.country) {
                 b.classList.add('correct');
@@ -104,23 +101,27 @@ function checkAnswer(selected, btn) {
     }, 2000);
 }
 
-function playFeedbackSound(isCorrect) {
-    // Web Speech API를 활용한 즉각적인 효과음 (MP3 없이 구현)
-    if (!window.speechSynthesis) return;
-    const msg = new SpeechSynthesisUtterance();
-    msg.lang = 'en-US';
-    msg.volume = 0.5;
-    
-    if (isCorrect) {
-        msg.text = "Ding!";
-        msg.pitch = 2.0; // 높은 음
-        msg.rate = 2.0;
-    } else {
-        msg.text = "Boom.";
-        msg.pitch = 0.5; // 낮은 음
-        msg.rate = 1.5;
+function playAudioTone(freq, duration, type) {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = type;
+        oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        
+        // 볼륨 페이드 아웃 (부드러운 소리)
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + duration);
+    } catch (e) {
+        console.warn("Audio synthesis failed:", e);
     }
-    window.speechSynthesis.speak(msg);
 }
 
 function playSound(soundItem, params) {
