@@ -17,6 +17,16 @@ const COUNTRY_VOICE_MAP = {
   "Greece": { lang: "el-GR", voice: "el-GR-Wavenet-A" }
 };
 
+export async function onRequestGet(context) {
+  return new Response(JSON.stringify({ 
+    status: "alive", 
+    message: "TTS Function is active!",
+    env_configured: !!context.env.GOOGLE_TTS_API_KEY
+  }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   
@@ -26,7 +36,7 @@ export async function onRequestPost(context) {
 
     const API_KEY = env.GOOGLE_TTS_API_KEY;
     if (!API_KEY) {
-      return new Response(JSON.stringify({ error: "API Key not configured" }), { status: 500 });
+      return new Response(JSON.stringify({ error: "API Key not configured in Cloudflare environment variables" }), { status: 500 });
     }
 
     const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`;
