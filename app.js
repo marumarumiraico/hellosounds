@@ -6,7 +6,7 @@ const mainName = document.getElementById('mainName');
 const soundsGrid = document.getElementById('soundsGrid');
 const headerIcon = document.getElementById('headerIcon');
 const headerSubtitle = document.getElementById('headerSubtitle');
-const navButtons = document.querySelectorAll('.category-btn'); // category-btn만 선택
+const navButtons = document.querySelectorAll('.category-btn'); 
 
 let currentCategory = 'animals';
 let availableVoices = [];
@@ -36,7 +36,8 @@ function setupTheme() {
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     
     document.documentElement.setAttribute('data-theme', savedTheme);
-    if (icon) icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    // [수정] 다크모드면 달(🌙), 라이트모드면 해(☀️)를 표시 (현재 상태 표시형)
+    if (icon) icon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
     themeToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -45,7 +46,8 @@ function setupTheme() {
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        if (icon) icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        // [수정] 바뀐 테마에 맞춰 아이콘 변경
+        if (icon) icon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
     });
 }
 
