@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.8">
+    <link rel="stylesheet" href="styles.css?v=2.9">
 </head>
 <body>
     <nav class="category-nav">
@@ -40,18 +40,28 @@
         </div>
         <div class="nav-spacer"></div>
         <div class="nav-controls">
-            <!-- Language Selector with Flags -->
-            <div class="custom-select-wrapper">
-                <select id="langSelector" class="lang-select" aria-label="Select Language">
-                    <option value="en">🇺🇸 EN</option>
-                    <option value="ko">🇰🇷 KO</option>
-                    <option value="ja">🇯🇵 JA</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
+            <!-- Custom Flag Dropdown -->
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-current" id="langCurrentBtn">
+                    <img src="https://flagcdn.com/w40/us.png" id="currentFlagImg" alt="Flag">
+                </button>
+                <div class="lang-options" id="langOptions">
+                    <div class="lang-opt" data-value="en" title="English">
+                        <img src="https://flagcdn.com/w40/us.png" alt="US">
+                    </div>
+                    <div class="lang-opt" data-value="ko" title="한국어">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="KR">
+                    </div>
+                    <div class="lang-opt" data-value="ja" title="日本語">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="JP">
+                    </div>
+                    <div class="lang-opt" data-value="es" title="Español">
+                        <img src="https://flagcdn.com/w40/es.png" alt="ES">
+                    </div>
+                </div>
             </div>
-            <!-- Favorites Page Link -->
-            <a href="/favorites.html" class="nav-btn fav-nav-btn" title="My Favorites" id="favPageLink">❤️</a>
-            <!-- Theme Toggle -->
+            
+            <a href="/favorites.html" class="nav-btn icon-nav-btn" title="Favorites">❤️</a>
             <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
                 <span class="theme-icon">🌙</span>
             </button>
@@ -121,11 +131,11 @@
             </div>
         </footer>
     </div>
-    <script src="data/animals.js?v=2.8"></script>
-    <script src="data/objects.js?v=2.8"></script>
-    <script src="data/humans.js?v=2.8"></script>
-    <script src="data/nature.js?v=2.8"></script>
-    <script src="data.js?v=2.8"></script>
-    <script src="app.js?v=2.8"></script>
+    <script src="data/animals.js?v=2.9"></script>
+    <script src="data/objects.js?v=2.9"></script>
+    <script src="data/humans.js?v=2.9"></script>
+    <script src="data/nature.js?v=2.9"></script>
+    <script src="data.js?v=2.9"></script>
+    <script src="app.js?v=2.9"></script>
 </body>
 </html>
