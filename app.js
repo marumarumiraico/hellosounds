@@ -97,6 +97,7 @@ function init() {
     setupTheme();
     setupLanguage();
     setupNavigation();
+    setupHomeLogic();
     
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('cat');
@@ -111,6 +112,32 @@ function init() {
         }
     } else {
         renderSelectionGrid();
+    }
+}
+
+function setupHomeLogic() {
+    const homeBtn = document.getElementById('homeBtn');
+    const mainHeader = document.getElementById('mainHeader');
+
+    const goHome = () => {
+        stopAllSounds();
+        // Reset to initial state
+        resultsSection.style.display = 'none';
+        selectorSection.style.display = 'block';
+        document.querySelectorAll('.animal-btn').forEach(b => b.classList.remove('active'));
+        
+        // Clear URL parameters without refreshing
+        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.pushState({path:newUrl}, '', newUrl);
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    if (homeBtn) homeBtn.onclick = goHome;
+    if (mainHeader) {
+        mainHeader.style.cursor = 'pointer';
+        mainHeader.onclick = goHome;
     }
 }
 

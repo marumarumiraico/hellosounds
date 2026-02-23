@@ -59,7 +59,7 @@ body {
 
 .nav-links { display: flex; gap: 1rem; }
 .nav-spacer { flex-grow: 1; }
-.nav-controls { display: flex; align-items: center; gap: 0.8rem; }
+.nav-controls { display: flex; align-items: center; gap: 0.6rem; }
 
 /* Custom Language Dropdown Styles */
 .lang-dropdown {
