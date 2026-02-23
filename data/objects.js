@@ -171,7 +171,7 @@ window.objectsData = {
             { country: "Kenya", flag: "🇰🇪", sound: "Zip", pron: "zeeehp", native: "Zip", fallback: "zip" },
             { country: "Greece", flag: "🇬🇷", sound: "Ζιπ", pron: "zeeehp", native: "Ζιπ!", fallback: "zip" }
         ]},
-        click: { id: 'click', icon: "鼠标", name: "Click", params: { pitch: 1.1, rate: 1.2 }, sounds: [
+        click: { id: 'click', icon: "🖱️", name: "Click", params: { pitch: 1.1, rate: 1.2 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Click", pron: "cleeck", native: "Click", fallback: "cleeck" },
             { country: "Korea", flag: "🇰🇷", sound: "딸깍", pron: "ttal-kkahk", native: "딸깍", fallback: "ttal kkahk" },
             { country: "Japan", flag: "🇯🇵", sound: "カチッ", pron: "kah-chee", native: "カチッ", fallback: "kah chee" },
