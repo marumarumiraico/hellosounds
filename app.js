@@ -18,9 +18,30 @@ function init() {
     setupNavigation();
     renderSelectionGrid();
     loadVoices();
+    setupStartOverlay(); // 추가
     if (window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
+}
+
+function setupStartOverlay() {
+    const startBtn = document.getElementById('startBtn');
+    const overlay = document.getElementById('startOverlay');
+    
+    startBtn.addEventListener('click', () => {
+        // [강력한 잠금해제] 시작 버튼을 누르는 즉시 오디오 객체 활성화
+        audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
+        audioPlayer.play().then(() => {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
+        }).catch(err => {
+            console.warn("Audio start failed:", err);
+            // 에러가 나더라도 오버레이는 닫음
+            overlay.style.display = 'none';
+        });
+    });
 }
 
 function loadVoices() {
