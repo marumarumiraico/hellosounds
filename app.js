@@ -122,9 +122,17 @@ function setupHomeLogic() {
     const goHome = () => {
         stopAllSounds();
         // Reset to initial state
+        currentCategory = 'animals';
         resultsSection.style.display = 'none';
         selectorSection.style.display = 'block';
-        document.querySelectorAll('.animal-btn').forEach(b => b.classList.remove('active'));
+        
+        // Reset category buttons
+        navButtons.forEach(b => {
+            b.classList.toggle('active', b.dataset.cat === 'animals');
+        });
+        
+        // Redender grid
+        renderSelectionGrid();
         
         // Clear URL parameters without refreshing
         const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
