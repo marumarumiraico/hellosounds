@@ -33,9 +33,9 @@ const i18n = {
         footerNote: "Sound experience may vary depending on your device and browser settings.",
         copied: "Link copied to clipboard! 🚀",
         info1Title: "🌍 Why do sounds vary across countries?",
-        info1Text: "Onomatopoeia, the formation of a word from a sound associated with what is named, is a fascinating intersection of linguistics and culture. While a dog barks the same way in New York as it does in Seoul, humans perceive and transcribe that sound based on their own language's phonetic rules. For example, in English, a dog says 'Woof', emphasizing the deep breathy sound, while in Korean, it's 'Mung-mung', focusing on the repetitive rhythm.",
-        info2Title: "🧠 Educational Benefits of Hello Sounds",
-        info2Text: "Our platform uses cutting-edge Google AI technology to provide accurate native accents. By listening to these global sounds, you can improve your phonetic awareness and understand cultural nuances in 15 different countries. Whether you're a linguistics student, a traveler, or just curious, Hello Sounds offers a unique auditory journey through the world's most common sounds."
+        info1Text: "Onomatopoeia—the formation of a word from a sound associated with what is named—is a fascinating intersection of linguistics, psychology, and culture. While a dog barks with the same acoustic frequency in New York as it does in Seoul, humans perceive and transcribe that sound through the unique 'phonetic filter' of their native language. For instance, English speakers focus on the deep breathy 'Woof', while Korean speakers emphasize the repetitive rhythm 'Mung-mung'. This platform helps you explore these unique cultural lenses, revealing how different societies interpret the natural world through their own speech patterns.",
+        info2Title: "🧠 Educational Benefits & AI Technology",
+        info2Text: "Hello Sounds leverages cutting-edge Google Neural2 and Wavenet AI technology to provide the most authentic auditory experience possible. Unlike traditional speech synthesis, our Neural2 voices utilize deep learning to produce speech that mimics human intonation and rhythm with nearly 99% accuracy. By engaging with these global sounds, learners can improve their 'phonetic sensitivity'—the ability to distinguish between subtle sound variations in foreign languages. Whether you are a student of linguistics, a traveler, or a curious educator, our interactive library serves as a powerful tool for building cross-cultural empathy and auditory memory."
     },
     ko: {
         title: ["헬", "로 ", "사", "운즈"],
@@ -47,9 +47,9 @@ const i18n = {
         footerNote: "사운드 재생 환경은 기기 및 브라우저 설정에 따라 다를 수 있습니다.",
         copied: "링크가 클립보드에 복사되었습니다! 🚀",
         info1Title: "🌍 왜 나라마다 소리가 다를까요?",
-        info1Text: "의성어는 사물의 소리를 흉내 낸 말로, 언어와 문화가 만나는 흥미로운 지점입니다. 강아지는 뉴욕에서도 서울에서도 똑같이 짖지만, 인간은 자기 언어의 발음 규칙에 따라 그 소리를 다르게 듣고 기록합니다. 예를 들어 영어권에서는 '우프(Woof)'라고 깊은 소리에 집중하는 반면, 한국어에서는 '멍멍'이라는 반복적인 리듬에 더 집중합니다.",
-        info2Title: "🧠 헬로 사운즈의 교육적 효과",
-        info2Text: "본 서비스는 최신 Google AI 기술을 사용하여 가장 정확한 현지 발음을 제공합니다. 전 세계의 소리를 들어봄으로써 청각적 예민함과 15개국의 문화적 차이를 이해할 수 있습니다. 언어학 학생, 여행가, 혹은 호기심 많은 사용자 모두에게 헬로 사운즈는 세상의 소리를 탐험하는 특별한 여정을 선사합니다."
+        info1Text: "의성어는 사물의 소리를 흉내 낸 말로, 언어와 인지 심리학, 그리고 문화가 만나는 흥미로운 지점입니다. 강아지는 뉴욕에서도 서울에서도 똑같은 물리적 주파수로 짖지만, 인간은 자신이 모국어로 익힌 '음운론적 필터'를 통해 그 소리를 해석하고 기록합니다. 예를 들어 영어권 사용자는 강아지의 깊은 숨소리에 집중해 '우프(Woof)'라고 하는 반면, 한국어 사용자는 반복되는 리듬감에 집중해 '멍멍'이라고 표현합니다. 이 서비스는 각 사회가 자연의 소리를 자신의 언어로 어떻게 해석하는지 탐구할 수 있는 독특한 기회를 제공합니다.",
+        info2Title: "🧠 교육적 효과와 AI 기술력",
+        info2Text: "헬로 사운즈는 최신 Google Neural2 및 Wavenet AI 기술을 사용하여 가장 실제에 가까운 현지 발음을 제공합니다. 일반적인 음성 합성 기술과 달리, 당사가 사용하는 Neural2 기술은 딥러닝을 통해 인간 특유의 억양과 리듬을 정교하게 재현합니다. 이러한 글로벌 사운드를 반복해서 들음으로써 사용자는 외국어의 미세한 소리 차이를 구별하는 '음운 인지 능력'을 향상시킬 수 있습니다. 언어학 학생부터 교육자, 여행가에 이르기까지 헬로 사운즈의 인터랙티브 라이브러리는 타 문화에 대한 공감과 청각적 기억력을 높이는 강력한 도구로 활용될 수 있습니다."
     },
     ja: {
         title: ["ハ", "ロー ", "サ", "ウンズ"],
@@ -61,9 +61,9 @@ const i18n = {
         footerNote: "音声体験はデバイスやブラウザの設定によって異なる場合があります。",
         copied: "リンクをコピーしました！ 🚀",
         info1Title: "🌍 なぜ国によって音が違うのですか？",
-        info1Text: "擬音語は、音を言葉で表現したもので、言語と文化が交差する興味深い分野です。犬は世界中どこでも同じように鳴きますが、人間は自分の言語の音韻規則に基づいてその音を解釈し、書き取ります。例えば、英語では深みのある音を強調して『Woof』と表現しますが、日本語では繰り返しのリズムを重視して『ワンワン』と表現します。",
-        info2Title: "🧠 ハローサウンズの教育的メリット",
-        info2Text: "最新のGoogle AI技術を使用し、正確なネイティブアクセントを提供します。これらの音を聞くことで、音韻意識を高め、15カ国の文化的なニュアンスを理解することができます。言語学の学生、旅行者、あるいは単に好奇心旺盛な方にとって、世界で最も一般的な音を通じたユニークな聴覚旅行を提供します。"
+        info1Text: "擬音語（オノマトペ）は、音を言葉で表現したもので、言語学、心理学、そして文化が交差する興味深い分野です。犬は世界中どこでも同じ物理的な周波数で鳴きますが、人間は自分の母国語の固有の『音韻フィルター』を通してその音を解釈し、書き取ります。例えば、英語圏では深みのある息遣いに注目して『Woof』と表現しますが、日本語では繰り返しのリズムを重視して『ワンワン』と表現します。本プラットフォームは、これらの文化的な視点を探求し、異なる社会が独自の言語パターンを通じて自然界をどのように解釈しているかを明らかにします。",
+        info2Title: "🧠 ハローサウンズの教育적メリットとAI技術",
+        info2Text: "最新のGoogle Neural2およびWavenet AI技術を使用し、可能な限り正確なネイティブアクセントを提供します。従来の音声合成とは異なり、Neural2ボイスはディープラーニングを活用して、人間のイントネーションやリズムをほぼ99%の精度で再現します。これらの世界の音に触れることで、学習者は外国語の微妙な音の違いを識別する『音韻認識能力』を高めることができます。言語学の学生、旅行者、あるいは知的好奇心旺盛な教育者にとって、このライブラリは異文化への理解と聴覚的記憶を深める強力なツールとなります。"
     },
     es: {
         title: ["H", "ello ", "S", "ounds"],
@@ -75,9 +75,9 @@ const i18n = {
         footerNote: "La experiencia de sonido puede variar según el dispositivo.",
         copied: "¡Enlace copiado! 🚀",
         info1Title: "🌍 ¿Por qué varían los sonidos entre países?",
-        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística y cultura. Aunque un perro ladra igual en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido según sus propias reglas fonéticas. En inglés, un perro dice 'Woof', mientras que en español suele ser 'Guau', reflejando cómo cada cultura interpreta la naturaleza.",
-        info2Title: "🧠 Beneficios Educativos de Hello Sounds",
-        info2Text: "Nuestra plataforma utiliza tecnología de IA de Google para proporcionar los acentos nativos más precisos. Escuchar estos sonidos globales mejora la conciencia fonética y permite comprender los matices culturales de 15 países. Ya seas estudiante de lingüística, viajero o simplemente curioso, Hello Sounds ofrece un viaje auditivo único."
+        info1Text: "La onomatopeya, la formación de una palabra a partir de un sonido asociado, es una intersección fascinante entre lingüística, psicología y cultura. Aunque un perro ladra con la misma frecuencia acústica en Nueva York que en Seúl, los humanos perciben y transcriben ese sonido a través del 'filtro fonético' único de su lengua materna. Por ejemplo, los angloparlantes se centran en el sonido profundo 'Woof', mientras que los coreanos enfatizan el ritmo repetitivo 'Mung-mung'. Esta plataforma te ayuda a explorar estos lentes culturales únicos, revelando cómo diferentes sociedades interpretan el mundo natural a través de sus propios patrones de habla.",
+        info2Title: "🧠 Beneficios Educativos y Tecnología de IA",
+        info2Text: "Hello Sounds utiliza la tecnología de IA más avanzada de Google Neural2 y Wavenet para proporcionar la experiencia auditiva más auténtica posible. A diferencia de la síntesis de voz tradicional, nuestras voces Neural2 utilizan el aprendizaje profundo para producir un habla que imita la entonación y el ritmo humanos con una precisión cercana al 99%. Al interactuar con estos sonidos globales, los estudiantes pueden mejorar su 'sensibilidad fonética', la capacidad de distinguir variaciones sutiles de sonido en idiomas extranjeros. Ya seas estudiante de lingüística, viajero o un educador curioso, nuestra biblioteca interactiva sirve como una poderosa herramienta para fomentar la empatía intercultural y la memoria auditiva."
     }
 };
 
@@ -127,7 +127,7 @@ function setupLanguage() {
 }
 
 function updateLangUI(lang) {
-    currentFlagImg.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
+    if (currentFlagImg) currentFlagImg.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
 }
 
 function applyLanguage(lang) {
@@ -157,19 +157,18 @@ function setupTheme() {
     const toggle = document.getElementById('themeToggle');
     if(!toggle) return;
     const icon = toggle.querySelector('.theme-icon');
-    icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+    if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
     toggle.onclick = () => {
         const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
-        icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
     };
 }
 
 function stopAllSounds() {
     activeRequestID++;
     try { audioPlayer.pause(); audioPlayer.src = ""; } catch(e) {}
-    // 모든 카드의 재생 연출을 즉시 중단
     document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
 }
 
@@ -266,9 +265,11 @@ async function shareSound(item, sound) {
 
 function showToast(message) {
     const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3000);
+    if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
 }
 
 function playSound(soundItem, params, card) {

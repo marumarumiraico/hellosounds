@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hello Sounds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .about-card {
+            background: var(--surface-white);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: var(--hard-shadow);
+        }
+        .about-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .about-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-black);
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .tech-tag {
+            background: var(--card-yellow);
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--text-black);
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .mission-box {
+            background: var(--card-blue);
+            padding: 2rem;
+            border: 2px solid var(--text-black);
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--text-black);
+            transition: var(--spring-transition);
+        }
+        .back-link:hover { transform: translateX(-5px); }
+        
+        [data-theme="dark"] .about-card { background: var(--surface-white); color: var(--text-black); }
+        [data-theme="dark"] .mission-box { background: var(--card-blue); color: var(--text-black); }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="about-container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <header style="text-align: center;">
+            <div class="logo">
+                <span class="icon" style="font-size: 5rem;">✨</span>
+                <h1 style="font-size: 3.5rem;">About <span class="logo-h">H</span>ello <span class="logo-s">S</span>ounds</h1>
+            </div>
+            <p class="subtitle">The World's Interactive Onomatopoeia Library</p>
+        </header>
+
+        <section class="about-card">
+            <h2>🌍 Our Mission</h2>
+            <p><strong>Hello Sounds</strong> was born from a simple yet fascinating observation: while animals and nature make the same sounds everywhere, humans hear and describe them differently based on their culture and language. This intersection of linguistics and human perception is known as <em>Onomatopoeia</em>.</p>
+            <div class="mission-box">
+                <p style="margin-bottom: 0;">Our mission is to provide a fun, educational, and interactive platform where people of all ages can explore these cultural nuances through high-quality native AI pronunciations.</p>
+            </div>
+        </section>
+
+        <section class="about-card" style="background: var(--card-pink);">
+            <h2>🧠 Educational Value</h2>
+            <p>Whether you are a language learner, a teacher, a parent, or simply a curious soul, Hello Sounds offers unique benefits:</p>
+            <ul style="font-size: 1.1rem; line-height: 2; margin-left: 1.5rem;">
+                <li><strong>Phonetic Awareness:</strong> Improve your ability to recognize sounds in 15 different languages.</li>
+                <li><strong>Cultural Empathy:</strong> Understand how different societies interpret the world around them.</li>
+                <li><strong>Interactive Learning:</strong> Use our Quiz Mode to test your auditory memory and global knowledge.</li>
+                <li><strong>Accessibility:</strong> High-quality AI voices ensure that you hear the most accurate native accents.</li>
+            </ul>
+        </section>
+
+        <section class="about-card">
+            <h2>🛠️ Technology Behind the Sound</h2>
+            <p>We leverage cutting-edge technology to ensure the best possible experience for our users:</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Google Cloud TTS (Neural2)</span>
+                <span class="tech-tag">Cloudflare Workers</span>
+                <span class="tech-tag">Web Audio API</span>
+                <span class="tech-tag">Vanilla JavaScript</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+            <p style="margin-top: 2rem;">Our sound engine uses <strong>Google Neural2 and Wavenet AI</strong> technology, which represents the pinnacle of text-to-speech synthesis, providing voices that are nearly indistinguishable from human speech.</p>
+        </section>
+
+        <section class="about-card" style="background: var(--card-green);">
+            <h2>📩 Get in Touch</h2>
+            <p>Hello Sounds is a project dedicated to the beauty of language and sound. We are constantly expanding our database and improving our features.</p>
+            <p>If you have suggestions, found a bug, or want to contribute data for a new country, please reach out to us:</p>
+            <p><strong>Email:</strong> <a href="mailto:marumarumiraico@gmail.com" style="color: inherit; font-weight: 800;">marumarumiraico@gmail.com</a></p>
+        </section>
+
+        <footer style="text-align: center; margin-top: 2rem;">
+            <p>© 2026 Hello Sounds. Made with ❤️ for the world.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Apply theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
