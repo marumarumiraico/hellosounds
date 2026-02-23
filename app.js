@@ -169,6 +169,8 @@ function setupTheme() {
 function stopAllSounds() {
     activeRequestID++;
     try { audioPlayer.pause(); audioPlayer.src = ""; } catch(e) {}
+    // 모든 카드의 재생 연출을 즉시 중단
+    document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
 }
 
 function setupNavigation() {
