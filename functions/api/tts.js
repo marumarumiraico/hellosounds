@@ -1,4 +1,3 @@
-
 const COUNTRY_VOICE_MAP = {
   "USA": { lang: "en-US", voice: "en-US-Neural2-A" },
   "Korea": { lang: "ko-KR", voice: "ko-KR-Neural2-A" },
@@ -20,11 +19,8 @@ const COUNTRY_VOICE_MAP = {
 export async function onRequestGet(context) {
   return new Response(JSON.stringify({ 
     status: "alive", 
-    message: "TTS Function is active!",
-    env_configured: !!context.env.GOOGLE_TTS_API_KEY
-  }), {
-    headers: { 'Content-Type': 'application/json' }
-  });
+    env_configured: !!context.env.GOOGLE_TTS_API_KEY 
+  }), { headers: { 'Content-Type': 'application/json' } });
 }
 
 export async function onRequestPost(context) {
@@ -32,11 +28,15 @@ export async function onRequestPost(context) {
   
   try {
     const { text, country } = await request.json();
-    const voiceConfig = COUNTRY_VOICE_MAP[country] || { lang: "en-US", voice: "en-US-Neural2-A" };
+    
+    // 텍스트가 비어있는지 확인
+    if (!text) return new Response(JSON.stringify({ error: "Text is empty" }), { status: 400 });
 
+    const voiceConfig = COUNTRY_VOICE_MAP[country] || { lang: "en-US", voice: "en-US-Neural2-A" };
     const API_KEY = env.GOOGLE_TTS_API_KEY;
+
     if (!API_KEY) {
-      return new Response(JSON.stringify({ error: "API Key not configured in Cloudflare environment variables" }), { status: 500 });
+      return new Response(JSON.stringify({ error: "API Key is missing in Cloudflare settings" }), { status: 500 });
     }
 
     const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`;
@@ -48,21 +48,25 @@ export async function onRequestPost(context) {
         name: voiceConfig.voice
       },
       audioConfig: { 
-        audioEncoding: 'MP3',
-        effectsProfileId: ['small-bluetooth-class-device']
+        audioEncoding: 'MP3'
+        // 문제가 될 수 있는 effectsProfileId 제거
       }
     };
 
-    const response = await fetch(url, {
+    const googleResponse = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
     });
 
-    const data = await response.json();
+    const data = await googleResponse.json();
 
-    if (data.error) {
-      return new Response(JSON.stringify({ error: data.error.message }), { status: 400 });
+    if (!googleResponse.ok) {
+      // 구글에서 보내준 에러 메시지를 그대로 클라이언트에 전달 (디버깅용)
+      return new Response(JSON.stringify({ 
+        error: data.error?.message || "Google API Error",
+        details: data.error
+      }), { status: googleResponse.status });
     }
 
     return new Response(JSON.stringify({ audioContent: data.audioContent }), {
