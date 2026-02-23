@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.7">
+    <link rel="stylesheet" href="styles.css?v=2.8">
 </head>
 <body>
     <nav class="category-nav">
@@ -37,19 +37,21 @@
             <button class="nav-btn category-btn" data-cat="objects">🚗 Objects</button>
             <button class="nav-btn category-btn" data-cat="humans">👤 Humans</button>
             <button class="nav-btn category-btn" data-cat="nature">🌿 Nature</button>
-            <button class="nav-btn category-btn" data-cat="favorites">❤️ Favorites</button>
         </div>
         <div class="nav-spacer"></div>
         <div class="nav-controls">
-            <!-- Custom Styled Language Dropdown -->
+            <!-- Language Selector with Flags -->
             <div class="custom-select-wrapper">
                 <select id="langSelector" class="lang-select" aria-label="Select Language">
-                    <option value="en">EN</option>
-                    <option value="ko">KO</option>
-                    <option value="ja">JA</option>
-                    <option value="es">ES</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="ko">🇰🇷 KO</option>
+                    <option value="ja">🇯🇵 JA</option>
+                    <option value="es">🇪🇸 ES</option>
                 </select>
             </div>
+            <!-- Favorites Page Link -->
+            <a href="/favorites.html" class="nav-btn fav-nav-btn" title="My Favorites" id="favPageLink">❤️</a>
+            <!-- Theme Toggle -->
             <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
                 <span class="theme-icon">🌙</span>
             </button>
@@ -119,11 +121,11 @@
             </div>
         </footer>
     </div>
-    <script src="data/animals.js?v=2.7"></script>
-    <script src="data/objects.js?v=2.7"></script>
-    <script src="data/humans.js?v=2.7"></script>
-    <script src="data/nature.js?v=2.7"></script>
-    <script src="data.js?v=2.7"></script>
-    <script src="app.js?v=2.7"></script>
+    <script src="data/animals.js?v=2.8"></script>
+    <script src="data/objects.js?v=2.8"></script>
+    <script src="data/humans.js?v=2.8"></script>
+    <script src="data/nature.js?v=2.8"></script>
+    <script src="data.js?v=2.8"></script>
+    <script src="app.js?v=2.8"></script>
 </body>
 </html>
