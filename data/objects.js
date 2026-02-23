@@ -64,8 +64,8 @@ window.objectsData = {
             { country: "Thailand", flag: "🇹🇭", sound: "กริ๊ง กริ๊ง!", pron: "greeng greeng", native: "กริ๊ง กริ๊ง!", fallback: "greeng greeng" },
             { country: "Egypt", flag: "🇪🇬", sound: "ترن ترن", pron: "reen-reen", native: "ترن ترن", fallback: "reen reen" },
             { country: "Brazil", flag: "🇧🇷", sound: "¡Trim trim!", pron: "treem-treem", native: "¡Trim trim!", fallback: "treem treem" },
-            { country: "China", flag: "🇨🇳", sound: "叮铃铃~", pron: "deeng-leeng", native: "叮铃铃~", fallback: "deeng leeng" },
-            { country: "India", flag: "🇮🇳", sound: "ट्रिंग-ट्रिंग!", pron: "treeng-treeng", native: "ट्रिंग-ट्रिंग!", fallback: "treeng treeng" },
+            { country: "China", flag: "🇨🇳", sound: "叮铃铃", pron: "deeng-leeng", native: "叮铃铃", fallback: "deeng leeng" },
+            { country: "India", flag: "🇮🇳", sound: "ट्रिंग-ट्रिंग!", pron: "treeng-treeng", native: "ट्रिंग-트링!", fallback: "treeng treeng" },
             { country: "Kenya", flag: "🇰🇪", sound: "Ring ring", pron: "ring-ring", native: "Ring ring", fallback: "ring ring" },
             { country: "Greece", flag: "🇬🇷", sound: "Ντριν ντριν!", pron: "dreen-dreen", native: "Ντριν ντριν!", fallback: "dreen-dreen" }
         ]},
@@ -80,8 +80,8 @@ window.objectsData = {
             { country: "Russia", flag: "🇷🇺", sound: "Дзинь-дон!", pron: "dzeen-doahn", native: "Дзинь-дон!", fallback: "dzeen doahn" },
             { country: "Thailand", flag: "🇹🇭", sound: "ติ๊ง ต่อง!", pron: "teeng toahng", native: "ติ๊ง ต่อง!", fallback: "teeng toahng" },
             { country: "Egypt", flag: "🇪🇬", sound: "دينغ دونغ", pron: "deeng-doahng", native: "دينغ دونغ", fallback: "deeng doahng" },
-            { country: "Brazil", flag: "Dim dom!", pron: "deem-doahn", native: "Dim dom!", fallback: "deem doahn" },
-            { country: "China", flag: "🇨🇳", sound: "叮咚~", pron: "deeng-doahng", native: "叮咚~", fallback: "deeng doahng" },
+            { country: "Brazil", flag: "🇧🇷", sound: "Dim dom!", pron: "deem-doahn", native: "Dim dom!", fallback: "deem doahn" },
+            { country: "China", flag: "🇨🇳", sound: "叮咚", pron: "deeng-doahng", native: "叮咚", fallback: "deeng doahng" },
             { country: "India", flag: "🇮🇳", sound: "डिंग डोंग!", pron: "deeng-doahng", native: "डिंग डोंग!", fallback: "deeng doahng" },
             { country: "Kenya", flag: "🇰🇪", sound: "Ding dong", pron: "deeng-doahng", native: "Ding dong", fallback: "deeng doahng" },
             { country: "Greece", flag: "🇬🇷", sound: "Ντινγκ ντονγκ!", pron: "deeng-doahng", native: "Ντινγκ ντονγκ!", fallback: "ding-dong" }
@@ -156,7 +156,7 @@ window.objectsData = {
         ]},
         zipper: { id: 'zipper', icon: "🤐", name: "Zipper", params: { pitch: 1.1, rate: 1.5 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Zzzzzip!", pron: "zip", native: "Zzzzzip!", fallback: "zip" },
-            { country: "Korea", flag: "🇰🇷", sound: "지익~", pron: "jee-eek", native: "지익~", fallback: "jee eek" },
+            { country: "Korea", flag: "🇰🇷", sound: "지익", pron: "jee-eek", native: "지익", fallback: "jee eek" },
             { country: "Japan", flag: "🇯🇵", sound: "ジーッ", pron: "jeee", native: "ジーッ", fallback: "jeee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Zip!", pron: "zip", native: "¡Zip!", fallback: "zip" },
             { country: "France", flag: "🇫🇷", sound: "Zipp!", pron: "zip", native: "Zipp!", fallback: "zipp" },
@@ -174,7 +174,7 @@ window.objectsData = {
         click: { id: 'click', icon: "🖱️", name: "Click", params: { pitch: 1.1, rate: 1.2 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Click", pron: "click", native: "Click", fallback: "cleeck" },
             { country: "Korea", flag: "🇰🇷", sound: "딸깍!", pron: "ttal-kkak", native: "딸깍!", fallback: "ttal kkahk" },
-            { country: "Japan", flag: "🇯🇵", sound: "カ치ッ", pron: "kachih", native: "カチッ", fallback: "kah chee" },
+            { country: "Japan", flag: "🇯🇵", sound: "カチッ", pron: "kachih", native: "カ치ッ", fallback: "kah chee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Clic!", pron: "click", native: "¡Clic!", fallback: "cleeck" },
             { country: "France", flag: "🇫🇷", sound: "Clic", pron: "click", native: "Clic", fallback: "cleeck" },
             { country: "Germany", flag: "🇩🇪", sound: "Klick", pron: "click", native: "Klick", fallback: "cleeck" },
@@ -251,7 +251,7 @@ window.objectsData = {
             { country: "Thailand", flag: "🇹🇭", sound: "ฉ่า...!", pron: "chaa", native: "ฉ่า...!", fallback: "chah" },
             { country: "Egypt", flag: "🇪🇬", sound: "تششششش", pron: "tshhh", native: "تششششش", fallback: "kah lee" },
             { country: "Brazil", flag: "🇧🇷", sound: "Tssssss", pron: "tsss", native: "Tssssss", fallback: "shee ah do" },
-            { country: "China", flag: "🇨🇳", sound: "滋~ 滋~", pron: "zi zi", native: "滋~ 滋~", fallback: "zeee zeee" },
+            { country: "China", flag: "🇨🇳", sound: "滋 滋", pron: "zi zi", native: "滋 滋", fallback: "zeee zeee" },
             { country: "India", flag: "🇮🇳", sound: "छन-छन", pron: "chhan chhan", native: "छन-छन", fallback: "chhahn" },
             { country: "Kenya", flag: "🇰🇪", sound: "Sizzle", pron: "sizzle", native: "Sizzle", fallback: "see zuhl" },
             { country: "Greece", flag: "🇬🇷", sound: "Τσιτσίρισμα!", pron: "tsi-tsi", native: "Τσιτσίρισμα!", fallback: "tsi-tsi" }
