@@ -294,5 +294,40 @@ footer {
 /* Responsive */
 @media (max-width: 600px) {
     h1 { font-size: 2.8rem; }
-    .sounds-grid { grid-template-columns: 1fr; }
+    
+    .app-container {
+        padding: 2rem 1rem;
+        gap: 3rem;
+    }
+
+    main {
+        gap: 3rem;
+    }
+
+    .animal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 2열에서 3열로 변경 */
+        gap: 0.8rem;
+    }
+
+    .animal-btn {
+        min-width: unset;
+        padding: 0.8rem 0.5rem;
+    }
+
+    .animal-btn .emoji { font-size: 2.2rem; }
+    .animal-btn .name { font-size: 0.9rem; }
+
+    .selected-animal-header .main-icon {
+        font-size: 4.5rem;
+    }
+
+    .selected-animal-header h2 {
+        font-size: 2rem;
+    }
+
+    .sounds-grid { 
+        grid-template-columns: 1fr; 
+        gap: 1.2rem;
+    }
 }
