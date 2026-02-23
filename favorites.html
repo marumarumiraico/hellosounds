@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Favorites - Hello Sounds</title>
+    <meta name="description" content="View and play your collection of favorite global onomatopoeia sounds.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.8">
+    <link rel="stylesheet" href="styles.css?v=3.1">
+    <link rel="canonical" href="https://hello-sounds.com/favorites.html">
 </head>
-<body>
+<body data-theme="light">
     <nav class="category-nav">
         <div class="nav-links">
             <a href="/" class="nav-btn">🏠 Home</a>
+            <a href="/quiz.html" class="nav-btn">🎮 Quiz</a>
         </div>
         <div class="nav-spacer"></div>
         <div class="nav-controls">
-            <div class="custom-select-wrapper">
+            <div class="custom-select-wrapper" style="display:none;"> <!-- Hidden but kept for logic -->
                 <select id="langSelector" class="lang-select">
                     <option value="en">🇺🇸 EN</option>
                     <option value="ko">🇰🇷 KO</option>
@@ -24,7 +27,7 @@
                     <option value="es">🇪🇸 ES</option>
                 </select>
             </div>
-            <button id="themeToggle" class="nav-btn theme-btn">
+            <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Theme">
                 <span class="theme-icon">🌙</span>
             </button>
         </div>

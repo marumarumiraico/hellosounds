@@ -270,7 +270,7 @@ function renderSoundCards(parentItem, sounds, params) {
         const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
         card.innerHTML = `
             <div class="card-header">
-                <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img" alt="${soundItem.country} flag">
+                <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img" alt="${soundItem.country} flag" loading="lazy">
                 <span class="country">${soundItem.country}</span>
                 <div class="card-actions">
                     <button class="fav-btn ${isFav ? 'active' : ''}" aria-label="Add to favorites">❤️</button>
@@ -326,13 +326,16 @@ function playSound(soundItem, params, card) {
     const reqID = activeRequestID;
     card.classList.add('playing');
     fetch('/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: soundItem.native, country: soundItem.country }) })
-    .then(res => res.json())
+    .then(res => {
+        if (!res.ok) throw new Error("TTS API error");
+        return res.json();
+    })
     .then(data => {
         if (reqID !== activeRequestID) {
             card.classList.remove('playing');
             return;
         }
-        if (data.audioContent) {
+        if (data && data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
             audioPlayer.play().catch(() => {
                 fallbackSpeak(soundItem, params);
@@ -340,11 +343,13 @@ function playSound(soundItem, params, card) {
             });
             audioPlayer.onended = () => card.classList.remove('playing');
         } else {
-            fallbackSpeak(soundItem, params);
-            card.classList.remove('playing');
+            throw new Error("No audio content");
         }
-    }).catch(() => {
-        fallbackSpeak(soundItem, params);
+    }).catch((err) => {
+        console.warn("TTS Fetch failed, using browser fallback:", err);
+        if (reqID === activeRequestID) {
+            fallbackSpeak(soundItem, params);
+        }
         card.classList.remove('playing');
     });
 }
