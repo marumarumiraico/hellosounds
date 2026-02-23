@@ -15,60 +15,37 @@ let currentCategory = 'animals';
 let availableVoices = [];
 let audioPlayer = new Audio();
 let activeRequestID = 0;
+let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
 // Localization Data
 const i18n = {
     en: {
-        title: "Hello Sounds",
-        subtitle: "Hear how the world speaks! ✨",
-        selectItem: "Select an item:",
-        animals: "🐾 Animals",
-        objects: "🚗 Objects",
-        humans: "👤 Humans",
-        nature: "🌿 Nature",
-        quizChallenge: "Ready for a Challenge?",
-        quizDesc: "Test your ear in Quiz Mode!",
+        title: "Hello Sounds", subtitle: "Hear how the world speaks! ✨", selectItem: "Select an item:",
+        animals: "🐾 Animals", objects: "🚗 Objects", humans: "👤 Humans", nature: "🌿 Nature", favorites: "❤️ Favorites",
+        quizChallenge: "Ready for a Challenge?", quizDesc: "Test your ear in Quiz Mode!",
         footerNote: "Sound experience may vary depending on your device and browser settings.",
-        copied: "Link copied to clipboard! 🚀"
+        copied: "Link copied to clipboard! 🚀", noFavs: "No favorites yet. Click ❤️ on any sound card!"
     },
     ko: {
-        title: "헬로 사운즈",
-        subtitle: "전 세계의 다양한 소리를 들어보세요! ✨",
-        selectItem: "항목을 선택하세요:",
-        animals: "🐾 동물",
-        objects: "🚗 사물",
-        humans: "👤 사람",
-        nature: "🌿 자연",
-        quizChallenge: "퀴즈에 도전해볼까요?",
-        quizDesc: "퀴즈 모드에서 당신의 실력을 테스트해보세요!",
+        title: "헬로 사운즈", subtitle: "전 세계의 다양한 소리를 들어보세요! ✨", selectItem: "항목을 선택하세요:",
+        animals: "🐾 동물", objects: "🚗 사물", humans: "👤 사람", nature: "🌿 자연", favorites: "❤️ 즐겨찾기",
+        quizChallenge: "퀴즈에 도전해볼까요?", quizDesc: "퀴즈 모드에서 당신의 실력을 테스트해보세요!",
         footerNote: "사운드 재생 환경은 기기 및 브라우저 설정에 따라 다를 수 있습니다.",
-        copied: "링크가 클립보드에 복사되었습니다! 🚀"
+        copied: "링크가 클립보드에 복사되었습니다! 🚀", noFavs: "아직 즐겨찾기가 없습니다. 소리 카드의 ❤️를 눌러보세요!"
     },
     ja: {
-        title: "ハローサウンズ",
-        subtitle: "世界中の音を聞いてみよう！ ✨",
-        selectItem: "アイテムを選択してください:",
-        animals: "🐾 動物",
-        objects: "🚗 物体",
-        humans: "👤 人間",
-        nature: "🌿 自然",
-        quizChallenge: "クイズに挑戦しませんか？",
-        quizDesc: "クイズモードで耳の力をテストしましょう！",
+        title: "ハローサウンズ", subtitle: "世界中の音を聞いてみよう！ ✨", selectItem: "アイテムを選択してください:",
+        animals: "🐾 動物", objects: "🚗 物체", humans: "👤 人間", nature: "🌿 自然", favorites: "❤️ お気に入り",
+        quizChallenge: "クイズに挑戦しませんか？", quizDesc: "クイズモードで耳の力をテストしましょう！",
         footerNote: "音声体験はデバイスやブラウザの設定によって異なる場合があります。",
-        copied: "リンクをクリップボードにコピーしました！ 🚀"
+        copied: "リンクをクリップボードにコピーしました！ 🚀", noFavs: "お気に入りはまだありません。❤️をタップして追加してください！"
     },
     es: {
-        title: "Hello Sounds",
-        subtitle: "¡Escucha cómo habla el mundo! ✨",
-        selectItem: "Selecciona un artículo:",
-        animals: "🐾 Animales",
-        objects: "🚗 Objetos",
-        humans: "👤 Humanos",
-        nature: "🌿 Naturaleza",
-        quizChallenge: "¿Listo para un desafío?",
-        quizDesc: "¡Pon a prueba tu oído en el modo Quiz!",
+        title: "Hello Sounds", subtitle: "¡Escucha cómo habla el mundo! ✨", selectItem: "Selecciona un artículo:",
+        animals: "🐾 Animales", objects: "🚗 Objetos", humans: "👤 Humanos", nature: "🌿 Naturaleza", favorites: "❤️ Favoritos",
+        quizChallenge: "¿Listo para un desafío?", quizDesc: "¡Pon a prueba tu oído en el modo Quiz!",
         footerNote: "La experiencia de sonido puede variar según el dispositivo y el navegador.",
-        copied: "¡Enlace copiado al portapapeles! 🚀"
+        copied: "¡Enlace copiado al portapapeles! 🚀", noFavs: "Aún no hay favoritos. ¡Haz clic en ❤️ en cualquier sonido!"
     }
 };
 
@@ -78,17 +55,18 @@ function init() {
     setupTheme();
     setupLanguage();
     
-    // URL 파라미터 확인 (공유 링크 대응)
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('cat');
     const itemParam = urlParams.get('item');
 
-    if (catParam && window.soundDatabase[catParam]) {
+    if (catParam === 'favorites') {
+        renderFavorites();
+    } else if (catParam && window.soundDatabase[catParam]) {
         currentCategory = catParam;
         navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === catParam));
         renderSelectionGrid();
         if (itemParam && window.soundDatabase[catParam].data[itemParam]) {
-            selectItem(window.soundDatabase[catParam].data[itemParam], { classList: { add: ()=>{} } });
+            selectItem(window.soundDatabase[catParam].data[itemParam], null);
         }
     } else {
         renderSelectionGrid();
@@ -103,7 +81,6 @@ function setupLanguage() {
     const savedLang = localStorage.getItem('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
     langSelector.value = savedLang;
     applyLanguage(savedLang);
-
     langSelector.addEventListener('change', (e) => {
         const lang = e.target.value;
         localStorage.setItem('lang', lang);
@@ -113,11 +90,10 @@ function setupLanguage() {
 
 function applyLanguage(lang) {
     const t = i18n[lang] || i18n.en;
-    
-    // Static UI Text
-    document.querySelector('h1').innerHTML = `<span class="logo-h">H</span>ello <span class="logo-s">S</span>ounds`;
-    if (lang === 'ko') document.querySelector('h1').innerHTML = `<span class="logo-h">헬</span>로 <span class="logo-s">사</span>운즈`;
-    if (lang === 'ja') document.querySelector('h1').innerHTML = `<span class="logo-h">ハ</span>ロー <span class="logo-s">サ</span>ウンズ`;
+    const titleEl = document.querySelector('h1');
+    if (lang === 'ko') titleEl.innerHTML = `<span class="logo-h">헬</span>로 <span class="logo-s">사</span>운즈`;
+    else if (lang === 'ja') titleEl.innerHTML = `<span class="logo-h">ハ</span>ロー <span class="logo-s">サ</span>ウン즈`;
+    else titleEl.innerHTML = `<span class="logo-h">H</span>ello <span class="logo-s">S</span>ounds`;
 
     headerSubtitle.textContent = t.subtitle;
     document.querySelector('.selector-section h2').textContent = t.selectItem;
@@ -125,17 +101,10 @@ function applyLanguage(lang) {
     document.querySelector('.quiz-cta-btn span').textContent = t.quizDesc;
     document.querySelector('footer p').textContent = t.footerNote;
 
-    // Nav Buttons
     navButtons.forEach(btn => {
         const cat = btn.dataset.cat;
         if (t[cat]) btn.textContent = t[cat];
     });
-
-    // Update Category Info (if item selected)
-    const catInfo = window.soundDatabase[currentCategory];
-    if (catInfo) {
-        headerIcon.textContent = catInfo.icon;
-    }
 }
 
 function loadVoices() {
@@ -161,10 +130,7 @@ function setupTheme() {
 
 function stopAllSounds() {
     activeRequestID++;
-    try {
-        audioPlayer.pause();
-        audioPlayer.src = "";
-    } catch(e) {}
+    try { audioPlayer.pause(); audioPlayer.src = ""; } catch(e) {}
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.querySelectorAll('.sound-card').forEach(c => c.classList.remove('playing'));
 }
@@ -178,9 +144,15 @@ function setupNavigation() {
             btn.classList.add('active');
             
             currentCategory = btn.dataset.cat;
-            resultsSection.style.display = 'none';
-            selectorSection.style.display = 'block';
-            renderSelectionGrid();
+            if (currentCategory === 'favorites') {
+                renderFavorites();
+            } else {
+                const catInfo = window.soundDatabase[currentCategory];
+                headerIcon.textContent = catInfo.icon;
+                selectorSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+                renderSelectionGrid();
+            }
             
             const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}`;
             window.history.pushState({path:newUrl}, '', newUrl);
@@ -192,9 +164,7 @@ function renderSelectionGrid() {
     animalGrid.innerHTML = '';
     const categoryData = window.soundDatabase[currentCategory];
     if (!categoryData) return;
-    
-    const currentData = categoryData.data;
-    Object.values(currentData).forEach(item => {
+    Object.values(categoryData.data).forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'animal-btn';
         btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
@@ -210,13 +180,15 @@ function renderSelectionGrid() {
 function selectItem(item, clickedBtn) {
     resultsSection.style.display = 'block';
     document.querySelectorAll('.animal-btn').forEach(b => b.classList.remove('active'));
-    if (clickedBtn && clickedBtn.classList) clickedBtn.classList.add('active');
+    if (clickedBtn) clickedBtn.classList.add('active');
     mainIcon.textContent = item.icon;
     mainName.textContent = item.name;
     renderSoundCards(item, item.sounds, item.params);
     
-    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}&item=${item.id}`;
-    window.history.pushState({path:newUrl}, '', newUrl);
+    if (currentCategory !== 'favorites') {
+        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}&item=${item.id}`;
+        window.history.pushState({path:newUrl}, '', newUrl);
+    }
 
     if (window.innerWidth < 600) {
         resultsSection.scrollIntoView({ behavior: 'smooth' });
@@ -226,10 +198,10 @@ function selectItem(item, clickedBtn) {
 function renderSoundCards(parentItem, sounds, params) {
     soundsGrid.innerHTML = '';
     sounds.forEach((soundItem, index) => {
+        const isFav = favorites.some(f => f.cat === currentCategory && f.id === parentItem.id && f.country === soundItem.country);
         const card = document.createElement('div');
         card.className = 'sound-card';
         card.style.animation = `fadeInPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${index * 0.04}s`; 
-        card.style.opacity = '0';
         const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
         const flagCode = flagCodes[soundItem.country] || 'un';
         
@@ -237,7 +209,10 @@ function renderSoundCards(parentItem, sounds, params) {
             <div class="card-header">
                 <img src="https://flagcdn.com/w40/${flagCode}.png" width="24" class="country-flag-img">
                 <span class="country">${soundItem.country}</span>
-                <button class="share-btn" title="Share this sound">🔗</button>
+                <div class="card-actions">
+                    <button class="fav-btn ${isFav ? 'active' : ''}" title="Favorite">❤️</button>
+                    <button class="share-btn" title="Share">🔗</button>
+                </div>
             </div>
             <div class="card-body">
                 <div class="sound-word">"${soundItem.sound}"</div>
@@ -246,7 +221,7 @@ function renderSoundCards(parentItem, sounds, params) {
         `;
         
         card.addEventListener('click', (e) => {
-            if (e.target.closest('.share-btn')) return;
+            if (e.target.closest('.share-btn') || e.target.closest('.fav-btn')) return;
             playSound(soundItem, params, card);
         });
 
@@ -255,28 +230,84 @@ function renderSoundCards(parentItem, sounds, params) {
             shareSound(parentItem, soundItem);
         });
 
+        card.querySelector('.fav-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFavorite(parentItem, soundItem, e.currentTarget);
+        });
+
         soundsGrid.appendChild(card);
     });
     setTimeout(() => { document.querySelectorAll('.sound-word').forEach(el => fitText(el)); }, 100);
+}
+
+function toggleFavorite(item, sound, btn) {
+    const favIndex = favorites.findIndex(f => f.id === item.id && f.country === sound.country);
+    if (favIndex > -1) {
+        favorites.splice(favIndex, 1);
+        btn.classList.remove('active');
+    } else {
+        favorites.push({ cat: currentCategory, id: item.id, country: sound.country, itemEmoji: item.icon, itemName: item.name });
+        btn.classList.add('active');
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    if (currentCategory === 'favorites') renderFavorites();
+}
+
+function renderFavorites() {
+    selectorSection.style.display = 'none';
+    resultsSection.style.display = 'block';
+    mainIcon.textContent = "❤️";
+    mainName.textContent = i18n[langSelector.value].favorites;
+    soundsGrid.innerHTML = '';
+
+    if (favorites.length === 0) {
+        soundsGrid.innerHTML = `<p style="grid-column: 1/-1; padding: 2rem; font-weight: 700; opacity: 0.6;">${i18n[langSelector.value].noFavs}</p>`;
+        return;
+    }
+
+    favorites.forEach((fav, index) => {
+        const catData = window.soundDatabase[fav.cat];
+        if (!catData) return;
+        const itemData = catData.data[fav.id];
+        const soundItem = itemData.sounds.find(s => s.country === fav.country);
+        
+        const card = document.createElement('div');
+        card.className = 'sound-card';
+        const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
+        card.innerHTML = `
+            <div class="card-header">
+                <span style="font-size: 1.2rem;">${fav.itemEmoji}</span>
+                <span class="country">${soundItem.country}</span>
+                <div class="card-actions">
+                    <button class="fav-btn active">❤️</button>
+                    <button class="share-btn">🔗</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="sound-word">"${soundItem.sound}"</div>
+                <div class="pronunciation">[ ${soundItem.pron} ]</div>
+            </div>
+        `;
+        card.onclick = (e) => {
+            if (e.target.closest('.share-btn') || e.target.closest('.fav-btn')) return;
+            playSound(soundItem, itemData.params, card);
+        };
+        card.querySelector('.fav-btn').onclick = (e) => {
+            e.stopPropagation();
+            toggleFavorite(itemData, soundItem, e.currentTarget);
+        };
+        soundsGrid.appendChild(card);
+    });
 }
 
 async function shareSound(item, sound) {
     const lang = langSelector.value;
     const shareUrl = `${window.location.origin}${window.location.pathname}?cat=${currentCategory}&item=${item.id}`;
     const shareText = `Check out how ${item.name} sounds in ${sound.country}! "${sound.sound}" 🌍✨`;
-
     if (navigator.share) {
-        try {
-            await navigator.share({
-                title: 'Hello Sounds',
-                text: shareText,
-                url: shareUrl,
-            });
-        } catch (err) {}
+        try { await navigator.share({ title: 'Hello Sounds', text: shareText, url: shareUrl }); } catch (err) {}
     } else {
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            showToast(i18n[lang].copied);
-        });
+        navigator.clipboard.writeText(shareUrl).then(() => showToast(i18n[lang].copied));
     }
 }
 
@@ -318,9 +349,7 @@ function playSound(soundItem, params, cardElement) {
             audioPlayer.onended = () => { if (cardElement) cardElement.classList.remove('playing'); };
         } else { throw new Error(data.error); }
     })
-    .catch(() => {
-        if (requestID === activeRequestID) fallbackSpeak(soundItem, params, cardElement);
-    });
+    .catch(() => { if (requestID === activeRequestID) fallbackSpeak(soundItem, params, cardElement); });
 }
 
 function fallbackSpeak(soundItem, params, cardElement) {

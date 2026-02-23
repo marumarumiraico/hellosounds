@@ -266,7 +266,6 @@ h1 {
 
 .animal-btn .emoji { font-size: 3rem; }
 
-/* USER REQUEST: Style for the name class in animal-btn to match theme */
 .animal-btn .name {
     font-size: 1.1rem;
     font-weight: 800;
@@ -370,8 +369,13 @@ h1 {
     flex-grow: 1;
 }
 
-.share-btn {
-    background: var(--card-yellow); /* 대비가 확실한 노란색으로 변경 */
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fav-btn, .share-btn {
+    background: var(--surface-white);
     border: 2px solid var(--text-black);
     border-radius: 10px;
     padding: 0.4rem 0.6rem;
@@ -379,12 +383,24 @@ h1 {
     font-size: 1.1rem;
     box-shadow: 2px 2px 0px var(--text-black);
     transition: var(--spring-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.share-btn:hover {
+.fav-btn.active {
+    background: #FFB7B7;
+    border-color: #FF4D91;
+}
+
+.share-btn {
+    background: #D1B7FF;
+}
+
+.fav-btn:hover, .share-btn:hover {
     transform: translate(-1px, -1px);
     box-shadow: 3px 3px 0px var(--text-black);
-    background: var(--surface-white);
+    background: var(--card-yellow);
 }
 
 .card-body {
@@ -394,7 +410,6 @@ h1 {
     align-items: center;
 }
 
-/* REVERTED: Simple and readable sound-word font */
 .sound-word {
     font-size: 2.8rem;
     font-weight: 800;
