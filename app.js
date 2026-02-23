@@ -36,8 +36,8 @@ function setupTheme() {
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     
     document.documentElement.setAttribute('data-theme', savedTheme);
-    // [수정] 다크모드면 달(🌙), 라이트모드면 해(☀️)를 표시 (현재 상태 표시형)
-    if (icon) icon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    // [Global Standard] 액션 중심: 다크모드면 밝게 만드는 '해', 라이트모드면 어둡게 만드는 '달'
+    if (icon) icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
     themeToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -46,8 +46,8 @@ function setupTheme() {
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        // [수정] 바뀐 테마에 맞춰 아이콘 변경
-        if (icon) icon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        // 바뀐 테마에서 수행할 수 있는 다음 액션 표시
+        if (icon) icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 }
 
