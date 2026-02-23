@@ -311,6 +311,57 @@ h1 {
     width: 100%;
 }
 
+/* --- Info Section --- */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: var(--surface-white);
+    border: var(--border-width) solid var(--text-black);
+    border-radius: 30px;
+    padding: 2.5rem;
+    box-shadow: var(--hard-shadow);
+}
+
+.info-card.alternate {
+    background: var(--card-blue);
+}
+
+[data-theme="dark"] .info-card.alternate {
+    background: var(--card-blue);
+    color: #2A2420; /* 다크모드에서도 이 카드는 읽기 쉽게 고정 */
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-black);
+}
+
+[data-theme="dark"] .info-card.alternate h3 {
+    color: #2A2420;
+}
+
+.info-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-card li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
 footer {
     text-align: center;
     font-weight: 700;
