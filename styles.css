@@ -66,6 +66,10 @@ body {
     gap: 1rem;
 }
 
+.nav-spacer {
+    flex-grow: 1; /* 중간 공간을 다 차지해서 테마 버튼을 오른쪽 끝으로 밀어냄 */
+}
+
 .nav-btn {
     padding: 0.8rem 1.2rem;
     font-family: inherit;

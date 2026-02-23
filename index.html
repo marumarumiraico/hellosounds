@@ -12,10 +12,11 @@
 <body>
     <nav class="category-nav">
         <div class="nav-links">
-            <button class="nav-btn" data-cat="objects">🚗 Objects</button>
-            <button class="nav-btn active" data-cat="animals">🐾 Animals</button>
-            <button class="nav-btn" data-cat="humans">👤 Humans</button>
+            <button class="nav-btn category-btn" data-cat="objects">🚗 Objects</button>
+            <button class="nav-btn category-btn active" data-cat="animals">🐾 Animals</button>
+            <button class="nav-btn category-btn" data-cat="humans">👤 Humans</button>
         </div>
+        <div class="nav-spacer"></div>
         <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
             <span class="theme-icon">🌙</span>
         </button>
@@ -32,7 +33,7 @@
 
         <main>
             <section class="selector-section">
-                <h2>Select an animal:</h2>
+                <h2>Select an item:</h2>
                 <div class="animal-grid" id="animalGrid">
                     <!-- Animal buttons injected here via JS -->
                 </div>
@@ -54,10 +55,10 @@
             <p>Sound experience may vary depending on your device and browser settings.</p>
         </footer>
     </div>
-    <script src="data/animals.js?v=1.3"></script>
-    <script src="data/objects.js?v=1.3"></script>
-    <script src="data/humans.js?v=1.3"></script>
-    <script src="data.js?v=1.3"></script>
-    <script src="app.js?v=1.3"></script>
+    <script src="data/animals.js?v=1.4"></script>
+    <script src="data/objects.js?v=1.4"></script>
+    <script src="data/humans.js?v=1.4"></script>
+    <script src="data.js?v=1.4"></script>
+    <script src="app.js?v=1.4"></script>
 </body>
 </html>

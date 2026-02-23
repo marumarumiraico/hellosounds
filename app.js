@@ -1,4 +1,4 @@
-// Global variables (no imports for maximum compatibility)
+// Global variables
 const animalGrid = document.getElementById('animalGrid');
 const resultsSection = document.getElementById('resultsSection');
 const mainIcon = document.getElementById('mainIcon');
@@ -6,7 +6,7 @@ const mainName = document.getElementById('mainName');
 const soundsGrid = document.getElementById('soundsGrid');
 const headerIcon = document.getElementById('headerIcon');
 const headerSubtitle = document.getElementById('headerSubtitle');
-const navButtons = document.querySelectorAll('.nav-btn');
+const navButtons = document.querySelectorAll('.category-btn'); // category-btn만 선택
 
 let currentCategory = 'animals';
 let availableVoices = [];
@@ -17,24 +17,26 @@ function init() {
     setupNavigation();
     renderSelectionGrid();
     loadVoices();
-    setupTheme(); // 테마 초기화
-    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    setupTheme();
+    if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
 }
 
+function loadVoices() {
+    if (window.speechSynthesis) availableVoices = window.speechSynthesis.getVoices();
+}
+
 function setupTheme() {
     const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
     const icon = themeToggle.querySelector('.theme-icon');
     
-    if (!themeToggle || !icon) return;
-
-    // 저장된 테마 확인 또는 시스템 설정 확인
     const savedTheme = localStorage.getItem('theme') || 
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     
     document.documentElement.setAttribute('data-theme', savedTheme);
-    icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    if (icon) icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
     themeToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -43,12 +45,8 @@ function setupTheme() {
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
-}
-
-function loadVoices() {
-    availableVoices = window.speechSynthesis.getVoices();
 }
 
 function stopAllSounds() {
@@ -64,16 +62,17 @@ function stopAllSounds() {
 function setupNavigation() {
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Non-blocking audio wake-up
             try { audioPlayer.play().catch(() => {}); } catch(e) {}
-            
             stopAllSounds();
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            
             currentCategory = btn.dataset.cat;
             const catInfo = window.soundDatabase[currentCategory];
-            headerIcon.textContent = catInfo.icon;
-            headerSubtitle.textContent = catInfo.subtitle;
+            if (catInfo) {
+                headerIcon.textContent = catInfo.icon;
+                headerSubtitle.textContent = catInfo.subtitle;
+            }
             resultsSection.style.display = 'none';
             renderSelectionGrid();
         });
@@ -82,7 +81,10 @@ function setupNavigation() {
 
 function renderSelectionGrid() {
     animalGrid.innerHTML = '';
-    const currentData = window.soundDatabase[currentCategory].data;
+    const categoryData = window.soundDatabase[currentCategory];
+    if (!categoryData) return;
+    
+    const currentData = categoryData.data;
     Object.values(currentData).forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'animal-btn';
@@ -103,7 +105,6 @@ function selectItem(item, clickedBtn) {
     mainIcon.textContent = item.icon;
     mainName.textContent = item.name;
     renderSoundCards(item.sounds, item.params);
-    // Auto-scroll to results on mobile
     if (window.innerWidth < 600) {
         resultsSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -136,7 +137,6 @@ function playSound(soundItem, params, cardElement) {
     cardElement.classList.add('playing');
     setTimeout(() => cardElement.style.transform = '', 150);
 
-    // Immediate sync audio wake-up
     try {
         audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
         audioPlayer.play().catch(() => {});
@@ -152,19 +152,14 @@ function playSound(soundItem, params, cardElement) {
         if (requestID !== activeRequestID) return;
         if (data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
-            audioPlayer.play().catch(e => {
-                console.warn('Playback blocked, fallback to SpeechSynth');
-                fallbackSpeak(soundItem, params, cardElement);
-            });
+            audioPlayer.play().catch(() => fallbackSpeak(soundItem, params, cardElement));
             audioPlayer.onended = () => cardElement.classList.remove('playing');
         } else {
             throw new Error(data.error);
         }
     })
     .catch(error => {
-        if (requestID === activeRequestID) {
-            fallbackSpeak(soundItem, params, cardElement);
-        }
+        if (requestID === activeRequestID) fallbackSpeak(soundItem, params, cardElement);
     });
 }
 
