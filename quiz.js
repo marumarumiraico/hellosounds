@@ -39,6 +39,10 @@ function generateQuestion() {
     const categories = ['animals', 'objects', 'humans'];
     const catKey = categories[Math.floor(Math.random() * categories.length)];
     const category = window.soundDatabase[catKey];
+    if (!category) {
+        console.error("Database not loaded yet");
+        return;
+    }
     categoryHint.textContent = `${category.title} Category`;
     
     const items = Object.values(category.data);
