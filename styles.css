@@ -1,0 +1,298 @@
+:root {
+    --bg-main: #FFFBF0; /* 따뜻한 크림색 배경 */
+    --text-black: #2A2420; /* 아주 진한 브라운 */
+    
+    /* 카드용 강렬한 파스텔 (가독성 최상) */
+    --card-pink: #FFB7B7;
+    --card-orange: #FFD1A1;
+    --card-yellow: #FFF5A1;
+    --card-green: #B7FFB7;
+    --card-blue: #A1E9FF;
+    --card-purple: #D1B7FF;
+    
+    --border-width: 3px;
+    --hard-shadow: 6px 6px 0px var(--text-black);
+    --spring-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* 내비 바를 위해 방향 변경 */
+    align-items: center;
+}
+
+/* --- Category Navigation --- */
+.category-nav {
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border-bottom: var(--border-width) solid var(--text-black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: white;
+    border: var(--border-width) solid var(--text-black);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--spring-transition);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.nav-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-black);
+}
+
+.nav-btn.active {
+    background: var(--card-yellow);
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px var(--text-black);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem; /* 전체 섹션 간격 확대 */
+}
+
+/* 메인 내부의 선택 영역과 결과 영역 사이 간격 추가 */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; /* 동물 카드와 단어 카드 사이의 확실한 거리감 */
+}
+
+/* --- 필수 애니메이션 정의 --- */
+@keyframes fadeInPop {
+    0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes jelly {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1.2, 0.8); }
+    40% { transform: scale(0.8, 1.2); }
+    100% { transform: scale(1, 1); }
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+}
+
+.logo .icon {
+    font-size: 4rem;
+    display: inline-block;
+    animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-black);
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    background: white;
+    padding: 0.3rem 1rem;
+    border: 2px solid var(--text-black);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* --- Animal Selector --- */
+.animal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+.animal-btn {
+    background: white;
+    border: var(--border-width) solid var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+    padding: 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--spring-transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+}
+
+.animal-btn .emoji { font-size: 3rem; }
+
+.animal-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-black);
+    background: var(--card-blue);
+}
+
+.animal-btn:active, .animal-btn.active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px var(--text-black);
+    background: var(--card-purple);
+}
+
+/* --- Results Section --- */
+.results-section {
+    background: #FFFAF0; /* 결과 배경도 유색으로 */
+    padding: 3rem 2rem;
+    border-radius: 40px;
+    border: var(--border-width) solid var(--text-black);
+    box-shadow: var(--hard-shadow);
+}
+
+.selected-animal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.selected-animal-header .main-icon {
+    font-size: 6rem;
+    display: inline-block;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.selected-animal-header h2 {
+    font-size: 2.8rem;
+    background: white;
+    padding: 0.5rem 2rem;
+    border: 3px solid var(--text-black);
+    border-radius: 100px;
+    display: inline-block;
+}
+
+/* --- Sound Cards --- */
+.sounds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 260px -> 300px 확대 */
+    gap: 2rem;
+}
+
+.sound-card {
+    border: var(--border-width) solid var(--text-black);
+    border-radius: 24px;
+    padding: 1.8rem;
+    cursor: pointer;
+    transition: var(--spring-transition);
+    box-shadow: var(--hard-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 카드 배경색 다양화 (가독성용 강한 색상) */
+.sound-card:nth-child(6n+1) { background: var(--card-green); }
+.sound-card:nth-child(6n+2) { background: var(--card-pink); }
+.sound-card:nth-child(6n+3) { background: var(--card-blue); }
+.sound-card:nth-child(6n+4) { background: var(--card-yellow); }
+.sound-card:nth-child(6n+5) { background: var(--card-orange); }
+.sound-card:nth-child(6n+6) { background: var(--card-purple); }
+
+.sound-card:hover {
+    transform: translate(-4px, -4px) scale(1.02);
+    box-shadow: 10px 10px 0px var(--text-black);
+}
+
+.sound-card.playing {
+    animation: jelly 0.6s ease infinite;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-black);
+    background: white !important;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 2px solid var(--text-black);
+    padding-bottom: 0.8rem;
+}
+
+.card-header .country {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* 단어와 발음 사이의 간격 확보를 위해 card-body 정의 */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* 단어와 발음 박스 사이의 거리 */
+    align-items: center;
+}
+
+.sound-word {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text-black);
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap; /* 무조건 한 줄 유지 */
+    width: 100%;
+    overflow: hidden; /* 넘치는 부분 숨김 (JS가 처리하기 전 대비) */
+}
+
+.pronunciation {
+    font-size: 1.1rem;
+    background: white;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--text-black);
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 600;
+    width: 100%; /* 박스 너비 고정 */
+}
+
+footer {
+    text-align: center;
+    font-weight: 700;
+    padding: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1 { font-size: 2.8rem; }
+    .sounds-grid { grid-template-columns: 1fr; }
+}

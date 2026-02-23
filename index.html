@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Sounds - Animal Sounds Around the World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="category-nav">
+        <button class="nav-btn" data-cat="objects">🚗 Objects</button>
+        <button class="nav-btn active" data-cat="animals">🐾 Animals</button>
+        <button class="nav-btn" data-cat="humans">👤 Humans</button>
+    </nav>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="icon" id="headerIcon">🐾</span>
+                <h1>Hello Sounds</h1>
+            </div>
+            <p class="subtitle" id="headerSubtitle">Hear how the world speaks! ✨</p>
+        </header>
+
+        <main>
+            <section class="selector-section">
+                <h2>Select an animal:</h2>
+                <div class="animal-grid" id="animalGrid">
+                    <!-- Animal buttons injected here via JS -->
+                </div>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="selected-animal-header">
+                    <span class="main-icon" id="mainIcon">🐶</span>
+                    <h2 id="mainName">Dog</h2>
+                </div>
+                
+                <div class="sounds-grid" id="soundsGrid">
+                    <!-- Sound cards injected here via JS -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>MVP Version • Next up: Emotions & Objects!</p>
+        </footer>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
