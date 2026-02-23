@@ -59,6 +59,7 @@ function renderFavorites() {
                 <span class="country">${soundItem.country}</span>
                 <div class="card-actions">
                     <button class="fav-btn active">❤️</button>
+                    <button class="share-btn">🔗</button>
                 </div>
             </div>
             <div class="card-body">
@@ -67,7 +68,7 @@ function renderFavorites() {
             </div>`;
 
         card.onclick = (e) => {
-            if (e.target.closest('.fav-btn')) return;
+            if (e.target.closest('.fav-btn') || e.target.closest('.share-btn')) return;
             playSound(soundItem, itemData.params, card);
         };
 
@@ -76,8 +77,34 @@ function renderFavorites() {
             removeFavorite(fav.id, fav.country);
         };
 
+        card.querySelector('.share-btn').onclick = (e) => {
+            e.stopPropagation();
+            shareSound(fav, soundItem);
+        };
+
         grid.appendChild(card);
     });
+}
+
+async function shareSound(fav, sound) {
+    const shareUrl = `${window.location.origin}/?cat=${fav.cat}&item=${fav.id}`;
+    const shareText = `How ${fav.itemName} sounds in ${sound.country}! "${sound.sound}" 🌍`;
+    if (navigator.share) {
+        try { await navigator.share({ title: 'Hello Sounds', text: shareText, url: shareUrl }); }
+        catch(e) {}
+    } else {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            const lang = localStorage.getItem('lang') || 'en';
+            showToast(i18n[lang]?.copied || i18n.en.copied);
+        });
+    }
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
 function removeFavorite(id, country) {
@@ -97,12 +124,38 @@ function playSound(soundItem, params, card) {
     })
     .then(res => res.json())
     .then(data => {
-        if (reqID !== activeRequestID) return;
-        audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
-        audioPlayer.play();
-        audioPlayer.onended = () => card.classList.remove('playing');
+        if (reqID !== activeRequestID) {
+            card.classList.remove('playing');
+            return;
+        }
+        if (data.audioContent) {
+            audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
+            audioPlayer.play().catch(() => {
+                fallbackSpeak(soundItem, params);
+                card.classList.remove('playing');
+            });
+            audioPlayer.onended = () => card.classList.remove('playing');
+        } else {
+            fallbackSpeak(soundItem, params);
+            card.classList.remove('playing');
+        }
     })
-    .catch(() => card.classList.remove('playing'));
+    .catch(() => {
+        fallbackSpeak(soundItem, params);
+        card.classList.remove('playing');
+    });
+}
+
+function fallbackSpeak(soundItem, params) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const msg = new SpeechSynthesisUtterance();
+    const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
+    msg.lang = langMap[soundItem.country] || 'en-US';
+    msg.text = soundItem.fallback || soundItem.sound;
+    msg.pitch = params.pitch || 1;
+    msg.rate = params.rate || 1;
+    window.speechSynthesis.speak(msg);
 }
 
 function setupTheme() {

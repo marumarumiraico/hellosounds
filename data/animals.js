@@ -123,7 +123,7 @@ window.animalsData = {
         horse: { id: 'horse', icon: "🐴", name: "Horse", params: { pitch: 1.1, rate: 1.3 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Neighhh!", pron: "nay", native: "Neighhh!", fallback: "nay" },
             { country: "Korea", flag: "🇰🇷", sound: "히잉!", pron: "hee-ing", native: "히잉!", fallback: "hee ing" },
-            { country: "Japan", flag: "🇯🇵", sound: "ヒ히ーン", pron: "hee-hee-een", native: "ヒヒーン", fallback: "hee hee een" },
+            { country: "Japan", flag: "🇯🇵", sound: "ヒヒーン", pron: "hee-hee-een", native: "ヒヒーン", fallback: "hee hee een" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Hiii!", pron: "heee", native: "¡Hiii!", fallback: "heee" },
             { country: "France", flag: "🇫🇷", sound: "Hiiii!", pron: "heee", native: "Hiiii!", fallback: "heee" },
             { country: "Germany", flag: "🇩🇪", sound: "Hüüü!", pron: "hyeee", native: "Hüüü!", fallback: "vee hern" },
@@ -140,7 +140,7 @@ window.animalsData = {
         sheep: { id: 'sheep', icon: "🐑", name: "Sheep", params: { pitch: 1.2, rate: 0.9 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Baa baa!", pron: "baah baah", native: "Baa baa!", fallback: "baah" },
             { country: "Korea", flag: "🇰🇷", sound: "메에", pron: "meh-ae", native: "메에", fallback: "meh ae" },
-            { country: "Japan", flag: "🇯🇵", sound: "メー", pron: "meee", native: "メー", fallback: "meee" },
+            { country: "Japan", flag: "🇯🇵", sound: "메ー", pron: "meee", native: "메ー", fallback: "meee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Bee!", pron: "beee", native: "¡Bee!", fallback: "beee" },
             { country: "France", flag: "🇫🇷", sound: "Bêê!", pron: "behh", native: "Bêê!", fallback: "behh" },
             { country: "Germany", flag: "🇩🇪", sound: "Mäh!", pron: "mahh", native: "Mäh!", fallback: "mahh" },
@@ -163,7 +163,7 @@ window.animalsData = {
             { country: "Germany", flag: "🇩🇪", sound: "Piep piep!", pron: "peep peep", native: "Piep piep!", fallback: "peeep" },
             { country: "Italy", flag: "🇮🇹", sound: "Squit squit!", pron: "skwit skwit", native: "Squit squit!", fallback: "skweet" },
             { country: "Russia", flag: "🇷🇺", sound: "Пи-пи-пи!", pron: "pee-pee-pee", native: "Пи-пи-пи!", fallback: "pee pee" },
-            { country: "Thailand", flag: "🇹🇭", sound: "จี๊드 จี๊드!", pron: "jeed jeed", native: "จี๊드 จี๊드!", fallback: "jeed" },
+            { country: "Thailand", flag: "🇹🇭", sound: "จี๊ด จี๊ด!", pron: "jeed jeed", native: "จี๊ด จี๊ด!", fallback: "jeed" },
             { country: "Egypt", flag: "🇪🇬", sound: "ويي ويي", pron: "wee-wee", native: "ويي ويي", fallback: "sah reer" },
             { country: "Brazil", flag: "🇧🇷", sound: "Squeak!", pron: "skweek", native: "Squeak!", fallback: "skweek" },
             { country: "China", flag: "🇨🇳", sound: "吱吱", pron: "jee-jee", native: "吱吱", fallback: "jee jee" },
@@ -208,7 +208,7 @@ window.animalsData = {
         monkey: { id: 'monkey', icon: "🐒", name: "Monkey", params: { pitch: 1.4, rate: 1.4 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Oo-oo ah-ah!", pron: "oo-oo ah-ah", native: "Oo-oo ah-ah!", fallback: "ooh ooh aah aah" },
             { country: "Korea", flag: "🇰🇷", sound: "우끼끼!", pron: "oo-kkee-kkee", native: "우끼끼!", fallback: "oo kkee kkee" },
-            { country: "Japan", flag: "🇯🇵", sound: "ウ키キ", pron: "oo-kee-kee", native: "ウキキ", fallback: "oo kee kee" },
+            { country: "Japan", flag: "🇯🇵", sound: "ウキキ", pron: "oo-kee-kee", native: "ウキキ", fallback: "oo kee kee" },
             { country: "Spain", flag: "🇪🇸", sound: "¡I-i-i!", pron: "ee-ee-ee", native: "¡I-i-i!", fallback: "oo ah" },
             { country: "France", flag: "🇫🇷", sound: "Ouh ouh!", pron: "oo-oo", native: "Ouh ouh!", fallback: "oo oo" },
             { country: "Germany", flag: "🇩🇪", sound: "Uuh-aah!", pron: "oo-ah", native: "Uuh-aah!", fallback: "oo ah" },

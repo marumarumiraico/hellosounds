@@ -6,8 +6,37 @@ let audioPlayer = new Audio();
 let activeRequestID = 0;
 let audioCtx = null; // Singleton AudioContext
 
+const i18n = {
+    en: {
+        score: "Score", question: "Question",
+        tapListen: "Tap to Listen", backHome: "🏠 Back to Home",
+        animals: "Animals", objects: "Objects", humans: "Humans", nature: "Nature",
+        categoryText: " Category"
+    },
+    ko: {
+        score: "점수", question: "문제",
+        tapListen: "클릭하여 듣기", backHome: "🏠 홈으로 돌아가기",
+        animals: "동물", objects: "사물", humans: "사람", nature: "자연",
+        categoryText: " 카테고리"
+    },
+    ja: {
+        score: "スコア", question: "問題",
+        tapListen: "タップして聴く", backHome: "🏠 ホームに戻る",
+        animals: "動物", objects: "物体", humans: "人間", nature: "自然",
+        categoryText: " カテゴリー"
+    },
+    es: {
+        score: "Puntaje", question: "Pregunta",
+        tapListen: "Toca para escuchar", backHome: "🏠 Volver al inicio",
+        animals: "Animales", objects: "Objetos", humans: "Humanos", nature: "Naturaleza",
+        categoryText: " Categoría"
+    }
+};
+
 function init() {
     setupTheme();
+    const savedLang = localStorage.getItem('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+    applyLanguage(savedLang);
     generateQuestion();
     
     document.getElementById('mainPlayBtn').addEventListener('click', () => {
@@ -15,16 +44,12 @@ function init() {
     });
 }
 
-function setupTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.setAttribute('data-theme', savedTheme);
-}
-
-function stopAllSounds() {
-    activeRequestID++; // 이전 모든 TTS 요청 무시
-    audioPlayer.pause();
-    audioPlayer.src = "";
-    if (window.speechSynthesis) window.speechSynthesis.cancel();
+function applyLanguage(lang) {
+    const t = i18n[lang] || i18n.en;
+    document.getElementById('scoreLabel').textContent = t.score;
+    document.getElementById('qCountLabel').textContent = t.question;
+    document.getElementById('playLabel').textContent = t.tapListen;
+    document.getElementById('backHomeLabel').textContent = t.backHome;
 }
 
 function generateQuestion() {
@@ -36,14 +61,17 @@ function generateQuestion() {
     optionsGrid.innerHTML = '';
     qCountEl.textContent = qCount;
 
-    const categories = ['animals', 'objects', 'humans'];
+    const categories = ['animals', 'objects', 'humans', 'nature'];
     const catKey = categories[Math.floor(Math.random() * categories.length)];
     const category = window.soundDatabase[catKey];
     if (!category) {
         console.error("Database not loaded yet");
         return;
     }
-    categoryHint.textContent = `${category.title} Category`;
+
+    const savedLang = localStorage.getItem('lang') || 'en';
+    const t = i18n[savedLang] || i18n.en;
+    categoryHint.textContent = (t[catKey] || category.title) + t.categoryText;
     
     const items = Object.values(category.data);
     const item = items[Math.floor(Math.random() * items.length)];
@@ -71,6 +99,18 @@ function generateQuestion() {
     });
 
     setTimeout(() => playSound(correctSound, item.params), 500);
+}
+
+function setupTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+}
+
+function stopAllSounds() {
+    activeRequestID++; // 이전 모든 TTS 요청 무시
+    audioPlayer.pause();
+    audioPlayer.src = "";
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
 }
 
 function checkAnswer(selected, btn) {

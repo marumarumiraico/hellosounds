@@ -142,8 +142,8 @@
 <body data-theme="light">
     <div class="quiz-page-container">
         <div class="game-stats">
-            <span>🏆 Score: <span id="score">0</span></span>
-            <span>🧩 Question: <span id="qCount">1</span></span>
+            <span>🏆 <span id="scoreLabel">Score</span>: <span id="score">0</span></span>
+            <span>🧩 <span id="qCountLabel">Question</span>: <span id="qCount">1</span></span>
         </div>
 
         <div class="quiz-main-card">
@@ -151,7 +151,7 @@
             
             <div class="quiz-play-box" id="mainPlayBtn">
                 <span class="icon" id="targetEmoji">❓</span>
-                <span class="play-label">Tap to Listen</span>
+                <span class="play-label" id="playLabel">Tap to Listen</span>
             </div>
 
             <div class="quiz-options-grid" id="optionsGrid">
@@ -160,7 +160,7 @@
         </div>
 
         <div class="quiz-footer">
-            <a href="/" class="footer-link">🏠 Back to Home</a>
+            <a href="/" class="footer-link" id="backHomeLabel">🏠 Back to Home</a>
         </div>
     </div>
 

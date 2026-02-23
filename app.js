@@ -253,8 +253,22 @@ function toggleFavorite(item, sound, btn) {
 async function shareSound(item, sound) {
     const shareUrl = `${window.location.origin}${window.location.pathname}?cat=${currentCategory}&item=${item.id}`;
     const shareText = `How ${item.name} sounds in ${sound.country}! "${sound.sound}" 🌍`;
-    if (navigator.share) await navigator.share({ title: 'Hello Sounds', text: shareText, url: shareUrl });
-    else { navigator.clipboard.writeText(shareUrl).then(() => alert("Link copied!")); }
+    if (navigator.share) {
+        try { await navigator.share({ title: 'Hello Sounds', text: shareText, url: shareUrl }); }
+        catch(e) {}
+    } else {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            const lang = localStorage.getItem('lang') || 'en';
+            showToast(i18n[lang]?.copied || i18n.en.copied);
+        });
+    }
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
 function playSound(soundItem, params, card) {
@@ -264,11 +278,37 @@ function playSound(soundItem, params, card) {
     fetch('/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: soundItem.native, country: soundItem.country }) })
     .then(res => res.json())
     .then(data => {
-        if (reqID !== activeRequestID) return;
-        audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
-        audioPlayer.play();
-        audioPlayer.onended = () => card.classList.remove('playing');
-    }).catch(() => card.classList.remove('playing'));
+        if (reqID !== activeRequestID) {
+            card.classList.remove('playing');
+            return;
+        }
+        if (data.audioContent) {
+            audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
+            audioPlayer.play().catch(() => {
+                fallbackSpeak(soundItem, params);
+                card.classList.remove('playing');
+            });
+            audioPlayer.onended = () => card.classList.remove('playing');
+        } else {
+            fallbackSpeak(soundItem, params);
+            card.classList.remove('playing');
+        }
+    }).catch(() => {
+        fallbackSpeak(soundItem, params);
+        card.classList.remove('playing');
+    });
+}
+
+function fallbackSpeak(soundItem, params) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const msg = new SpeechSynthesisUtterance();
+    const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
+    msg.lang = langMap[soundItem.country] || 'en-US';
+    msg.text = soundItem.fallback || soundItem.sound;
+    msg.pitch = params.pitch || 1;
+    msg.rate = params.rate || 1;
+    window.speechSynthesis.speak(msg);
 }
 
 document.addEventListener('DOMContentLoaded', init);
