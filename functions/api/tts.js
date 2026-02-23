@@ -1,3 +1,4 @@
+
 const COUNTRY_VOICE_MAP = {
   "USA": { lang: "en-US", voice: "en-US-Neural2-A" },
   "Korea": { lang: "ko-KR", voice: "ko-KR-Neural2-A" },
@@ -10,9 +11,9 @@ const COUNTRY_VOICE_MAP = {
   "Thailand": { lang: "th-TH", voice: "th-TH-Standard-A" },
   "Egypt": { lang: "ar-XA", voice: "ar-XA-Wavenet-A" },
   "Brazil": { lang: "pt-BR", voice: "pt-BR-Neural2-A" },
-  "China": { lang: "zh-CN", voice: "zh-CN-Wavenet-C" },
+  "China": { lang: "zh-CN" }, // voice 제거: 구글 자동 선택
   "India": { lang: "hi-IN", voice: "hi-IN-Neural2-A" },
-  "Kenya": { lang: "sw-KE", voice: "sw-KE-Standard-A" },
+  "Kenya": { lang: "sw-KE" }, // voice 제거: 구글 자동 선택
   "Greece": { lang: "el-GR", voice: "el-GR-Wavenet-A" }
 };
 
@@ -28,29 +29,27 @@ export async function onRequestPost(context) {
   
   try {
     const { text, country } = await request.json();
-    
-    // 텍스트가 비어있는지 확인
     if (!text) return new Response(JSON.stringify({ error: "Text is empty" }), { status: 400 });
 
     const voiceConfig = COUNTRY_VOICE_MAP[country] || { lang: "en-US", voice: "en-US-Neural2-A" };
     const API_KEY = env.GOOGLE_TTS_API_KEY;
 
     if (!API_KEY) {
-      return new Response(JSON.stringify({ error: "API Key is missing in Cloudflare settings" }), { status: 500 });
+      return new Response(JSON.stringify({ error: "API Key is missing" }), { status: 500 });
     }
 
     const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`;
 
+    // 요청 바디 구성 (name이 있을 때만 포함)
+    const voiceParams = { languageCode: voiceConfig.lang };
+    if (voiceConfig.voice) {
+      voiceParams.name = voiceConfig.voice;
+    }
+
     const body = {
       input: { text: text },
-      voice: { 
-        languageCode: voiceConfig.lang,
-        name: voiceConfig.voice
-      },
-      audioConfig: { 
-        audioEncoding: 'MP3'
-        // 문제가 될 수 있는 effectsProfileId 제거
-      }
+      voice: voiceParams,
+      audioConfig: { audioEncoding: 'MP3' }
     };
 
     const googleResponse = await fetch(url, {
@@ -62,7 +61,6 @@ export async function onRequestPost(context) {
     const data = await googleResponse.json();
 
     if (!googleResponse.ok) {
-      // 구글에서 보내준 에러 메시지를 그대로 클라이언트에 전달 (디버깅용)
       return new Response(JSON.stringify({ 
         error: data.error?.message || "Google API Error",
         details: data.error
