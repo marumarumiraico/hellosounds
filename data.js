@@ -2,5 +2,6 @@
 window.soundDatabase = {
     animals: window.animalsData,
     objects: window.objectsData,
-    humans: window.humansData
+    humans: window.humansData,
+    nature: window.natureData
 };
