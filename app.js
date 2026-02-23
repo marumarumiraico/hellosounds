@@ -12,45 +12,28 @@ const navButtons = document.querySelectorAll('.nav-btn');
 
 let currentCategory = 'animals';
 let availableVoices = [];
-let audioPlayer = new Audio(); // Global audio instance for mobile compatibility
+let audioPlayer = new Audio(); // Global audio instance
 
 function init() {
     setupNavigation();
     renderSelectionGrid();
     loadVoices();
-    setupStartOverlay(); // 추가
     if (window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
-}
-
-function setupStartOverlay() {
-    const startBtn = document.getElementById('startBtn');
-    const overlay = document.getElementById('startOverlay');
-    
-    startBtn.addEventListener('click', () => {
-        // [강력한 잠금해제] 시작 버튼을 누르는 즉시 오디오 객체 활성화
-        audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
-        audioPlayer.play().then(() => {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 500);
-        }).catch(err => {
-            console.warn("Audio start failed:", err);
-            // 에러가 나더라도 오버레이는 닫음
-            overlay.style.display = 'none';
-        });
-    });
 }
 
 function loadVoices() {
     availableVoices = window.speechSynthesis.getVoices();
 }
 
+// Pre-warming audio on any navigation click
 function setupNavigation() {
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            // Wake up audio engine
+            audioPlayer.play().catch(() => {});
+            
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentCategory = btn.dataset.cat;
@@ -59,9 +42,6 @@ function setupNavigation() {
             headerSubtitle.textContent = catInfo.subtitle;
             resultsSection.style.display = 'none';
             renderSelectionGrid();
-            
-            // Interaction to unlock audio on mobile
-            audioPlayer.play().catch(() => {});
         });
     });
 }
@@ -74,8 +54,7 @@ function renderSelectionGrid() {
         btn.className = 'animal-btn';
         btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
         btn.addEventListener('click', () => {
-            // Unmute/Unlock synchronously for In-App Browsers (like KakaoTalk)
-            audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
+            // Wake up audio engine
             audioPlayer.play().catch(() => {});
             selectItem(item, btn);
         });
@@ -102,10 +81,18 @@ function renderSoundCards(sounds, params) {
         const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
         const flagCode = flagCodes[soundItem.country] || 'un';
         card.innerHTML = `<div class="card-header"><img src="https://flagcdn.com/w40/${flagCode}.png" width="24" class="country-flag-img"><span class="country">${soundItem.country}</span></div><div class="card-body"><div class="sound-word">"${soundItem.sound}"</div><div class="pronunciation">[ ${soundItem.pron} ]</div></div>`;
+        
         card.addEventListener('click', () => {
-            // [Essential] Pre-arm the audio element synchronously within the user gesture
-            audioPlayer.load();
-            playSound(soundItem, params, card);
+            // The magic for In-App Browsers:
+            // 1. Immediately play silence to take audio control
+            audioPlayer.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFRm10IBAAAAABAAEAgD5AAAB+AAABAAgAZGF0YQAAAAA=';
+            audioPlayer.play().then(() => {
+                // 2. Now that we have control, fetch the real sound
+                playSound(soundItem, params, card);
+            }).catch(() => {
+                // If direct play fails, just try the normal flow
+                playSound(soundItem, params, card);
+            });
         });
         soundsGrid.appendChild(card);
     });
@@ -117,15 +104,8 @@ function playSound(soundItem, params, cardElement) {
     cardElement.classList.add('playing');
     setTimeout(() => cardElement.style.transform = '', 150);
 
-    // Stop any existing speech
-    window.speechSynthesis.cancel();
-    
     const textToSpeak = soundItem.native;
     const country = soundItem.country;
-
-    // Reset player for new sound
-    audioPlayer.pause();
-    audioPlayer.src = "";
 
     fetch('/api/tts', {
         method: 'POST',
@@ -137,7 +117,7 @@ function playSound(soundItem, params, cardElement) {
         if (data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
             audioPlayer.play().catch(e => {
-                console.error('Audio playback failed:', e);
+                console.error('Playback failed:', e);
                 fallbackSpeak(soundItem, params, cardElement);
             });
             audioPlayer.onended = () => cardElement.classList.remove('playing');
@@ -146,12 +126,13 @@ function playSound(soundItem, params, cardElement) {
         }
     })
     .catch(error => {
-        console.error('TTS API Error, falling back to local speech:', error);
+        console.error('TTS API Error:', error);
         fallbackSpeak(soundItem, params, cardElement);
     });
 }
 
 function fallbackSpeak(soundItem, params, cardElement) {
+    window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
     const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
     msg.lang = langMap[soundItem.country] || 'en-US';
@@ -161,7 +142,6 @@ function fallbackSpeak(soundItem, params, cardElement) {
     window.speechSynthesis.speak(msg);
     cardElement.classList.remove('playing');
 }
-
 
 function fitText(el) {
     const parentWidth = el.parentElement.clientWidth - 60;
