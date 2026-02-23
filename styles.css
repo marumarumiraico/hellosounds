@@ -52,7 +52,7 @@ body {
     background: var(--surface-white);
     padding: 1rem;
     display: flex;
-    justify-content: space-between; /* 양 끝 정렬 */
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     border-bottom: var(--border-width) solid var(--text-black);
@@ -67,7 +67,7 @@ body {
 }
 
 .nav-spacer {
-    flex-grow: 1; /* 중간 공간을 다 차지해서 테마 버튼을 오른쪽 끝으로 밀어냄 */
+    flex-grow: 1;
 }
 
 .nav-btn {
@@ -85,6 +85,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 .theme-btn {
@@ -167,16 +168,6 @@ main {
 }
 
 .cta-arrow { font-size: 1.5rem; }
-
-@media (max-width: 600px) {
-    .quiz-cta-btn {
-        padding: 1rem 1.2rem;
-        gap: 1rem;
-    }
-    .cta-icon { font-size: 2rem; }
-    .cta-text strong { font-size: 1.1rem; }
-    .cta-text span { font-size: 0.85rem; }
-}
 
 @keyframes fadeInPop {
     0% { opacity: 0; transform: scale(0.5) translateY(20px); }
@@ -305,7 +296,7 @@ h1 {
     gap: 1.2rem;
     position: relative;
     overflow: hidden;
-    color: #2A2420; /* 카드는 항상 어두운 글씨로 가독성 확보 */
+    color: #2A2420;
 }
 
 .sound-card:nth-child(6n+1) { background: var(--card-green); }
@@ -313,7 +304,7 @@ h1 {
 .sound-card:nth-child(6n+3) { background: var(--card-blue); }
 .sound-card:nth-child(6n+4) { background: var(--card-yellow); }
 .sound-card:nth-child(6n+5) { background: var(--card-orange); }
-.sound-child(6n+6) { background: var(--card-purple); }
+.sound-card:nth-child(6n+6) { background: var(--card-purple); }
 
 .sound-card:hover {
     transform: translate(-4px, -4px) scale(1.02);
@@ -338,6 +329,24 @@ h1 {
 .card-header .country {
     font-weight: 700;
     font-size: 1.2rem;
+    flex-grow: 1;
+}
+
+.share-btn {
+    background: var(--surface-white);
+    border: 2px solid var(--text-black);
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 2px 2px 0px var(--text-black);
+    transition: var(--spring-transition);
+}
+
+.share-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--text-black);
+    background: var(--card-yellow);
 }
 
 .card-body {
@@ -369,103 +378,24 @@ h1 {
     width: 100%;
 }
 
-/* --- Quiz Section --- */
-.quiz-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    animation: fadeInDown 0.5s ease-out;
-}
-
-.quiz-card {
-    width: 100%;
-    max-width: 600px;
-    background: var(--surface-white);
-    border: var(--border-width) solid var(--text-black);
-    border-radius: 40px;
-    padding: 3rem;
-    box-shadow: var(--hard-shadow);
-    text-align: center;
-}
-
-.quiz-emoji {
-    font-size: 5rem;
-    display: block;
-    margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-.quiz-header h3 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.quiz-play-area {
-    margin: 2.5rem 0;
-}
-
-.replay-btn {
+/* --- Toast --- */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-black);
+    color: var(--bg-main);
     padding: 1rem 2rem;
-    font-family: inherit;
-    font-weight: 800;
-    font-size: 1.2rem;
-    background: var(--card-blue);
-    border: var(--border-width) solid var(--text-black);
-    border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 4px 4px 0px var(--text-black);
-    transition: var(--spring-transition);
-}
-
-.replay-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--text-black);
-}
-
-.quiz-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-}
-
-.option-btn {
-    padding: 1.2rem;
-    background: var(--surface-white);
-    border: var(--border-width) solid var(--text-black);
-    border-radius: 20px;
-    cursor: pointer;
-    transition: var(--spring-transition);
-    box-shadow: 4px 4px 0px var(--text-black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: inherit;
+    border-radius: 50px;
     font-weight: 700;
-    font-size: 1rem;
+    z-index: 10000;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--hard-shadow);
 }
 
-.option-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--text-black);
-}
-
-.option-btn.correct {
-    background: var(--card-green) !important;
-    animation: jelly 0.5s ease;
-}
-
-.option-btn.wrong {
-    background: var(--card-pink) !important;
-    transform: translateX(5px);
-}
-
-.quiz-feedback {
-    margin-top: 2rem;
-    font-weight: 800;
-    font-size: 1.5rem;
-    min-height: 2rem;
+.toast.show {
+    transform: translateX(-50%) translateY(0);
 }
 
 /* --- Info Section --- */
@@ -490,7 +420,7 @@ h1 {
 
 [data-theme="dark"] .info-card.alternate {
     background: var(--card-blue);
-    color: #2A2420; /* 다크모드에서도 이 카드는 읽기 쉽게 고정 */
+    color: #2A2420;
 }
 
 .info-card h3 {
@@ -622,4 +552,12 @@ footer {
         height: 40px;
         font-size: 1.2rem;
     }
+
+    .quiz-cta-btn {
+        padding: 1rem 1.2rem;
+        gap: 1rem;
+    }
+    .cta-icon { font-size: 2rem; }
+    .cta-text strong { font-size: 1.1rem; }
+    .cta-text span { font-size: 0.85rem; }
 }
