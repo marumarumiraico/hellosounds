@@ -120,6 +120,64 @@ main {
     gap: 5rem;
 }
 
+/* --- Quiz CTA Banner --- */
+.quiz-cta {
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+}
+
+.quiz-cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--card-orange);
+    color: #2A2420;
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    border: var(--border-width) solid var(--text-black);
+    border-radius: 25px;
+    box-shadow: var(--hard-shadow);
+    transition: var(--spring-transition);
+}
+
+.quiz-cta-btn:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px var(--text-black);
+    background: var(--card-yellow);
+}
+
+.cta-icon { font-size: 2.5rem; }
+
+.cta-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.cta-text strong {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.cta-text span {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.cta-arrow { font-size: 1.5rem; }
+
+@media (max-width: 600px) {
+    .quiz-cta-btn {
+        padding: 1rem 1.2rem;
+        gap: 1rem;
+    }
+    .cta-icon { font-size: 2rem; }
+    .cta-text strong { font-size: 1.1rem; }
+    .cta-text span { font-size: 0.85rem; }
+}
+
 @keyframes fadeInPop {
     0% { opacity: 0; transform: scale(0.5) translateY(20px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
