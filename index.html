@@ -36,7 +36,7 @@
             <button class="nav-btn category-btn" data-cat="objects">🚗 Objects</button>
             <button class="nav-btn category-btn active" data-cat="animals">🐾 Animals</button>
             <button class="nav-btn category-btn" data-cat="humans">👤 Humans</button>
-            <button class="nav-btn quiz-nav-btn" id="quizNavBtn">🎮 Quiz</button>
+            <a href="/quiz.html" class="nav-btn quiz-nav-btn">🎮 Quiz</a>
         </div>
         <div class="nav-spacer"></div>
         <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Dark Mode">
@@ -54,26 +54,26 @@
         </header>
 
         <main>
-            <!-- Quiz Section (Hidden by default) -->
-            <section id="quizSection" class="quiz-section" style="display: none;">
-                <div class="quiz-card">
-                    <div class="quiz-header">
-                        <span id="quizEmoji" class="quiz-emoji">❓</span>
-                        <h3>Guess the Country!</h3>
-                        <p>Listen to the sound and pick the right flag.</p>
-                    </div>
-                    <div class="quiz-play-area">
-                        <button id="replayBtn" class="replay-btn">🔊 Replay Sound</button>
-                    </div>
-                    <div id="quizOptions" class="quiz-options">
-                        <!-- Options will be injected here -->
-                    </div>
-                    <div id="quizFeedback" class="quiz-feedback"></div>
+            <section class="selector-section" id="selectorSection">
+                <h2>Select an item:</h2>
+                <div class="animal-grid" id="animalGrid">
+                    <!-- Animal buttons injected here via JS -->
                 </div>
-                <button id="exitQuizBtn" class="footer-link" style="margin-top: 2rem;">Exit Quiz</button>
             </section>
 
-            <section class="selector-section" id="selectorSection">
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="selected-animal-header">
+                    <span class="main-icon" id="mainIcon">🐶</span>
+                    <h2 id="mainName">Dog</h2>
+                </div>
+                
+                <div class="sounds-grid" id="soundsGrid">
+                    <!-- Sound cards injected here via JS -->
+                </div>
+            </section>
+
+            <!-- New Educational Content Section for AdSense -->
+            <section class="info-section">
                 <h2>Select an item:</h2>
                 <div class="animal-grid" id="animalGrid">
                     <!-- Animal buttons injected here via JS -->

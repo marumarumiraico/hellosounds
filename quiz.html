@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master - Hello Sounds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.7">
+    <style>
+        .quiz-page-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            background: var(--card-purple);
+            padding: 1.5rem 2rem;
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 20px;
+            box-shadow: 4px 4px 0px var(--text-black);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #2A2420;
+        }
+        .quiz-main-card {
+            background: var(--surface-white);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 40px;
+            padding: 3rem 2rem;
+            box-shadow: var(--hard-shadow);
+            text-align: center;
+            position: relative;
+        }
+        .question-hint {
+            background: var(--card-yellow);
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--text-black);
+            border-radius: 100px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #2A2420;
+        }
+        .quiz-play-box {
+            background: var(--bg-main);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            transition: var(--spring-transition);
+        }
+        .quiz-play-box:hover {
+            transform: scale(1.02);
+            background: var(--card-blue);
+        }
+        .quiz-play-box .icon {
+            font-size: 5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .play-label {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+        .quiz-options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .quiz-option {
+            background: var(--surface-white);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 25px;
+            padding: 1.5rem;
+            font-family: inherit;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 6px 6px 0px var(--text-black);
+            transition: var(--spring-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-black);
+        }
+        .quiz-option:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px var(--text-black);
+            background: var(--card-orange);
+            color: #2A2420;
+        }
+        .quiz-option.correct {
+            background: var(--card-green) !important;
+            color: #2A2420;
+        }
+        .quiz-option.wrong {
+            background: var(--card-pink) !important;
+            color: #2A2420;
+        }
+        .quiz-footer {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        @media (max-width: 600px) {
+            .quiz-options-grid { grid-template-columns: 1fr; }
+            .quiz-play-box { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="quiz-page-container">
+        <div class="game-stats">
+            <span>🏆 Score: <span id="score">0</span></span>
+            <span>🧩 Question: <span id="qCount">1</span></span>
+        </div>
+
+        <div class="quiz-main-card">
+            <div class="question-hint" id="categoryHint">Animals Category</div>
+            
+            <div class="quiz-play-box" id="mainPlayBtn">
+                <span class="icon" id="targetEmoji">❓</span>
+                <span class="play-label">Tap to Listen</span>
+            </div>
+
+            <div class="quiz-options-grid" id="optionsGrid">
+                <!-- 4 Options will be injected here -->
+            </div>
+        </div>
+
+        <div class="quiz-footer">
+            <a href="/" class="footer-link">🏠 Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Data & Script -->
+    <script src="data/animals.js?v=1.7"></script>
+    <script src="data/objects.js?v=1.7"></script>
+    <script src="data/humans.js?v=1.7"></script>
+    <script src="data.js?v=1.7"></script>
+    <script src="quiz.js?v=1.7"></script>
+</body>
+</html>

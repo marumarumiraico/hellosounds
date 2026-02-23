@@ -2,7 +2,6 @@
 const animalGrid = document.getElementById('animalGrid');
 const resultsSection = document.getElementById('resultsSection');
 const selectorSection = document.getElementById('selectorSection');
-const quizSection = document.getElementById('quizSection');
 const mainHeader = document.getElementById('mainHeader');
 const mainIcon = document.getElementById('mainIcon');
 const mainName = document.getElementById('mainName');
@@ -10,23 +9,17 @@ const soundsGrid = document.getElementById('soundsGrid');
 const headerIcon = document.getElementById('headerIcon');
 const headerSubtitle = document.getElementById('headerSubtitle');
 const navButtons = document.querySelectorAll('.category-btn'); 
-const quizNavBtn = document.getElementById('quizNavBtn');
 
 let currentCategory = 'animals';
 let availableVoices = [];
 let audioPlayer = new Audio();
 let activeRequestID = 0;
 
-// Quiz State
-let quizAnswer = null;
-let isQuizMode = false;
-
 function init() {
     setupNavigation();
     renderSelectionGrid();
     loadVoices();
     setupTheme();
-    setupQuiz();
     if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
@@ -66,7 +59,6 @@ function stopAllSounds() {
 function setupNavigation() {
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            exitQuiz();
             try { audioPlayer.play().catch(() => {}); } catch(e) {}
             stopAllSounds();
             navButtons.forEach(b => b.classList.remove('active'));
@@ -132,8 +124,8 @@ function renderSoundCards(sounds, params) {
     setTimeout(() => { document.querySelectorAll('.sound-word').forEach(el => fitText(el)); }, 100);
 }
 
-function playSound(soundItem, params, cardElement, isQuiz = false) {
-    if (!isQuiz) stopAllSounds();
+function playSound(soundItem, params, cardElement) {
+    stopAllSounds();
     const requestID = activeRequestID;
     if (cardElement) {
         cardElement.style.transform = 'scale(0.95)';
@@ -173,102 +165,6 @@ function fallbackSpeak(soundItem, params, cardElement) {
     msg.rate = params.rate;
     window.speechSynthesis.speak(msg);
     if (cardElement) cardElement.classList.remove('playing');
-}
-
-// --- Quiz Logic ---
-function setupQuiz() {
-    quizNavBtn.addEventListener('click', startQuiz);
-    document.getElementById('exitQuizBtn').addEventListener('click', exitQuiz);
-    document.getElementById('replayBtn').addEventListener('click', () => {
-        if (quizAnswer) playSound(quizAnswer.sound, quizAnswer.params, null, true);
-    });
-}
-
-function startQuiz() {
-    isQuizMode = true;
-    stopAllSounds();
-    navButtons.forEach(b => b.classList.remove('active'));
-    quizNavBtn.classList.add('active');
-    
-    selectorSection.style.display = 'none';
-    resultsSection.style.display = 'none';
-    mainHeader.style.display = 'none';
-    quizSection.style.display = 'flex';
-    
-    generateQuestion();
-}
-
-function exitQuiz() {
-    isQuizMode = false;
-    quizSection.style.display = 'none';
-    mainHeader.style.display = 'block';
-    selectorSection.style.display = 'block';
-    quizNavBtn.classList.remove('active');
-    
-    // Restore animals as default
-    const aniBtn = Array.from(navButtons).find(b => b.dataset.cat === 'animals');
-    if (aniBtn) aniBtn.click();
-}
-
-function generateQuestion() {
-    const feedback = document.getElementById('quizFeedback');
-    feedback.textContent = '';
-    
-    // 1. Pick a random category and item
-    const categories = ['animals', 'objects', 'humans'];
-    const cat = categories[Math.floor(Math.random() * categories.length)];
-    const items = Object.values(window.soundDatabase[cat].data);
-    const item = items[Math.floor(Math.random() * items.length)];
-    
-    // 2. Pick a random country from sounds
-    const correctSound = item.sounds[Math.floor(Math.random() * item.sounds.length)];
-    quizAnswer = { sound: correctSound, params: item.params };
-    
-    document.getElementById('quizEmoji').textContent = item.icon;
-    
-    // 3. Create 4 options
-    const countries = ['USA', 'Korea', 'Japan', 'Spain', 'France', 'Germany', 'Italy', 'Russia', 'Thailand', 'Egypt', 'Brazil', 'China', 'India', 'Kenya', 'Greece'];
-    let options = [correctSound.country];
-    while (options.length < 4) {
-        const randomCountry = countries[Math.floor(Math.random() * countries.length)];
-        if (!options.includes(randomCountry)) options.push(randomCountry);
-    }
-    options.sort(() => Math.random() - 0.5);
-    
-    // 4. Render options
-    const optionsGrid = document.getElementById('quizOptions');
-    optionsGrid.innerHTML = '';
-    const flagMap = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
-    
-    options.forEach(country => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<img src="https://flagcdn.com/w40/${flagMap[country]}.png" width="30"> <span>${country}</span>`;
-        btn.onclick = () => checkAnswer(country, btn);
-        optionsGrid.appendChild(btn);
-    });
-    
-    // 5. Play sound
-    playSound(correctSound, item.params, null, true);
-}
-
-function checkAnswer(selectedCountry, btn) {
-    const feedback = document.getElementById('quizFeedback');
-    const allBtns = document.querySelectorAll('.option-btn');
-    
-    allBtns.forEach(b => b.style.pointerEvents = 'none');
-    
-    if (selectedCountry === quizAnswer.sound.country) {
-        btn.classList.add('correct');
-        feedback.textContent = "✨ Correct! Amazing! ✨";
-        feedback.style.color = "#2ecc71";
-        setTimeout(generateQuestion, 2000);
-    } else {
-        btn.classList.add('wrong');
-        feedback.textContent = `❌ Oh no! It was ${quizAnswer.sound.country}.`;
-        feedback.style.color = "#e74c3c";
-        setTimeout(generateQuestion, 2500);
-    }
 }
 
 function fitText(el) {
