@@ -246,8 +246,8 @@ function setupNavigation() {
             resultsSection.style.display = 'none';
             renderSelectionGrid();
 
-            // Scroll to selector section
-            selectorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Scroll to the very top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
 
             const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}`;
             window.history.pushState({path:newUrl}, '', newUrl);
@@ -340,9 +340,11 @@ function showToast(message) {
 }
 
 function playSound(soundItem, params, card) {
+    stopAllSounds(); // Clear previous animations and sounds
     activeRequestID++;
     const reqID = activeRequestID;
     card.classList.add('playing');
+    
     fetch('/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: soundItem.native, country: soundItem.country }) })
     .then(res => {
         if (!res.ok) throw new Error("TTS API error");
@@ -356,8 +358,7 @@ function playSound(soundItem, params, card) {
         if (data && data.audioContent) {
             audioPlayer.src = `data:audio/mp3;base64,${data.audioContent}`;
             audioPlayer.play().catch(() => {
-                fallbackSpeak(soundItem, params);
-                card.classList.remove('playing');
+                fallbackSpeak(soundItem, params, card);
             });
             audioPlayer.onended = () => card.classList.remove('playing');
         } else {
@@ -366,14 +367,18 @@ function playSound(soundItem, params, card) {
     }).catch((err) => {
         console.warn("TTS Fetch failed, using browser fallback:", err);
         if (reqID === activeRequestID) {
-            fallbackSpeak(soundItem, params);
+            fallbackSpeak(soundItem, params, card);
+        } else {
+            card.classList.remove('playing');
         }
-        card.classList.remove('playing');
     });
 }
 
-function fallbackSpeak(soundItem, params) {
-    if (!window.speechSynthesis) return;
+function fallbackSpeak(soundItem, params, card) {
+    if (!window.speechSynthesis) {
+        if (card) card.classList.remove('playing');
+        return;
+    }
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
     const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
@@ -381,6 +386,13 @@ function fallbackSpeak(soundItem, params) {
     msg.text = soundItem.fallback || soundItem.sound;
     msg.pitch = params.pitch || 1;
     msg.rate = params.rate || 1;
+
+    if (card) {
+        msg.onstart = () => card.classList.add('playing');
+        msg.onend = () => card.classList.remove('playing');
+        msg.onerror = () => card.classList.remove('playing');
+    }
+
     window.speechSynthesis.speak(msg);
 }
 
