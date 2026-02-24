@@ -197,6 +197,16 @@ main { display: flex; flex-direction: column; gap: 5rem; }
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
+@keyframes jelly {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1, 1); }
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
@@ -223,7 +233,13 @@ h1 { font-size: 4rem; font-weight: 700; color: var(--text-black); letter-spacing
 .animal-btn .emoji { font-size: 3rem; }
 .animal-btn .name { font-size: 1.1rem; font-weight: 800; margin-top: 0.5rem; text-transform: uppercase; }
 .animal-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-black); background: var(--card-blue); }
-.animal-btn:active, .animal-btn.active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px var(--text-black); background: var(--card-purple); color: #2A2420; }
+.animal-btn:active, .animal-btn.active { 
+    animation: jelly 0.5s ease;
+    transform: translate(2px, 2px); 
+    box-shadow: 0px 0px 0px var(--text-black); 
+    background: var(--card-purple); 
+    color: #2A2420; 
+}
 
 .results-section { background: var(--bg-main); padding: 3rem 2rem; border-radius: 40px; border: var(--border-width) solid var(--text-black); box-shadow: var(--hard-shadow); }
 .selected-animal-header { text-align: center; margin-bottom: 3rem; }
@@ -245,7 +261,7 @@ h1 { font-size: 4rem; font-weight: 700; color: var(--text-black); letter-spacing
 .sound-card:hover { transform: translate(-4px, -4px) scale(1.02); box-shadow: 10px 10px 0px var(--text-black); }
 
 .sound-card.playing {
-    animation: pulse-gentle 1.5s ease-in-out infinite;
+    animation: jelly 0.6s ease infinite;
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px var(--text-black);
     background: var(--surface-white) !important;
@@ -261,7 +277,10 @@ h1 { font-size: 4rem; font-weight: 700; color: var(--text-black); letter-spacing
     transition: var(--spring-transition); display: flex; align-items: center; justify-content: center;
 }
 .fav-btn.active { background: #FFB7B7; border-color: #FF4D91; }
-.share-btn { background: #D1B7FF; }
+.share-btn { 
+    background: #FFD1A1; /* Warm orange background for better visibility */
+    color: #2A2420; /* Ensure icon is dark/visible */
+}
 .fav-btn:hover, .share-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px var(--text-black); }
 .share-btn:hover { background: var(--card-yellow); }
 

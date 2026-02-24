@@ -150,7 +150,7 @@ function setupHomeLogic() {
 }
 
 function setupLanguage() {
-    const savedLang = localStorage.getItem('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+    const savedLang = localStorage.getItem('lang') || 'en';
     updateLangUI(savedLang);
     applyLanguage(savedLang);
 
@@ -236,9 +236,19 @@ function setupNavigation() {
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentCategory = btn.dataset.cat;
+            
+            // Update Header Icon
+            if (headerIcon && window.soundDatabase[currentCategory]) {
+                headerIcon.textContent = window.soundDatabase[currentCategory].icon;
+            }
+
             selectorSection.style.display = 'block';
             resultsSection.style.display = 'none';
             renderSelectionGrid();
+
+            // Scroll to selector section
+            selectorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
             const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}`;
             window.history.pushState({path:newUrl}, '', newUrl);
         });

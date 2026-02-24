@@ -159,7 +159,11 @@
     <div class="quiz-page-container">
         <div class="game-stats">
             <span>🏆 <span id="scoreLabel">Score</span>: <span id="score">0</span></span>
-            <span>🧩 <span id="qCountLabel">Question</span>: <span id="qCount">1</span></span>
+            <span>🧩 <span id="qCountLabel">Question</span>: <span id="qCount">1</span>/10</span>
+        </div>
+
+        <div class="progress-container" style="width: 100%; height: 12px; background: var(--surface-white); border: 2px solid var(--text-black); border-radius: 10px; overflow: hidden; box-shadow: 2px 2px 0px var(--text-black);">
+            <div id="progressBar" style="width: 0%; height: 100%; background: var(--card-green); transition: width 0.3s ease;"></div>
         </div>
 
         <div class="quiz-main-card">
@@ -178,6 +182,18 @@
         <div class="quiz-footer footer-nav">
             <a href="/" class="footer-link" id="backHomeLabel">🏠 Back to Home</a>
             <a href="/about.html" class="footer-link">💡 About</a>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: var(--bg-main); border: var(--border-width) solid var(--text-black); border-radius: 40px; padding: 3rem; max-width: 500px; width: 90%; text-align: center; box-shadow: var(--hard-shadow);">
+            <h2 id="resultTitle" style="font-size: 3rem; margin-bottom: 1rem;">🎉 Amazing!</h2>
+            <p id="resultText" style="font-size: 1.5rem; margin-bottom: 2rem;">Your final score is 100!</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <button id="restartBtn" class="nav-btn" style="width: 100%; background: var(--card-green);">🎮 Play Again</button>
+                <a href="/" class="nav-btn" style="width: 100%; background: var(--card-blue); text-decoration: none;">🏠 Back Home</a>
+            </div>
         </div>
     </div>
 
