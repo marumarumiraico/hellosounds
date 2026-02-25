@@ -1,35 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Main Pages -->
-    <url>
-        <loc>https://hello-sounds.com/</loc>
-        <priority>1.0</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://hello-sounds.com/about.html</loc>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://hello-sounds.com/quiz.html</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://hello-sounds.com/favorites.html</loc>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://hello-sounds.com/privacy.html</loc>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://hello-sounds.com/terms.html</loc>
-        <priority>0.3</priority>
-    </url>
+    <!-- Main Roots -->
+    <url><loc>https://hello-sounds.com/</loc><priority>1.0</priority></url>
+    <url><loc>https://hello-sounds.com/en/</loc><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/ko/</loc><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/ja/</loc><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/es/</loc><priority>0.9</priority></url>
 
-    <!-- Categories -->
-    <url><loc>https://hello-sounds.com/?cat=animals</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/?cat=objects</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/?cat=humans</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/?cat=nature</loc><priority>0.9</priority></url>
+    <!-- Essential Pages -->
+    <url><loc>https://hello-sounds.com/about.html</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/quiz.html</loc><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/favorites.html</loc><priority>0.6</priority></url>
+
+    <!-- Example Long-tail Keywords (Animals) -->
+    <url><loc>https://hello-sounds.com/en/animals/dog</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/dog</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/cat</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/cat</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/car</loc><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/car</loc><priority>0.8</priority></url>
 </urlset>

@@ -95,23 +95,98 @@ const i18n = {
 
 function init() {
     setupTheme();
-    setupLanguage();
     setupNavigation();
     setupHomeLogic();
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const catParam = urlParams.get('cat');
-    const itemParam = urlParams.get('item');
+    handleRouting();
 
-    if (catParam && window.soundDatabase[catParam]) {
-        currentCategory = catParam;
-        navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === catParam));
+    langCurrentBtn.onclick = (e) => {
+        e.stopPropagation();
+        langOptions.classList.toggle('show');
+    };
+
+    langOpts.forEach(opt => {
+        opt.onclick = () => {
+            const val = opt.dataset.value;
+            const currentItem = resultsSection.style.display === 'block' ? mainName.textContent.toLowerCase() : null;
+            
+            localStorage.setItem('lang', val);
+            updateLangUI(val);
+            applyLanguage(val);
+            langOptions.classList.remove('show');
+            renderSelectionGrid();
+            
+            // SEO: Update URL when language changes
+            updateUrl(val, currentCategory, findItemIDByName(currentItem));
+        };
+    });
+
+    window.onclick = () => langOptions.classList.remove('show');
+}
+
+function findItemIDByName(name) {
+    if (!name) return null;
+    const catData = window.soundDatabase[currentCategory];
+    if (!catData) return null;
+    const found = Object.values(catData.data).find(item => item.name.toLowerCase() === name.toLowerCase());
+    return found ? found.id : null;
+}
+
+function handleRouting() {
+    const path = window.location.pathname.split('/').filter(p => p !== "");
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    let lang = localStorage.getItem('lang') || 'en';
+    let cat = 'animals';
+    let itemID = null;
+
+    if (path.length > 0 && ['en', 'ko', 'ja', 'es'].includes(path[0])) {
+        lang = path[0];
+        if (path[1]) cat = path[1];
+        if (path[2]) itemID = path[2];
+    } else {
+        if (urlParams.has('cat')) cat = urlParams.get('cat');
+        if (urlParams.has('item')) itemID = urlParams.get('item');
+    }
+
+    localStorage.setItem('lang', lang);
+    updateLangUI(lang);
+    applyLanguage(lang);
+
+    if (window.soundDatabase[cat]) {
+        currentCategory = cat;
+        navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
         renderSelectionGrid();
-        if (itemParam && window.soundDatabase[catParam].data[itemParam]) {
-            selectItem(window.soundDatabase[catParam].data[itemParam], null);
+        
+        const item = window.soundDatabase[cat].data[itemID];
+        if (itemID && item) {
+            selectItem(item, null, false);
         }
     } else {
         renderSelectionGrid();
+    }
+}
+
+function updateUrl(lang, cat, itemID) {
+    const newPath = `/${lang}/${cat}${itemID ? '/' + itemID : ''}`;
+    window.history.pushState({ path: newPath }, '', newPath);
+    updatePageMetadata(lang, cat, itemID);
+}
+
+function updatePageMetadata(lang, cat, itemID) {
+    const t = i18n[lang] || i18n.en;
+    const item = itemID ? window.soundDatabase[cat]?.data[itemID] : null;
+    
+    if (item) {
+        document.title = `${item.icon} ${item.name} Sound in ${lang.toUpperCase()} | Hello Sounds`;
+        const desc = `Hear how ${item.name} sounds around the world. Native onomatopoeia for ${item.name} in ${lang.toUpperCase()} and 15+ countries.`;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
+        
+        // Update OG Tags dynamically
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
+        document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
+        document.querySelector('meta[property="og:url"]')?.setAttribute('content', window.location.href);
+    } else {
+        document.title = t.title.join("") + " - Global Onomatopoeia Library";
     }
 }
 
@@ -121,24 +196,14 @@ function setupHomeLogic() {
 
     const goHome = () => {
         stopAllSounds();
-        // Reset to initial state
         currentCategory = 'animals';
         resultsSection.style.display = 'none';
         selectorSection.style.display = 'block';
-        
-        // Reset category buttons
-        navButtons.forEach(b => {
-            b.classList.toggle('active', b.dataset.cat === 'animals');
-        });
-        
-        // Redender grid
+        navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === 'animals'));
         renderSelectionGrid();
         
-        // Clear URL parameters without refreshing
-        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-        window.history.pushState({path:newUrl}, '', newUrl);
-        
-        // Scroll to top
+        const lang = localStorage.getItem('lang') || 'en';
+        updateUrl(lang, 'animals', null);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -150,32 +215,12 @@ function setupHomeLogic() {
 }
 
 function setupLanguage() {
-    const savedLang = localStorage.getItem('lang') || 'en';
-    updateLangUI(savedLang);
-    applyLanguage(savedLang);
-
-    langCurrentBtn.onclick = (e) => {
-        e.stopPropagation();
-        langOptions.classList.toggle('show');
-    };
-
-    langOpts.forEach(opt => {
-        opt.onclick = () => {
-            const val = opt.dataset.value;
-            localStorage.setItem('lang', val);
-            updateLangUI(val);
-            applyLanguage(val);
-            langOptions.classList.remove('show');
-            renderSelectionGrid();
-        };
-    });
-
-    window.onclick = () => langOptions.classList.remove('show');
+    // Redundant now, logic moved to handleRouting and init
 }
 
 function updateLangUI(lang) {
     if (currentFlagImg) currentFlagImg.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
-    document.documentElement.lang = lang; // Trend: Dynamic lang attribute for SEO
+    document.documentElement.lang = lang; 
 }
 
 function applyLanguage(lang) {
@@ -249,8 +294,9 @@ function setupNavigation() {
             // Scroll to the very top of the page
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?cat=${currentCategory}`;
-            window.history.pushState({path:newUrl}, '', newUrl);
+            // SEO: Update URL to sub-directory style
+            const lang = localStorage.getItem('lang') || 'en';
+            updateUrl(lang, currentCategory, null);
         });
     });
 }
@@ -269,14 +315,19 @@ function renderSelectionGrid() {
     });
 }
 
-function selectItem(item, clickedBtn) {
+function selectItem(item, clickedBtn, pushState = true) {
     resultsSection.style.display = 'block';
     document.querySelectorAll('.animal-btn').forEach(b => b.classList.remove('active'));
     if (clickedBtn) clickedBtn.classList.add('active');
     mainIcon.textContent = item.icon;
     mainName.textContent = item.name;
     renderSoundCards(item, item.sounds, item.params);
-    window.history.pushState({}, '', `?cat=${currentCategory}&item=${item.id}`);
+    
+    if (pushState) {
+        const lang = localStorage.getItem('lang') || 'en';
+        updateUrl(lang, currentCategory, item.id);
+    }
+    
     if (window.innerWidth < 600) resultsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
