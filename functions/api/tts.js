@@ -13,7 +13,7 @@ const COUNTRY_VOICE_MAP = {
   "Brazil": { lang: "pt-BR", voice: "pt-BR-Neural2-A" },
   "China": { lang: "zh-CN" }, // voice 제거: 구글 자동 선택
   "India": { lang: "hi-IN", voice: "hi-IN-Neural2-A" },
-  "Kenya": { lang: "sw-KE" }, // voice 제거: 구글 자동 선택
+  "Kenya": { lang: "sw-KE", voice: "sw-KE-Standard-A" },
   "Greece": { lang: "el-GR", voice: "el-GR-Wavenet-A" }
 };
 
