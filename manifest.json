@@ -8,14 +8,9 @@
   "theme_color": "#FFB7B7",
   "icons": [
     {
-      "src": "https://kapowaz.github.io/square-flags/flags/us.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
-    },
-    {
-      "src": "https://flagcdn.com/w320/us.png",
-      "sizes": "320x240",
-      "type": "image/png"
     }
   ]
 }
