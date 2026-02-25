@@ -262,7 +262,8 @@ function renderSelectionGrid() {
     Object.values(categoryData.data).forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'animal-btn';
-        btn.innerHTML = `<span class="emoji">${item.icon}</span><span class="name">${item.name}</span>`;
+        btn.setAttribute('aria-label', `Select ${item.name}`);
+        btn.innerHTML = `<span class="emoji" aria-hidden="true">${item.icon}</span><span class="name">${item.name}</span>`;
         btn.onclick = () => { stopAllSounds(); selectItem(item, btn); };
         animalGrid.appendChild(btn);
     });
@@ -283,26 +284,33 @@ function renderSoundCards(parentItem, sounds, params) {
     soundsGrid.innerHTML = '';
     sounds.forEach((soundItem) => {
         const isFav = favorites.some(f => f.id === parentItem.id && f.country === soundItem.country);
-        const card = document.createElement('div');
+        const card = document.createElement('article');
         card.className = 'sound-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `${parentItem.name} sound in ${soundItem.country}`);
         const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
         card.innerHTML = `
             <div class="card-header">
                 <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img" alt="${soundItem.country} flag" loading="lazy">
                 <span class="country">${soundItem.country}</span>
                 <div class="card-actions">
-                    <button class="fav-btn ${isFav ? 'active' : ''}" aria-label="Add to favorites">❤️</button>
-                    <button class="share-btn" aria-label="Share sound">🔗</button>
+                    <button class="fav-btn ${isFav ? 'active' : ''}" aria-label="Add ${parentItem.name} ${soundItem.country} to favorites">❤️</button>
+                    <button class="share-btn" aria-label="Share ${parentItem.name} ${soundItem.country} sound">🔗</button>
                 </div>
             </div>
             <div class="card-body">
-                <div class="sound-word">"${soundItem.sound}"</div>
-                <div class="pronunciation">[ ${soundItem.pron} ]</div>
+                <div class="sound-word" aria-label="Sound written as: ${soundItem.sound}">"${soundItem.sound}"</div>
+                <div class="pronunciation" aria-label="Pronunciation: ${soundItem.pron}">[ ${soundItem.pron} ]</div>
             </div>`;
-        card.onclick = (e) => {
+        
+        const playHandler = (e) => {
             if (e.target.closest('.share-btn') || e.target.closest('.fav-btn')) return;
             playSound(soundItem, params, card);
         };
+        
+        card.onclick = playHandler;
+        card.onkeypress = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playHandler(e); } };
         card.querySelector('.share-btn').onclick = (e) => { e.stopPropagation(); shareSound(parentItem, soundItem); };
         card.querySelector('.fav-btn').onclick = (e) => { e.stopPropagation(); toggleFavorite(parentItem, soundItem, e.currentTarget); };
         soundsGrid.appendChild(card);
