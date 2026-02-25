@@ -395,7 +395,12 @@ footer {
 }
 .footer-link:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0px var(--text-black); background: var(--card-blue); }
 
+.header-stats { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+.header-stats span { font-size: 0.95rem; box-shadow: 3px 3px 0px var(--text-black); }
+
 @media (max-width: 600px) {
+    .header-stats { gap: 0.5rem; }
+    .header-stats span { font-size: 0.75rem; padding: 0.4rem 0.8rem !important; }
     h1 { font-size: 2.2rem; }
     .category-nav { padding: 0.6rem; gap: 0.4rem; flex-wrap: wrap; }
     .nav-links { gap: 0.4rem; width: 100%; justify-content: center; margin-bottom: 0.5rem; }
