@@ -1,9 +1,9 @@
-# Language and Item Routes (SPA support)
-/en/* /index.html 200
-/ko/* /index.html 200
-/ja/* /index.html 200
-/es/* /index.html 200
+# Single Page Application (SPA) Routing
+# This will catch all language and item paths and serve index.html
+/en/*  /index.html  200
+/ko/*  /index.html  200
+/ja/*  /index.html  200
+/es/*  /index.html  200
 
-# Canonical Redirects
-https://www.hello-sounds.com/* https://hello-sounds.com/:splat 301
-http://hello-sounds.com/* https://hello-sounds.com/:splat 301
+# Fallback for any other non-file paths
+/*    /index.html  200
