@@ -160,6 +160,9 @@ function handleRouting() {
         const item = window.soundDatabase[cat].data[itemID];
         if (itemID && item) {
             selectItem(item, null, false);
+        } else if (itemID) {
+            showToast("Sound not found. Redirecting...");
+            setTimeout(() => goHome(), 1500);
         }
     } else {
         renderSelectionGrid();
@@ -190,22 +193,22 @@ function updatePageMetadata(lang, cat, itemID) {
     }
 }
 
+function goHome() {
+    stopAllSounds();
+    currentCategory = 'animals';
+    resultsSection.style.display = 'none';
+    selectorSection.style.display = 'block';
+    navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === 'animals'));
+    renderSelectionGrid();
+    
+    const lang = localStorage.getItem('lang') || 'en';
+    updateUrl(lang, 'animals', null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function setupHomeLogic() {
     const homeBtn = document.getElementById('homeBtn');
     const mainHeader = document.getElementById('mainHeader');
-
-    const goHome = () => {
-        stopAllSounds();
-        currentCategory = 'animals';
-        resultsSection.style.display = 'none';
-        selectorSection.style.display = 'block';
-        navButtons.forEach(b => b.classList.toggle('active', b.dataset.cat === 'animals'));
-        renderSelectionGrid();
-        
-        const lang = localStorage.getItem('lang') || 'en';
-        updateUrl(lang, 'animals', null);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
     if (homeBtn) homeBtn.onclick = goHome;
     if (mainHeader) {
