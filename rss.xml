@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello Sounds - Global Onomatopoeia Library</title>
+    <link>https://hello-sounds.com</link>
+    <description>Explore how the world speaks! Discover 90+ onomatopoeia sounds in 15 languages with AI-powered native pronunciations.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Mar 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://hello-sounds.com/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Hello Sounds - Home</title>
+      <link>https://hello-sounds.com/</link>
+      <description>Interactive global onomatopoeia library. Hear native AI pronunciations of 90+ sounds from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/</guid>
+    </item>
+
+    <item>
+      <title>About Hello Sounds</title>
+      <link>https://hello-sounds.com/about.html</link>
+      <description>Discover the mission behind Hello Sounds. AI-powered global onomatopoeia for language learners and children.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/about.html</guid>
+    </item>
+
+    <item>
+      <title>Contact Us - Hello Sounds</title>
+      <link>https://hello-sounds.com/contact.html</link>
+      <description>Get in touch with the Hello Sounds team. Report bugs, suggest sounds, or share feedback.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/contact.html</guid>
+    </item>
+
+    <item>
+      <title>Quiz Mode - Hello Sounds</title>
+      <link>https://hello-sounds.com/quiz.html</link>
+      <description>Test your ear! Listen to onomatopoeia from around the world and guess the country in Quiz Mode.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/quiz.html</guid>
+    </item>
+
+    <item>
+      <title>🐾 Animal Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/animals/dog</link>
+      <description>How does a dog bark in Korea, Japan, Turkey, and 12 other countries? Explore animal onomatopoeia including dogs, cats, roosters, cows, and more.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/animals/dog</guid>
+    </item>
+
+    <item>
+      <title>🚗 Object Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/objects/car</link>
+      <description>How do cars, clocks, bells, and cameras sound in different languages? Discover object onomatopoeia from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/objects/car</guid>
+    </item>
+
+    <item>
+      <title>👤 Human Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/humans/laugh</link>
+      <description>How do people laugh, cry, and sneeze in different cultures? Explore human sound expressions from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/humans/laugh</guid>
+    </item>
+
+    <item>
+      <title>🌿 Nature Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/nature/rain</link>
+      <description>How do rain, wind, thunder, and waves sound in different languages? Discover nature onomatopoeia from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/nature/rain</guid>
+    </item>
+
+    <item>
+      <title>🎵 Music Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/music/drum</link>
+      <description>How do drums, guitars, pianos, and trumpets sound in different cultures? Explore music onomatopoeia from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/music/drum</guid>
+    </item>
+
+    <item>
+      <title>🏙️ City Sounds Around the World</title>
+      <link>https://hello-sounds.com/en/city/siren</link>
+      <description>How do sirens, trains, and motorcycles sound in different languages? Discover city onomatopoeia from 15 countries.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/en/city/siren</guid>
+    </item>
+
+    <item>
+      <title>🇰🇷 한국어로 듣는 세계의 소리</title>
+      <link>https://hello-sounds.com/ko/</link>
+      <description>전 세계 15개국의 의성어를 한국어로 탐색하세요. AI 네이티브 발음으로 동물, 자연, 음악, 도시의 소리를 들어보세요.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/ko/</guid>
+    </item>
+
+    <item>
+      <title>🇯🇵 日本語で聞く世界の音</title>
+      <link>https://hello-sounds.com/ja/</link>
+      <description>世界15カ国のオノマトペを日本語で探索しましょう。AI技術による本格的な現地発音で動物、自然、音楽の音を聞いてみてください。</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/ja/</guid>
+    </item>
+
+    <item>
+      <title>🇪🇸 Sonidos del Mundo en Español</title>
+      <link>https://hello-sounds.com/es/</link>
+      <description>Explora onomatopeyas de 15 países en español. Escucha sonidos de animales, naturaleza, música y ciudades con pronunciación nativa de IA.</description>
+      <pubDate>Sat, 08 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://hello-sounds.com/es/</guid>
+    </item>
+  </channel>
+</rss>
