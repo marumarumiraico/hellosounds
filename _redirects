@@ -5,5 +5,5 @@
 /ja/*  /index.html  200
 /es/*  /index.html  200
 
-# Fallback for any other non-file paths
-/*    /index.html  200
+# Fallback: show custom 404 for unknown paths
+/*    /404.html  404

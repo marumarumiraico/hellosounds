@@ -38,6 +38,10 @@ const i18n = {
         info2Text: "Hello Sounds leverages cutting-edge Google Neural2 and Wavenet AI technology to provide the most authentic auditory experience possible. Unlike traditional speech synthesis, our Neural2 voices utilize deep learning to produce speech that mimics human intonation and rhythm with nearly 99% accuracy. By engaging with these global sounds, learners can improve their 'phonetic sensitivity'—the ability to distinguish between subtle sound variations in foreign languages. Whether you are a student of linguistics, a traveler, or a curious educator, our interactive library serves as a powerful tool for building cross-cultural empathy and auditory memory.",
         info3Title: "👶 Fun for Kids, Helpful for Parents",
         info3Text: "Hello Sounds is designed to be a safe, joyful playground for young explorers. Mimicking animal and nature sounds is a key milestone in early childhood speech development. By listening to how sounds vary across cultures, children develop 'global curiosity' from an early age. Use our platform as a fun, interactive tool for supervised screen time, or turn it into a game with our Quiz Mode!",
+        info4Title: "🗣️ 15 Countries, 15 Unique Phonetic Systems",
+        info4Text: "Hello Sounds features authentic onomatopoeia from 15 carefully selected countries spanning 10 distinct language families. From the tonal patterns of Vietnamese and Chinese to the agglutinative morphology of Turkish and Korean, each language offers a completely different way of turning sounds into words. Arabic writes right-to-left, Thai uses no spaces between words, and Russian employs the Cyrillic alphabet — yet they all find creative ways to express the bark of a dog or the crash of thunder.",
+        info5Title: "🔬 The Linguistics Behind Sound Words",
+        info5Text: "Linguists call onomatopoeia a form of 'sound symbolism' — where the sound of a word directly relates to its meaning. This challenges the Saussurean principle that language signs are arbitrary. Research shows that speakers of unrelated languages often agree on which sounds feel 'sharp' versus 'round' (the Bouba-Kiki effect). Our library lets you test this firsthand: compare how different cultures capture the same acoustic event and discover patterns that reveal deep connections in human perception.",
         dirHeading: "Explore All Sounds"
     },
     ko: {
@@ -55,6 +59,10 @@ const i18n = {
         info2Text: "헬로 사운즈는 최신 Google Neural2 및 Wavenet AI 기술을 사용하여 가장 실제에 가까운 현지 발음을 제공합니다. 일반적인 음성 합성 기술과 달리, 당사가 사용하는 Neural2 기술은 딥러닝을 통해 인간 특유의 억양과 리듬을 정교하게 재현합니다. 이러한 글로벌 사운드를 반복해서 들음으로써 사용자는 외국어의 미세한 소리 차이를 구별하는 '음운 인지 능력'을 향상시킬 수 있습니다. 언어학 학생부터 교육자, 여행가에 이르기까지 헬로 사운즈의 인터랙티브 라이브러리는 타 문화에 대한 공감과 청각적 기억력을 높이는 강력한 도구로 활용될 수 있습니다.",
         info3Title: "👶 아이들에게는 재미를, 부모님께는 도움을",
         info3Text: "헬로 사운즈는 어린 탐험가들을 위한 안전하고 즐거운 놀이터입니다. 동물이나 자연의 소리를 흉내 내는 것은 영유아기 언어 발달의 중요한 이정표입니다. 전 세계의 다양한 소리 표현을 경험하며 아이들은 어려서부터 세상을 향한 '글로벌 호기심'을 키울 수 있습니다. 교육용 인터랙티브 도구로 활용하거나, 퀴즈 모드를 통해 즐거운 게임처럼 즐겨보세요!",
+        info4Title: "🗣️ 15개국, 15개의 독특한 음운 체계",
+        info4Text: "헬로 사운즈는 10개의 서로 다른 어족에 걸친 15개국의 정통 의성어를 수록하고 있습니다. 베트남어와 중국어의 성조 패턴부터 터키어와 한국어의 교착적 형태론까지, 각 언어는 소리를 단어로 바꾸는 완전히 다른 방식을 보여줍니다. 아랍어는 오른쪽에서 왼쪽으로 쓰고, 태국어는 단어 사이에 띄어쓰기가 없으며, 러시아어는 키릴 문자를 사용합니다 — 하지만 이들 모두 강아지의 짖는 소리나 천둥소리를 창의적으로 표현하는 방법을 가지고 있습니다.",
+        info5Title: "🔬 소리 단어의 언어학적 비밀",
+        info5Text: "언어학자들은 의성어를 '소리 상징주의'라 부릅니다 — 단어의 소리가 그 의미와 직접적으로 관련되는 현상입니다. 이는 언어 기호가 자의적이라는 소쉬르의 원칙에 도전합니다. 연구에 따르면 서로 관련 없는 언어의 화자들도 어떤 소리가 '날카롭고' 어떤 소리가 '둥글게' 느껴지는지 대체로 일치합니다(부바-키키 효과). 헬로 사운즈에서 이를 직접 체험해보세요: 같은 음향 현상을 각 문화가 어떻게 포착하는지 비교하고, 인간 인지의 깊은 연결고리를 발견하세요.",
         dirHeading: "모든 소리 탐색하기"
     },
     ja: {
@@ -72,6 +80,10 @@ const i18n = {
         info2Text: "最新의 Google Neural2 및 Wavenet AI 기술을 사용하고, 가능한 한 정확한 네이티브 액센트를 제공합니다. 종래의 음성 합성과는 달리, Neural2 보이스는 딥 러닝을 활용하여, 인간의 억양이나 리듬을 거의 99%의 정밀도로 재현합니다. 이러한 세계의 소りを 접함으로써, 학습자는 외국어의 미묘한 소리의 차이를 식별하는 『음운 인식 능력』을 높일 수 있습니다. 언어학 학생, 여행자, 혹은 지적 호기심 왕성한 교육자에게, 이 라이브러리는 이문화에의 이해와 청각적 기억을 깊게 하는 강력한 툴이 됩니다.",
         info3Title: "👶 子供たちには楽しさを、保護者には助けを",
         info3Text: "ハローサウンズは, 小さな探検家のための安全で楽しい遊び場です。動物や自然の音を真似ることは, 幼児期の言語発達における重要な節目です。世界中の多様な音の表現を体験することで, 子供たちは幼い頃から世界への『グローバルな好奇心』を育むことができます。教育的なインタラクティブツールとして活用したり, クイズモードで楽しいゲームとして遊んでみてください！",
+        info4Title: "🗣️ 15カ国、15のユニークな音韻体系",
+        info4Text: "ハローサウンズは、10の異なる語族にまたがる15カ国の本格的なオノマトペを収録しています。ベトナム語と中国語の声調パターンから、トルコ語と韓国語の膠着的な形態論まで、それぞれの言語が音を言葉に変換する全く異なる方法を提供しています。アラビア語は右から左へ書き、タイ語は単語間のスペースを使わず、ロシア語はキリル文字を使用しますが、どの言語も犬の吠える声や雷の音を創造的に表現する方法を持っています。",
+        info5Title: "🔬 オノマトペの言語学的秘密",
+        info5Text: "言語学者はオノマトペを『音象徴』の一形態と呼びます — 言葉の音がその意味に直接関係する現象です。これは言語記号が恣意的であるというソシュールの原則に挑戦します。研究によれば、互いに無関係な言語の話者でも、どの音が「鋭い」、どの音が「丸い」と感じるかについて概ね一致します（ブーバ・キキ効果）。当ライブラリでこれを体験してみてください：異なる文化が同じ音響現象をどのように捉えるかを比較し、人間の知覚に潜む深い繋がりを発見しましょう。",
         dirHeading: "すべての音を探索する"
     },
     es: {
@@ -89,6 +101,10 @@ const i18n = {
         info2Text: "Hello Sounds utiliza la tecnología de IA más avanzada de Google Neural2 y Wavenet para proporcionar la experiencia auditiva más auténtica posible. A diferencia de la síntesis de voz tradicional, nuestras voces Neural2 utilizan el aprendizaje profundo para producir un habla que imita la entonación y el ritmo humanos con una precisión cercana al 99%. Al interactuar con estos sonidos globales, los estudiantes pueden mejorar su 'sensibilidad fonética', la capacidad de distinguir variaciones sutiles de sonido en idiomas extranjeros. Ya seas estudiante de lingüística, viajero o un educador curioso, nuestra biblioteca interactiva sirve como una poderosa herramienta para fomentar la empatía intercultural y la memoria auditiva.",
         info3Title: "👶 Diversión para niños, ayuda para padres",
         info3Text: "¡Hello Sounds está diseñado para ser un patio de recreo seguro y alegre para los jóvenes exploradores! Imitar los sonidos de los animales y la naturaleza es un hito clave en el desarrollo del habla infantil. Al escuchar cómo varían los sonidos en las distintas culturas, los niños desarrollan una 'curiosidad global' desde una edad temprana. ¡Utiliza nuestra plataforma como una divertida herramienta educativa o conviértela en un juego con nuestro Modo Quiz!",
+        info4Title: "🗣️ 15 Países, 15 Sistemas Fonéticos Únicos",
+        info4Text: "Hello Sounds presenta onomatopeyas auténticas de 15 países cuidadosamente seleccionados que abarcan 10 familias lingüísticas distintas. Desde los patrones tonales del vietnamita y el chino hasta la morfología aglutinante del turco y el coreano, cada idioma ofrece una forma completamente diferente de convertir sonidos en palabras. El árabe se escribe de derecha a izquierda, el tailandés no usa espacios entre palabras y el ruso emplea el alfabeto cirílico, pero todos encuentran formas creativas de expresar el ladrido de un perro o el estruendo de un trueno.",
+        info5Title: "🔬 La Lingüística Detrás de las Palabras Sonoras",
+        info5Text: "Los lingüistas llaman a la onomatopeya una forma de 'simbolismo sonoro': donde el sonido de una palabra se relaciona directamente con su significado. Esto desafía el principio saussureano de que los signos lingüísticos son arbitrarios. La investigación muestra que los hablantes de idiomas no relacionados a menudo coinciden en qué sonidos se sienten 'afilados' versus 'redondos' (el efecto Bouba-Kiki). Nuestra biblioteca te permite probarlo de primera mano: compara cómo diferentes culturas capturan el mismo evento acústico y descubre patrones que revelan conexiones profundas en la percepción humana.",
         dirHeading: "Explorar todos los sonidos"
     }
 };
@@ -249,6 +265,10 @@ function applyLanguage(lang) {
     if(info2) { info2.querySelector('h3').textContent = t.info2Title; info2.querySelector('p').textContent = t.info2Text; }
     const info3 = document.getElementById('infoCard3');
     if(info3) { info3.querySelector('h3').textContent = t.info3Title; info3.querySelector('p').textContent = t.info3Text; }
+    const info4 = document.getElementById('infoCard4');
+    if(info4) { info4.querySelector('h3').textContent = t.info4Title; info4.querySelector('p').textContent = t.info4Text; }
+    const info5 = document.getElementById('infoCard5');
+    if(info5) { info5.querySelector('h3').textContent = t.info5Title; info5.querySelector('p').textContent = t.info5Text; }
 
     const dirHeading = document.getElementById('directoryHeading');
     if(dirHeading) dirHeading.textContent = t.dirHeading;

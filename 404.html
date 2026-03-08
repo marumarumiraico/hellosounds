@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S90EWRKX20"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S90EWRKX20');
+    </script>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Hello Sounds</title>
+    <meta name="description" content="Oops! The page you're looking for doesn't exist. Head back to Hello Sounds and explore global onomatopoeia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=3.1">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        .error-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .error-icon {
+            font-size: 8rem;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            letter-spacing: -4px;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            max-width: 500px;
+        }
+        .error-hint {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 500px;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2A2420;
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 20px;
+            box-shadow: var(--hard-shadow);
+            transition: var(--spring-transition);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .error-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--text-black);
+        }
+        .error-btn.primary { background: var(--card-blue); }
+        .error-btn.secondary { background: var(--card-yellow); }
+        .error-btn.tertiary { background: var(--card-pink); }
+        .sound-suggestion {
+            background: var(--surface-white);
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--hard-shadow);
+            max-width: 500px;
+            width: 100%;
+        }
+        .sound-suggestion h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .sound-examples {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .sound-chip {
+            background: var(--bg-main);
+            border: 2px solid var(--text-black);
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <nav class="category-nav">
+        <div class="nav-links">
+            <a href="/" class="nav-btn icon-nav-btn" title="Home">🏠</a>
+            <a href="/about.html" class="nav-btn">💡 About</a>
+            <a href="/quiz.html" class="nav-btn">🎮 Quiz</a>
+        </div>
+        <div class="nav-spacer"></div>
+        <div class="nav-controls">
+            <button id="themeToggle" class="nav-btn theme-btn" aria-label="Toggle Theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="error-container">
+        <span class="error-icon">🙉</span>
+        <div class="error-code">404</div>
+        <p class="error-message">Oops! This sound doesn't exist... yet!</p>
+        <p class="error-hint">The page you're looking for might have been moved, or maybe it's a sound we haven't discovered from around the world yet.</p>
+        
+        <div class="error-actions">
+            <a href="/" class="error-btn primary">🏠 Back to Home</a>
+            <a href="/quiz.html" class="error-btn secondary">🎮 Play Quiz</a>
+            <a href="/contact.html" class="error-btn tertiary">📧 Contact Us</a>
+        </div>
+
+        <div class="sound-suggestion">
+            <h3>🌍 Try exploring these sounds:</h3>
+            <div class="sound-examples">
+                <span class="sound-chip">🐶 Dog</span>
+                <span class="sound-chip">🎸 Guitar</span>
+                <span class="sound-chip">⛈️ Thunder</span>
+                <span class="sound-chip">🚂 Train</span>
+                <span class="sound-chip">😂 Laughing</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const current = document.body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            document.querySelector('.theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+        if (savedTheme === 'dark') document.querySelector('.theme-icon').textContent = '☀️';
+    </script>
+</body>
+</html>
