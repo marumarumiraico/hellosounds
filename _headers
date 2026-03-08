@@ -4,4 +4,19 @@
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: no-referrer-when-downgrade
+  Permissions-Policy: interest-cohort=()
+
+/*.html
+  Cache-Control: public, max-age=3600
+
+/*.js
+  Cache-Control: public, max-age=86400, immutable
+
+/*.css
+  Cache-Control: public, max-age=86400, immutable
+
+/*.svg
+  Cache-Control: public, max-age=604800, immutable
+
+/*.xml
   Cache-Control: public, max-age=3600
