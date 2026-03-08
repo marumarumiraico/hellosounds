@@ -12,6 +12,9 @@
 /*.js
   Cache-Control: public, max-age=2592000, immutable
 
+/data/*.js
+  Cache-Control: public, max-age=2592000, immutable
+
 /*.css
   Cache-Control: public, max-age=2592000, immutable
 
