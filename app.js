@@ -147,11 +147,21 @@ function findItemIDByName(name) {
     return found ? found.id : null;
 }
 
+function detectBrowserLanguage() {
+    const supported = ['en', 'ko', 'ja', 'es'];
+    const langs = navigator.languages || [navigator.language || 'en'];
+    for (const l of langs) {
+        const code = l.split('-')[0].toLowerCase();
+        if (supported.includes(code)) return code;
+    }
+    return 'en';
+}
+
 function handleRouting() {
     const path = window.location.pathname.split('/').filter(p => p !== "");
     const urlParams = new URLSearchParams(window.location.search);
     
-    let lang = localStorage.getItem('lang') || 'en';
+    let lang = localStorage.getItem('lang') || detectBrowserLanguage();
     let cat = 'animals';
     let itemID = null;
 
