@@ -11,7 +11,7 @@ const COUNTRY_VOICE_MAP = {
   "Brazil": { lang: "pt-BR", voice: "pt-BR-Neural2-A" },
   "China": { lang: "zh-CN" },
   "India": { lang: "hi-IN", voice: "hi-IN-Neural2-A" },
-  "Kenya": { lang: "sw-KE", voice: "sw-KE-Standard-A" },
+  "Kenya": { lang: "en-US", voice: "en-US-Neural2-D" },
   "Vietnam": { lang: "vi-VN", voice: "vi-VN-Neural2-A" },
   "Turkey": { lang: "tr-TR", voice: "tr-TR-Wavenet-A" },
   "Indonesia": { lang: "id-ID", voice: "id-ID-Wavenet-A" }
