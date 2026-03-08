@@ -15,7 +15,7 @@ window.objectsData = {
             { country: "India", flag: "🇮🇳", sound: "पों-पों!", pron: "pohn-pohn", native: "पों-पों!", fallback: "pohn pohn" },
             { country: "Kenya", flag: "🇰🇪", sound: "Beep beep", pron: "beep-beep", native: "Beep beep", fallback: "beep beep" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Bíp bíp!", pron: "beep-beep", native: "Bíp bíp!", fallback: "beep beep" },
-            { country: "Turkey", flag: "🇹🇷", sound: "Düt düt!", pron: "doot-doot", native: "Düt düt!", fallback: "doot doot" },
+            { country: "Turkey", flag: "🇹🇷", sound: "Düt düt!", pron: "dewt-dewt", native: "Düt düt!", fallback: "dewt dewt" },
             { country: "Indonesia", flag: "🇮🇩", sound: "Tin tin!", pron: "teen-teen", native: "Tin tin!", fallback: "teen teen" }
         ]},
         knock: { id: 'knock', icon: "🚪", name: "Door Knock", params: { pitch: 0.8, rate: 1.1 }, sounds: [
@@ -27,7 +27,7 @@ window.objectsData = {
             { country: "Russia", flag: "🇷🇺", sound: "Тук-тук!", pron: "took-took", native: "Тук-тук!", fallback: "took took" },
             { country: "Thailand", flag: "🇹🇭", sound: "ก๊อก ก๊อก!", pron: "goak goak", native: "ก๊อก ก๊อก!", fallback: "goak goak" },
             { country: "Egypt", flag: "🇪🇬", sound: "طق طق", pron: "tahk-tahk", native: "طق طق", fallback: "tahk tahk" },
-            { country: "Brazil", flag: "🇧🇷", sound: "Toc toc!", pron: "toak-toak", native: "Toc toc!", fallback: "toak toak" },
+            { country: "Brazil", flag: "🇧🇷", sound: "Toc toc!", pron: "tok-tok", native: "Toc toc!", fallback: "tok tok" },
             { country: "China", flag: "🇨🇳", sound: "咚咚！", pron: "doahng", native: "咚咚！", fallback: "doahng" },
             { country: "India", flag: "🇮🇳", sound: "खट-खट!", pron: "khat-khat", native: "खट-खट!", fallback: "khat khat" },
             { country: "Kenya", flag: "🇰🇪", sound: "Hodi hodi", pron: "ho-dee", native: "Hodi hodi", fallback: "ho dee" },
@@ -58,9 +58,9 @@ window.objectsData = {
             { country: "Japan", flag: "🇯🇵", sound: "リンリン", pron: "reen-reen", native: "リンリン", fallback: "reen reen" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Rin rin!", pron: "reen-reen", native: "¡Rin rin!", fallback: "reen reen" },
             { country: "Germany", flag: "🇩🇪", sound: "Klingeling!", pron: "kling-eling", native: "Klingeling!", fallback: "kling eling" },
-            { country: "Russia", flag: "🇷🇺", sound: "Дзынь-дзынь!", pron: "dzeen-dzeen", native: "Дзынь-дзынь!", fallback: "dzeen dzeen" },
+            { country: "Russia", flag: "🇷🇺", sound: "Дзынь-дзынь!", pron: "dzyin-dzyin", native: "Дзынь-дзынь!", fallback: "dzyin dzyin" },
             { country: "Thailand", flag: "🇹🇭", sound: "กริ๊ง กริ๊ง!", pron: "greeng greeng", native: "กริ๊ง กริ๊ง!", fallback: "greeng greeng" },
-            { country: "Egypt", flag: "🇪🇬", sound: "ترن ترن", pron: "reen-reen", native: "ترن ترن", fallback: "reen reen" },
+            { country: "Egypt", flag: "🇪🇬", sound: "ترن ترن", pron: "tirn-tirn", native: "ترن ترن", fallback: "tirn tirn" },
             { country: "Brazil", flag: "🇧🇷", sound: "Trim trim!", pron: "treem-treem", native: "Trim trim!", fallback: "treem treem" },
             { country: "China", flag: "🇨🇳", sound: "叮铃铃", pron: "deeng-leeng", native: "叮铃铃", fallback: "deeng leeng" },
             { country: "India", flag: "🇮🇳", sound: "ट्रिंग-ट्रिंग!", pron: "treeng-treeng", native: "ट्रिंग-ट्रिंग!", fallback: "treeng treeng" },
@@ -100,7 +100,7 @@ window.objectsData = {
             { country: "India", flag: "🇮🇳", sound: "धड़ाक!", pron: "dhadak", native: "धड़ाक!", fallback: "dhah dahk" },
             { country: "Kenya", flag: "🇰🇪", sound: "BOOM!", pron: "boom", native: "BOOM!", fallback: "boooahm" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Bùm!", pron: "boom", native: "Bùm!", fallback: "boom" },
-            { country: "Turkey", flag: "🇹🇷", sound: "Güm!", pron: "goom", native: "Güm!", fallback: "goom" },
+            { country: "Turkey", flag: "🇹🇷", sound: "Güm!", pron: "gewm", native: "Güm!", fallback: "gewm" },
             { country: "Indonesia", flag: "🇮🇩", sound: "Duar!", pron: "doo-ar", native: "Duar!", fallback: "doo ar" }
         ]},
         pop: { id: 'pop', icon: "🎈", name: "Pop", params: { pitch: 1.2, rate: 1.1 }, sounds: [
@@ -126,7 +126,7 @@ window.objectsData = {
             { country: "Japan", flag: "🇯🇵", sound: "ガシャン！", pron: "gashan", native: "ガシャン！", fallback: "gah shahn" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Catapum!", pron: "cata-poom", native: "¡Catapum!", fallback: "kah tah poom" },
             { country: "Germany", flag: "🇩🇪", sound: "Klirr!", pron: "kleer", native: "Klirr!", fallback: "kleer" },
-            { country: "Russia", flag: "🇷🇺", sound: "Дзынь!", pron: "dzeen", native: "Дзынь!", fallback: "dzeen" },
+            { country: "Russia", flag: "🇷🇺", sound: "Дзынь!", pron: "dzyin", native: "Дзынь!", fallback: "dzyin" },
             { country: "Thailand", flag: "🇹🇭", sound: "เพล้ง!", pron: "pleng", native: "เพล้ง!", fallback: "pleng" },
             { country: "Egypt", flag: "🇪🇬", sound: "طخ!", pron: "takh", native: "طخ!", fallback: "tahkh" },
             { country: "Brazil", flag: "🇧🇷", sound: "Cras!", pron: "crass", native: "Cras!", fallback: "krahsh" },
@@ -151,7 +151,7 @@ window.objectsData = {
             { country: "India", flag: "🇮🇳", sound: "टप-टप", pron: "tap tap", native: "टप-टप", fallback: "tap tap" },
             { country: "Kenya", flag: "🇰🇪", sound: "Drip drip", pron: "drip drip", native: "Drip drip", fallback: "drip drip" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Tí tách!", pron: "tee-tahk", native: "Tí tách!", fallback: "tee tahk" },
-            { country: "Turkey", flag: "🇹🇷", sound: "Şıp şıp!", pron: "shup-shup", native: "Şıp şıp!", fallback: "shup shup" },
+            { country: "Turkey", flag: "🇹🇷", sound: "Şıp şıp!", pron: "shuhp-shuhp", native: "Şıp şıp!", fallback: "shuhp shuhp" },
             { country: "Indonesia", flag: "🇮🇩", sound: "Tes tes!", pron: "tes-tes", native: "Tes tes!", fallback: "tes tes" }
         ]},
         zipper: { id: 'zipper', icon: "🤐", name: "Zipper", params: { pitch: 1.1, rate: 1.5 }, sounds: [
@@ -237,14 +237,14 @@ window.objectsData = {
             { country: "Kenya", flag: "🇰🇪", sound: "Bubble bubble", pron: "bubble", native: "Bubble bubble", fallback: "bubble" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Sục sục!", pron: "sook-sook", native: "Sục sục!", fallback: "sook sook" },
             { country: "Turkey", flag: "🇹🇷", sound: "Fokur fokur!", pron: "fokur-fokur", native: "Fokur fokur!", fallback: "fokur fokur" },
-            { country: "Indonesia", flag: "🇮🇩", sound: "Glup glup!", pron: "glup-glup", native: "Glup glup!", fallback: "glup glup" }
+            { country: "Indonesia", flag: "🇮🇩", sound: "Glup glup!", pron: "gloop-gloop", native: "Glup glup!", fallback: "gloop gloop" }
         ]},
         frying: { id: 'frying', icon: "🍳", name: "Frying", params: { pitch: 1.0, rate: 1.4 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Sssssss", pron: "ssss", native: "Sssssss", ttsText: "Sizzle", fallback: "sizzle" },
             { country: "Korea", flag: "🇰🇷", sound: "지글지글", pron: "ji-geul", native: "지글지글", fallback: "jee geul" },
             { country: "Japan", flag: "🇯🇵", sound: "ジュージュー", pron: "jyuu jyuu", native: "ジュージュー", fallback: "jyuu jyuu" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Pshhhhh!", pron: "pshhh", native: "¡Pshhhhh!", ttsText: "Pshhh", fallback: "pshhh" },
-            { country: "Germany", flag: "🇩🇪", sound: "Zischhh!", pron: "zish", native: "Zischhh!", ttsText: "Zisch", fallback: "zish" },
+            { country: "Germany", flag: "🇩🇪", sound: "Zischhh!", pron: "tsish", native: "Zischhh!", ttsText: "Zisch", fallback: "tsish" },
             { country: "Russia", flag: "🇷🇺", sound: "Ш-ш-ш-ш!", pron: "sh-sh", native: "Ш-ш-ш-ш!", ttsText: "Шшш", fallback: "shsh" },
             { country: "Thailand", flag: "🇹🇭", sound: "ฉ่า!", pron: "chaa", native: "ฉ่า!", fallback: "chah" },
             { country: "Egypt", flag: "🇪🇬", sound: "تششششش", pron: "tshhh", native: "تششششش", ttsText: "تشش", fallback: "tshhh" },

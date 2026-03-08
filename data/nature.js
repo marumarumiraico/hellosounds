@@ -6,7 +6,7 @@ window.natureData = {
             { country: "Korea", flag: "🇰🇷", sound: "우르릉 쾅쾅!", pron: "u-reu-reung kwang", native: "우르릉 쾅쾅!", fallback: "u reu reung" },
             { country: "Japan", flag: "🇯🇵", sound: "ゴロゴロ！", pron: "go-ro-go-ro", native: "ゴロゴロ！", fallback: "goro goro" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Brum!", pron: "broom", native: "¡Brum!", fallback: "broom" },
-            { country: "Germany", flag: "🇩🇪", sound: "Rumms!", pron: "rumms", native: "Rumms!", fallback: "rumms" },
+            { country: "Germany", flag: "🇩🇪", sound: "Rumms!", pron: "roomms", native: "Rumms!", fallback: "roomms" },
             { country: "Russia", flag: "🇷🇺", sound: "Ба-бах!", pron: "ba-bakh", native: "Ба-бах!", fallback: "ba bakh" },
             { country: "Thailand", flag: "🇹🇭", sound: "เปรี้ยง!", pron: "priang", native: "เปรี้ยง!", fallback: "priang" },
             { country: "Egypt", flag: "🇪🇬", sound: "بوم!", pron: "boom", native: "بوم!", fallback: "boom" },
@@ -15,7 +15,7 @@ window.natureData = {
             { country: "India", flag: "🇮🇳", sound: "कड़क!", pron: "kadak", native: "कड़क!", fallback: "kadak" },
             { country: "Kenya", flag: "🇰🇪", sound: "Kraaa!", pron: "kraaa", native: "Kraaa!", ttsText: "Kraa", fallback: "kraaa" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Ầm ầm!", pron: "uhm-uhm", native: "Ầm ầm!", fallback: "uhm uhm" },
-            { country: "Turkey", flag: "🇹🇷", sound: "Güm güm!", pron: "goom-goom", native: "Güm güm!", fallback: "goom goom" },
+            { country: "Turkey", flag: "🇹🇷", sound: "Güm güm!", pron: "gewm-gewm", native: "Güm güm!", fallback: "gewm gewm" },
             { country: "Indonesia", flag: "🇮🇩", sound: "Gruduk!", pron: "groo-dook", native: "Gruduk!", fallback: "groo dook" }
         ]},
         rain: { id: 'rain', icon: "🌧️", name: "Rain", params: { pitch: 1.2, rate: 1.3 }, sounds: [
@@ -32,7 +32,7 @@ window.natureData = {
             { country: "India", flag: "🇮🇳", sound: "टप टप", pron: "tap tap", native: "टप टप", fallback: "tap tap" },
             { country: "Kenya", flag: "🇰🇪", sound: "Pata pata", pron: "pata pata", native: "Pata pata", fallback: "pata pata" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Tí tách!", pron: "tee-tahk", native: "Tí tách!", fallback: "tee tahk" },
-            { country: "Turkey", flag: "🇹🇷", sound: "Şır şır!", pron: "shir-shir", native: "Şır şır!", fallback: "shir shir" },
+            { country: "Turkey", flag: "🇹🇷", sound: "Şır şır!", pron: "shuhr-shuhr", native: "Şır şır!", fallback: "shuhr shuhr" },
             { country: "Indonesia", flag: "🇮🇩", sound: "Tes tes!", pron: "tes-tes", native: "Tes tes!", fallback: "tes tes" }
         ]},
         wind: { id: 'wind', icon: "💨", name: "Wind", params: { pitch: 1.5, rate: 0.7 }, sounds: [
@@ -91,7 +91,7 @@ window.natureData = {
             { country: "Korea", flag: "🇰🇷", sound: "졸졸 졸졸", pron: "jol-jol", native: "졸졸 졸졸", fallback: "jol jol" },
             { country: "Japan", flag: "🇯🇵", sound: "サラサラ", pron: "sara sara", native: "サラサラ", fallback: "sara sara" },
             { country: "Spain", flag: "🇪🇸", sound: "¡Rurun-rurun!", pron: "roo-roon", native: "¡Rurun-rurun!", ttsText: "Rurun rurun", fallback: "roo roon" },
-            { country: "Germany", flag: "🇩🇪", sound: "Plätscher!", pron: "plit-sher", native: "Plätscher!", fallback: "plitsher" },
+            { country: "Germany", flag: "🇩🇪", sound: "Plätscher!", pron: "pleh-tsher", native: "Plätscher!", fallback: "pleh tsher" },
             { country: "Russia", flag: "🇷🇺", sound: "Жур-жур!", pron: "zhur zhur", native: "Жур-жур!", fallback: "zhur zhur" },
             { country: "Thailand", flag: "🇹🇭", sound: "ไหล ไหล", pron: "lai lai", native: "ไหล ไหล", fallback: "lai lai" },
             { country: "Egypt", flag: "🇪🇬", sound: "شرر شرر", pron: "shara shara", native: "شرر شرر", fallback: "shara shara" },
@@ -101,7 +101,7 @@ window.natureData = {
             { country: "Kenya", flag: "🇰🇪", sound: "Churu-churu", pron: "choo-roo", native: "Churu-churu", fallback: "choo roo" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Róc rách!", pron: "rohk-rahk", native: "Róc rách!", fallback: "rohk rahk" },
             { country: "Turkey", flag: "🇹🇷", sound: "Şırıl şırıl!", pron: "shuh-ruhl", native: "Şırıl şırıl!", fallback: "shuh ruhl" },
-            { country: "Indonesia", flag: "🇮🇩", sound: "Gemericik!", pron: "geh-meh-ree-jik", native: "Gemericik!", fallback: "geh meh ree jik" }
+            { country: "Indonesia", flag: "🇮🇩", sound: "Gemericik!", pron: "geh-meh-ree-cheek", native: "Gemericik!", fallback: "geh meh ree cheek" }
         ]},
         bird: { id: 'bird', icon: "🐦", name: "Bird", params: { pitch: 1.8, rate: 1.5 }, sounds: [
             { country: "USA", flag: "🇺🇸", sound: "Tweet tweet!", pron: "tweet", native: "Tweet tweet!", fallback: "tweet tweet" },
@@ -130,7 +130,7 @@ window.natureData = {
             { country: "Thailand", flag: "🇹🇭", sound: "จี๊ด จี๊ด!", pron: "jeed jeed", native: "จี๊ด จี๊ด!", fallback: "jeed jeed" },
             { country: "Egypt", flag: "🇪🇬", sound: "زيز زيز", pron: "zeez zeez", native: "زيز زيز", fallback: "zeez zeez" },
             { country: "Brazil", flag: "🇧🇷", sound: "Cri-cri!", pron: "cree", native: "Cri-cri!", ttsText: "Cri cri", fallback: "cree cree" },
-            { country: "China", flag: "🇨🇳", sound: "蛐蛐", pron: "qu qu", native: "蛐蛐", fallback: "qu qu" },
+            { country: "China", flag: "🇨🇳", sound: "蛐蛐", pron: "chew chew", native: "蛐蛐", fallback: "chew chew" },
             { country: "India", flag: "🇮🇳", sound: "टीं-टीं!", pron: "teen teen", native: "टीं-टीं!", fallback: "teen teen" },
             { country: "Kenya", flag: "🇰🇪", sound: "Chirichiri!", pron: "chee-ree", native: "Chirichiri!", fallback: "chee ree" },
             { country: "Vietnam", flag: "🇻🇳", sound: "Rè rè!", pron: "reh-reh", native: "Rè rè!", fallback: "reh reh" },
