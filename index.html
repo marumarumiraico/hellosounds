@@ -24,7 +24,28 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFB7B7">
-    
+
+    <!-- Immediate canonical + hreflang fix for Googlebot (runs before any external JS) -->
+    <script>
+    (function(){
+      var p = window.location.pathname;
+      var base = 'https://hello-sounds.com';
+      if (p && p !== '/') {
+        var canon = document.querySelector('link[rel="canonical"]');
+        if (canon) canon.setAttribute('href', base + p);
+        var ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', base + p);
+      }
+    })();
+    </script>
+
+    <!-- hreflang: tell Google about language variants -->
+    <link rel="alternate" hreflang="en" href="https://hello-sounds.com/en/">
+    <link rel="alternate" hreflang="ko" href="https://hello-sounds.com/ko/">
+    <link rel="alternate" hreflang="ja" href="https://hello-sounds.com/ja/">
+    <link rel="alternate" hreflang="es" href="https://hello-sounds.com/es/">
+    <link rel="alternate" hreflang="x-default" href="https://hello-sounds.com/">
+
     <!-- Social Media Optimization (OG & Twitter Cards) -->
     <meta property="og:site_name" content="Hello Sounds">
     <meta property="og:title" content="Hello Sounds - The World's Onomatopoeia Library">
