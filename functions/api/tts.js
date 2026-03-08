@@ -4,17 +4,17 @@ const COUNTRY_VOICE_MAP = {
   "Korea": { lang: "ko-KR", voice: "ko-KR-Neural2-A" },
   "Japan": { lang: "ja-JP", voice: "ja-JP-Neural2-C" },
   "Spain": { lang: "es-ES", voice: "es-ES-Neural2-A" },
-  "France": { lang: "fr-FR", voice: "fr-FR-Neural2-A" },
   "Germany": { lang: "de-DE", voice: "de-DE-Neural2-A" },
-  "Italy": { lang: "it-IT", voice: "it-IT-Neural2-A" },
   "Russia": { lang: "ru-RU", voice: "ru-RU-Wavenet-A" },
   "Thailand": { lang: "th-TH", voice: "th-TH-Standard-A" },
   "Egypt": { lang: "ar-XA", voice: "ar-XA-Wavenet-A" },
   "Brazil": { lang: "pt-BR", voice: "pt-BR-Neural2-A" },
-  "China": { lang: "zh-CN" }, // voice 제거: 구글 자동 선택
+  "China": { lang: "zh-CN" },
   "India": { lang: "hi-IN", voice: "hi-IN-Neural2-A" },
   "Kenya": { lang: "sw-KE", voice: "sw-KE-Standard-A" },
-  "Greece": { lang: "el-GR", voice: "el-GR-Wavenet-A" }
+  "Vietnam": { lang: "vi-VN", voice: "vi-VN-Neural2-A" },
+  "Turkey": { lang: "tr-TR", voice: "tr-TR-Wavenet-A" },
+  "Indonesia": { lang: "id-ID", voice: "id-ID-Wavenet-A" }
 };
 
 export async function onRequestGet(context) {
@@ -46,8 +46,9 @@ export async function onRequestPost(context) {
       voiceParams.name = voiceConfig.voice;
     }
 
+    const isSSML = text.trim().startsWith('<speak>');
     const body = {
-      input: { text: text },
+      input: isSSML ? { ssml: text } : { text: text },
       voice: voiceParams,
       audioConfig: { audioEncoding: 'MP3' }
     };

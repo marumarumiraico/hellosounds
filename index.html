@@ -17,19 +17,18 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Sounds - Global Onomatopoeia Library | Fun for Kids & Language Learners</title>
-    <meta name="description" content="Explore how the world speaks! Discover 45+ sounds in 15+ languages including English, Korean, and Japanese. High-quality AI native pronunciations.">
+    <meta name="description" content="Explore how the world speaks! Discover 90+ sounds in 15+ languages including English, Korean, and Japanese. High-quality AI native pronunciations.">
     <meta name="keywords" content="onomatopoeia, animal sounds, world languages, language learning for kids, native pronunciation, Google TTS, educational game">
     <link rel="canonical" href="https://hello-sounds.com">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" href="/favicon.svg"> <!-- SVG to PNG fallback if possible, but path is correct -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFB7B7">
     
     <!-- Social Media Optimization (OG & Twitter Cards) -->
     <meta property="og:site_name" content="Hello Sounds">
     <meta property="og:title" content="Hello Sounds - The World's Onomatopoeia Library">
-    <meta property="og:description" content="Hear how animals, objects, and humans sound around the world! Native accents in 15+ languages.">
+    <meta property="og:description" content="Hear how animals, objects, music, and cities sound around the world! Native accents in 15+ languages.">
     <meta property="og:image" content="https://hello-sounds.com/og-banner.svg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hello-sounds.com">
@@ -51,7 +50,7 @@
         "@type": "WebApplication",
         "name": "Hello Sounds",
         "url": "https://hello-sounds.com",
-        "description": "An interactive global onomatopoeia library. Hear native AI pronunciations of 45+ sounds in 15 languages.",
+        "description": "An interactive global onomatopoeia library. Hear native AI pronunciations of 90+ sounds in 15 languages.",
         "applicationCategory": "EducationalApplication",
         "genre": "Educational",
         "operatingSystem": "Web Browser",
@@ -91,6 +90,8 @@
             <button class="nav-btn category-btn" data-cat="objects">🚗 Objects</button>
             <button class="nav-btn category-btn" data-cat="humans">👤 Humans</button>
             <button class="nav-btn category-btn" data-cat="nature">🌿 Nature</button>
+            <button class="nav-btn category-btn" data-cat="music">🎵 Music</button>
+            <button class="nav-btn category-btn" data-cat="city">🏙️ City</button>
         </div>
         <div class="nav-spacer"></div>
         <div class="nav-controls">
@@ -134,7 +135,7 @@
             <p class="subtitle" id="headerSubtitle">Hear how the world speaks! ✨</p>
             <div class="header-stats" style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; font-weight: 700; opacity: 0.9;">
                 <span style="background: var(--card-blue); padding: 0.5rem 1rem; border-radius: 50px; border: 2px solid var(--text-black);">🌍 15+ Countries</span>
-                <span style="background: var(--card-pink); padding: 0.5rem 1rem; border-radius: 50px; border: 2px solid var(--text-black);">🔊 45+ Sounds</span>
+                <span style="background: var(--card-pink); padding: 0.5rem 1rem; border-radius: 50px; border: 2px solid var(--text-black);">🔊 90+ Sounds</span>
                 <span style="background: var(--card-yellow); padding: 0.5rem 1rem; border-radius: 50px; border: 2px solid var(--text-black);">🧠 AI-Powered</span>
             </div>
         </header>
@@ -206,6 +207,8 @@
     <script src="/data/objects.js?v=2.9"></script>
     <script src="/data/humans.js?v=2.9"></script>
     <script src="/data/nature.js?v=2.9"></script>
+    <script src="/data/music.js?v=2.9"></script>
+    <script src="/data/city.js?v=2.9"></script>
     <script src="/data.js?v=2.9"></script>
     <script src="/app.js?v=2.9"></script>
 </body>

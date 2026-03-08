@@ -1,22 +1,424 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Main Roots -->
-    <url><loc>https://hello-sounds.com/</loc><priority>1.0</priority></url>
-    <url><loc>https://hello-sounds.com/en/</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/ko/</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/ja/</loc><priority>0.9</priority></url>
-    <url><loc>https://hello-sounds.com/es/</loc><priority>0.9</priority></url>
+    <!-- Main Pages -->
+    <url><loc>https://hello-sounds.com/</loc><lastmod>2026-03-08</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+    <url><loc>https://hello-sounds.com/about.html</loc><lastmod>2026-03-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/quiz.html</loc><lastmod>2026-03-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/favorites.html</loc><lastmod>2026-03-08</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://hello-sounds.com/privacy.html</loc><lastmod>2026-02-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+    <url><loc>https://hello-sounds.com/terms.html</loc><lastmod>2026-02-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
-    <!-- Essential Pages -->
-    <url><loc>https://hello-sounds.com/about.html</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/quiz.html</loc><priority>0.7</priority></url>
-    <url><loc>https://hello-sounds.com/favorites.html</loc><priority>0.6</priority></url>
+    <!-- Language Roots -->
+    <url><loc>https://hello-sounds.com/en/</loc><lastmod>2026-03-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/ko/</loc><lastmod>2026-03-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/ja/</loc><lastmod>2026-03-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://hello-sounds.com/es/</loc><lastmod>2026-03-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
-    <!-- Example Long-tail Keywords (Animals) -->
-    <url><loc>https://hello-sounds.com/en/animals/dog</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/ko/animals/dog</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/en/animals/cat</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/ko/animals/cat</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/en/objects/car</loc><priority>0.8</priority></url>
-    <url><loc>https://hello-sounds.com/ko/objects/car</loc><priority>0.8</priority></url>
+    <!-- Animals (EN) -->
+    <url><loc>https://hello-sounds.com/en/animals/dog</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/cat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/rooster</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/cow</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/pig</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/duck</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/frog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/horse</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/sheep</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/mouse</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/elephant</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/lion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/monkey</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/owl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/animals/bee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Animals (KO) -->
+    <url><loc>https://hello-sounds.com/ko/animals/dog</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/cat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/rooster</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/cow</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/pig</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/duck</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/frog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/horse</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/sheep</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/mouse</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/elephant</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/lion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/monkey</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/owl</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/animals/bee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Animals (JA) -->
+    <url><loc>https://hello-sounds.com/ja/animals/dog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/cat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/rooster</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/cow</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/pig</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/duck</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/frog</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/horse</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/sheep</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/mouse</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/elephant</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/lion</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/monkey</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/owl</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/animals/bee</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Animals (ES) -->
+    <url><loc>https://hello-sounds.com/es/animals/dog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/cat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/rooster</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/cow</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/pig</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/duck</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/frog</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/horse</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/sheep</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/mouse</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/elephant</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/lion</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/monkey</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/owl</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/animals/bee</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Objects (EN) -->
+    <url><loc>https://hello-sounds.com/en/objects/car</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/knock</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/clock</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/phone</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/bell</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/explosion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/pop</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/glass</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/drip</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/zipper</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/click</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/camera</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/spark</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/boiling</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/objects/frying</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Objects (KO) -->
+    <url><loc>https://hello-sounds.com/ko/objects/car</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/knock</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/clock</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/phone</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/bell</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/explosion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/pop</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/glass</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/drip</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/zipper</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/click</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/camera</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/spark</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/boiling</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/objects/frying</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Objects (JA) -->
+    <url><loc>https://hello-sounds.com/ja/objects/car</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/knock</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/clock</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/phone</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/bell</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/explosion</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/pop</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/glass</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/drip</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/zipper</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/click</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/camera</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/spark</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/boiling</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/objects/frying</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Objects (ES) -->
+    <url><loc>https://hello-sounds.com/es/objects/car</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/knock</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/clock</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/phone</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/bell</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/explosion</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/pop</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/glass</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/drip</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/zipper</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/click</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/camera</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/spark</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/boiling</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/objects/frying</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Humans (EN) -->
+    <url><loc>https://hello-sounds.com/en/humans/heart</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/shiver</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/sniff</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/laugh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/cry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/sneeze</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/cough</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/snore</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/sigh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/gulp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/slurp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/clap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/kiss</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/walk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/humans/run</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Humans (KO) -->
+    <url><loc>https://hello-sounds.com/ko/humans/heart</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/shiver</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/sniff</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/laugh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/cry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/sneeze</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/cough</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/snore</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/sigh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/gulp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/slurp</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/clap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/kiss</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/walk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/humans/run</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Humans (JA) -->
+    <url><loc>https://hello-sounds.com/ja/humans/heart</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/shiver</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/sniff</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/laugh</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/cry</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/sneeze</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/cough</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/snore</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/sigh</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/gulp</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/slurp</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/clap</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/kiss</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/walk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/humans/run</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Humans (ES) -->
+    <url><loc>https://hello-sounds.com/es/humans/heart</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/shiver</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/sniff</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/laugh</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/cry</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/sneeze</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/cough</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/snore</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/sigh</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/gulp</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/slurp</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/clap</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/kiss</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/walk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/humans/run</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Nature (EN) -->
+    <url><loc>https://hello-sounds.com/en/nature/thunder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/rain</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/wind</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/waves</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/fire</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/stream</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/bird</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/cricket</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/leaves</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/waterfall</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/cicada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/mosquito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/snow</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/splash</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/nature/echo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Nature (KO) -->
+    <url><loc>https://hello-sounds.com/ko/nature/thunder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/rain</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/wind</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/waves</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/fire</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/stream</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/bird</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/cricket</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/leaves</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/waterfall</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/cicada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/mosquito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/snow</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/splash</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/nature/echo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Nature (JA) -->
+    <url><loc>https://hello-sounds.com/ja/nature/thunder</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/rain</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/wind</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/waves</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/fire</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/stream</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/bird</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/cricket</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/leaves</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/waterfall</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/cicada</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/mosquito</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/snow</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/splash</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/nature/echo</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Nature (ES) -->
+    <url><loc>https://hello-sounds.com/es/nature/thunder</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/rain</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/wind</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/waves</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/fire</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/stream</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/bird</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/cricket</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/leaves</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/waterfall</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/cicada</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/mosquito</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/snow</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/splash</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/nature/echo</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Music (EN) -->
+    <url><loc>https://hello-sounds.com/en/music/drum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/guitar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/piano</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/trumpet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/violin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/flute</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/whistle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/tambourine</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/harmonica</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/gong</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/xylophone</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/maracas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/lullaby</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/hum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/music/singing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Music (KO) -->
+    <url><loc>https://hello-sounds.com/ko/music/drum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/guitar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/piano</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/trumpet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/violin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/flute</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/whistle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/tambourine</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/harmonica</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/gong</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/xylophone</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/maracas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/lullaby</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/hum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/music/singing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- Music (JA) -->
+    <url><loc>https://hello-sounds.com/ja/music/drum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/guitar</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/piano</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/trumpet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/violin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/flute</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/whistle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/tambourine</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/harmonica</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/gong</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/xylophone</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/maracas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/lullaby</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/hum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/music/singing</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- Music (ES) -->
+    <url><loc>https://hello-sounds.com/es/music/drum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/guitar</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/piano</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/trumpet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/violin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/flute</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/whistle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/tambourine</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/harmonica</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/gong</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/xylophone</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/maracas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/lullaby</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/hum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/music/singing</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- City (EN) -->
+    <url><loc>https://hello-sounds.com/en/city/siren</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/train</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/bicycle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/subway</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/bus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/ambulance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/helicopter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/motorcycle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/ship</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/traffic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/construction</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/crosswalk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/skateboard</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/elevator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/en/city/airplane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- City (KO) -->
+    <url><loc>https://hello-sounds.com/ko/city/siren</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/train</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/bicycle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/subway</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/bus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/ambulance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/helicopter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/motorcycle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/ship</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/traffic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/construction</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/crosswalk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/skateboard</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/elevator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://hello-sounds.com/ko/city/airplane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+    <!-- City (JA) -->
+    <url><loc>https://hello-sounds.com/ja/city/siren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/train</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/bicycle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/subway</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/bus</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/ambulance</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/helicopter</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/motorcycle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/ship</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/traffic</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/construction</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/crosswalk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/skateboard</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/elevator</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/ja/city/airplane</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+    <!-- City (ES) -->
+    <url><loc>https://hello-sounds.com/es/city/siren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/train</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/bicycle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/subway</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/bus</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/ambulance</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/helicopter</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/motorcycle</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/ship</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/traffic</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/construction</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/crosswalk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/skateboard</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/elevator</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://hello-sounds.com/es/city/airplane</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

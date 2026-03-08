@@ -27,7 +27,7 @@ const i18n = {
         title: ["H", "ello ", "S", "ounds"],
         subtitle: "Hear how the world speaks! ✨",
         selectItem: "Select an item:",
-        animals: "🐾 Animals", objects: "🚗 Objects", humans: "👤 Humans", nature: "🌿 Nature",
+        animals: "🐾 Animals", objects: "🚗 Objects", humans: "👤 Humans", nature: "🌿 Nature", music: "🎵 Music", city: "🏙️ City",
         quizChallenge: "Ready for a Challenge?",
         quizDesc: "Test your ear in Quiz Mode!",
         footerNote: "Sound experience may vary depending on your device and browser settings.",
@@ -44,7 +44,7 @@ const i18n = {
         title: ["헬", "로 ", "사", "운즈"],
         subtitle: "전 세계의 다양한 소리를 들어보세요! ✨",
         selectItem: "항목을 선택하세요:",
-        animals: "🐾 동물", objects: "🚗 사물", humans: "👤 사람", nature: "🌿 자연",
+        animals: "🐾 동물", objects: "🚗 사물", humans: "👤 사람", nature: "🌿 자연", music: "🎵 음악", city: "🏙️ 도시",
         quizChallenge: "퀴즈에 도전해볼까요?",
         quizDesc: "퀴즈 모드에서 당신의 실력을 테스트해보세요!",
         footerNote: "사운드 재생 환경은 기기 및 브라우저 설정에 따라 다를 수 있습니다.",
@@ -61,7 +61,7 @@ const i18n = {
         title: ["ハ", "ロー ", "サ", "ウンズ"],
         subtitle: "世界中の音を聞いてみよう！ ✨",
         selectItem: "アイテムを選択してください:",
-        animals: "🐾 動物", objects: "🚗 物体", humans: "👤 人間", nature: "🌿 自然",
+        animals: "🐾 動物", objects: "🚗 物体", humans: "👤 人間", nature: "🌿 自然", music: "🎵 音楽", city: "🏙️ 都市",
         quizChallenge: "クイズに挑戦しませんか？",
         quizDesc: "クイズモードで耳の力をテストしましょう！",
         footerNote: "音声体験はデバイスやブラウザの設定によって異なる場合があります。",
@@ -78,7 +78,7 @@ const i18n = {
         title: ["H", "ello ", "S", "ounds"],
         subtitle: "¡Escucha cómo habla el mundo! ✨",
         selectItem: "Selecciona un artículo:",
-        animals: "🐾 Animales", objects: "🚗 Objetos", humans: "👤 Humanos", nature: "🌿 Naturaleza",
+        animals: "🐾 Animales", objects: "🚗 Objetos", humans: "👤 Humanos", nature: "🌿 Naturaleza", music: "🎵 Música", city: "🏙️ Ciudad",
         quizChallenge: "¿Listo para un desafío?",
         quizDesc: "¡Pon a prueba tu oído en el modo Quiz!",
         footerNote: "La experiencia de sonido puede variar según el dispositivo.",
@@ -178,19 +178,26 @@ function updateUrl(lang, cat, itemID) {
 function updatePageMetadata(lang, cat, itemID) {
     const t = i18n[lang] || i18n.en;
     const item = itemID ? window.soundDatabase[cat]?.data[itemID] : null;
+    const canonicalUrl = `https://hello-sounds.com${window.location.pathname}`;
     
     if (item) {
         document.title = `${item.icon} ${item.name} Sound in ${lang.toUpperCase()} | Hello Sounds`;
-        const desc = `Hear how ${item.name} sounds around the world. Native onomatopoeia for ${item.name} in ${lang.toUpperCase()} and 15+ countries.`;
+        const desc = `Hear how ${item.name} sounds around the world. Native onomatopoeia for ${item.name} in ${lang.toUpperCase()} and 15+ countries with AI pronunciation.`;
         document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
-        
-        // Update OG Tags dynamically
         document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
         document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
-        document.querySelector('meta[property="og:url"]')?.setAttribute('content', window.location.href);
+        document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
     } else {
         document.title = t.title.join("") + " - Global Onomatopoeia Library";
+        const defaultDesc = "Explore how the world speaks! Discover 45+ sounds in 15+ languages including English, Korean, and Japanese with AI native pronunciations.";
+        document.querySelector('meta[name="description"]')?.setAttribute('content', defaultDesc);
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
+        document.querySelector('meta[property="og:description"]')?.setAttribute('content', defaultDesc);
+        document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
     }
+    
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', canonicalUrl);
 }
 
 function goHome() {
@@ -249,6 +256,8 @@ function applyLanguage(lang) {
     if(document.getElementById('dirCat2')) document.getElementById('dirCat2').textContent = t.objects;
     if(document.getElementById('dirCat3')) document.getElementById('dirCat3').textContent = t.humans;
     if(document.getElementById('dirCat4')) document.getElementById('dirCat4').textContent = t.nature;
+    if(document.getElementById('dirCat5')) document.getElementById('dirCat5').textContent = t.music;
+    if(document.getElementById('dirCat6')) document.getElementById('dirCat6').textContent = t.city;
 
     navButtons.forEach(btn => {
         const cat = btn.dataset.cat;
@@ -343,7 +352,7 @@ function renderSoundCards(parentItem, sounds, params) {
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
         card.setAttribute('aria-label', `${parentItem.name} sound in ${soundItem.country}`);
-        const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'France': 'fr', 'Germany': 'de', 'Italy': 'it', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Greece': 'gr' };
+        const flagCodes = { 'USA': 'us', 'Korea': 'kr', 'Japan': 'jp', 'Spain': 'es', 'Germany': 'de', 'Russia': 'ru', 'Thailand': 'th', 'Egypt': 'eg', 'Brazil': 'br', 'China': 'cn', 'India': 'in', 'Kenya': 'ke', 'Vietnam': 'vn', 'Turkey': 'tr', 'Indonesia': 'id' };
         card.innerHTML = `
             <div class="card-header">
                 <img src="https://flagcdn.com/w40/${flagCodes[soundItem.country] || 'un'}.png" width="24" class="country-flag-img" alt="${soundItem.country} flag" loading="lazy">
@@ -407,7 +416,7 @@ function playSound(soundItem, params, card) {
     const reqID = activeRequestID;
     card.classList.add('playing');
     
-    fetch('/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: soundItem.native, country: soundItem.country }) })
+    fetch('/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: soundItem.ttsText || soundItem.native, country: soundItem.country }) })
     .then(res => {
         if (!res.ok) throw new Error("TTS API error");
         return res.json();
@@ -443,7 +452,7 @@ function fallbackSpeak(soundItem, params, card) {
     }
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
-    const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'France': 'fr-FR', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Italy': 'it-IT', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Greece': 'el-GR' };
+    const langMap = { 'USA': 'en-US', 'Korea': 'ko-KR', 'Japan': 'ja-JP', 'Spain': 'es-ES', 'Germany': 'de-DE', 'Russia': 'ru-RU', 'Brazil': 'pt-BR', 'China': 'zh-CN', 'India': 'hi-IN', 'Thailand': 'th-TH', 'Egypt': 'ar-EG', 'Kenya': 'sw-KE', 'Vietnam': 'vi-VN', 'Turkey': 'tr-TR', 'Indonesia': 'id-ID' };
     msg.lang = langMap[soundItem.country] || 'en-US';
     msg.text = soundItem.fallback || soundItem.sound;
     msg.pitch = params.pitch || 1;

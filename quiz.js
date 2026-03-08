@@ -94,7 +94,7 @@ function generateQuestion() {
     qCountEl.textContent = qCount;
     progressBar.style.width = `${((qCount - 1) / maxQuestions) * 100}%`;
 
-    const categories = ['animals', 'objects', 'humans', 'nature'];
+    const categories = ['animals', 'objects', 'humans', 'nature', 'music', 'city'];
     const catKey = categories[Math.floor(Math.random() * categories.length)];
     const category = window.soundDatabase[catKey];
     if (!category) {

@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /functions/
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
 
 Sitemap: https://hello-sounds.com/sitemap.xml
